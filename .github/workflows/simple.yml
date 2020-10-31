@@ -9,6 +9,8 @@ jobs :
   run-shell-command :
     runs-on : ubuntu-latest
     steps :
+      - name : payload
+        run : echo ${{ github.event.client_payload.env}}
       - name : echo a string
         run : echo "Run git actions"
       - name : mutli line
