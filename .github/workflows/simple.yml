@@ -1,9 +1,12 @@
 name : shell commands
 on : 
-  repository_dispatch : 
-    types : [build]
+  push :
+    branches:
+      - master
+  # repository_dispatch : 
+  #   types : [build]
   # schedule :
-  #   - cron : "0/1 * * * *" 
+  #   - cron : "0/5 * * * *" 
 
 jobs :
   run-shell-command :
