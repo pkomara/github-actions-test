@@ -1,7 +1,7 @@
 name : shell commands
-on : 
-  schedule :
-    - cron : "0/1 * * * *" 
+on : [push]
+  # schedule :
+  #   - cron : "0/1 * * * *" 
 
 jobs :
   run-shell-command :
