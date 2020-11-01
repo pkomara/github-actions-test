@@ -9,7 +9,7 @@ jobs :
       - run : |
          pwd
          ls -a
-      - uses : ./github/actions/issues
+      - uses : ./.github/actions/issues
         id : issue 
         with :
           token : ${{ secrets.GITHUB_TOKEN }}
