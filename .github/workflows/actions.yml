@@ -12,7 +12,7 @@ jobs :
       - uses : ./.github/actions/issues
         id : issue 
         with :
-          token : ${{ secrets.custom_token }}
+          token : ${{ secrets.CUSTOM_TOKEN }}
           title : Title
           body : Body
           assignees : |
