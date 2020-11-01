@@ -1,5 +1,5 @@
 name : Matrix
-on : push
+on : pull_request
 
 jobs :
   node-version:
@@ -7,7 +7,7 @@ jobs :
       matrix :
         os : [macos-latest ,windows-latest ,ubuntu-latest]
         node-version : [6,8,10]
-      max-parallel: 0
+      max-parallel: 3
       fail-fast: true
     runs-on : ${{matrix.os}}
     steps :
