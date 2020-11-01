@@ -1,0 +1,22 @@
+name : 'open Github issue'
+author : pkomara
+description : 'Opens a github issue'
+inputs :
+  token :
+    description: 'Github Token'
+    required : true
+  title :
+    description : 'Issue title'
+    required : true
+  body :
+    description : 'issue body'
+    required : false
+  assignees :
+    description : 'Issue description'
+    required : false
+outputs :
+  issue :
+    description : 'The issue onject as a json string'
+runs :
+  using : 'node12'
+  main : 'dist/index.js'   
