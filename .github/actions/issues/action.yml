@@ -1,4 +1,4 @@
-name : 'open Github issue'
+name : 'open Github issues'
 author : pkomara
 description : 'Opens a github issue'
 inputs :
