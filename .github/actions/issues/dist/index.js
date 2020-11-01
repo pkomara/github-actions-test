@@ -1242,6 +1242,41 @@ module.exports = __webpack_require__(141);
 
 /***/ }),
 
+/***/ 414:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var authToken = __webpack_require__(813);
+
+const createActionAuth = function createActionAuth() {
+  if (!process.env.GITHUB_ACTION) {
+    throw new Error("[@octokit/auth-action] `GITHUB_ACTION` environment variable is not set. @octokit/auth-action is meant to be used in GitHub Actions only.");
+  }
+
+  const definitions = [process.env.GITHUB_TOKEN, process.env.INPUT_GITHUB_TOKEN, process.env.INPUT_TOKEN].filter(Boolean);
+
+  if (definitions.length === 0) {
+    throw new Error("[@octokit/auth-action] `GITHUB_TOKEN` variable is not set. It must be set on either `env:` or `with:`. See https://github.com/octokit/auth-action.js#createactionauth");
+  }
+
+  if (definitions.length > 1) {
+    throw new Error("[@octokit/auth-action] The token variable is specified more than once. Use either `with.token`, `with.GITHUB_TOKEN`, or `env.GITHUB_TOKEN`. See https://github.com/octokit/auth-action.js#createactionauth");
+  }
+
+  const token = definitions.pop();
+  return authToken.createTokenAuth(token);
+};
+
+exports.createActionAuth = createActionAuth;
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
 /***/ 431:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -4302,6 +4337,38 @@ exports.Deprecation = Deprecation;
 
 /***/ }),
 
+/***/ 725:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var core = __webpack_require__(448);
+var authAction = __webpack_require__(414);
+var pluginPaginateRest = __webpack_require__(299);
+var pluginRestEndpointMethods = __webpack_require__(842);
+
+const VERSION = "3.1.1";
+
+const Octokit = core.Octokit.plugin(pluginPaginateRest.paginateRest, pluginRestEndpointMethods.restEndpointMethods).defaults({
+  authStrategy: authAction.createActionAuth,
+  baseUrl: getApiBaseUrl(),
+  userAgent: `octokit-action.js/${VERSION}`
+});
+
+function getApiBaseUrl() {
+  /* istanbul ignore next */
+  return process.env["GITHUB_API_URL"] || "https://api.github.com";
+}
+
+exports.Octokit = Octokit;
+//# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
 /***/ 747:
 /***/ (function(module) {
 
@@ -4567,16 +4634,20 @@ exports.createTokenAuth = createTokenAuth;
 
 const core = __webpack_require__(470)
 const github =__webpack_require__(469)
+const { Octokit } = __webpack_require__(725);
 
+
+async function  run()
+{
 try {
     const token = core.getInput('token')
     const title = core.getInput('title')
     const body = core.getInput('body')
     const assignees = core.getInput('assignees')
 
-    const octokit =new github.GitHub(token)
-
-    const response =octokit.issues.create({
+    // const octokit =new github(token)
+    const octokit =new Octokit()
+    const response = await octokit.issues.create({
         // owner : github.context.repo.owner,
         // repo : github.context.repo.repo
         ...github.context.repo,
@@ -4590,6 +4661,9 @@ try {
 } catch (error) {
     core.setFailed(error.message)
 }
+}
+
+run ();
 
 /***/ }),
 
