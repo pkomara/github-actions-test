@@ -23,5 +23,6 @@ jobs :
       #     node -v 
       #     npm -v  
       - name : check 
-        run : | 
-          echo "https://pureengage.jfrog.io/pureengage/helm-${{ env.environment === 'stage' ? 'staging' : env.environment }}"
+        run : |
+          export $env_name = env.environment === 'stage' ? 'staging' : env.environment
+          echo "https://pureengage.jfrog.io/pureengage/helm-$env_name"
