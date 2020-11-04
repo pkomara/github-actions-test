@@ -24,10 +24,9 @@ jobs :
       #     npm -v  
       - name : check 
         run : |
-          export env_name = ( env.environment === 'stage' ? 'staging' : env.environment)
           if[env.environment == 'stage' ]
           then
-            echo "https://pureengage.jfrog.io/pureengage/helm-${{env_name}}ing"
+            echo "https://pureengage.jfrog.io/pureengage/helm-${{env.environment}}ing"
           else
-            echo "https://pureengage.jfrog.io/pureengage/helm-${{env_name}}"
+            echo "https://pureengage.jfrog.io/pureengage/helm-${{env.environment}}"
           fi
