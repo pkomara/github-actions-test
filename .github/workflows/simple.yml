@@ -24,9 +24,12 @@ jobs :
       #     npm -v  
       - name : check 
         run : |
+          echo "${{ env.environment}}"
           if [env.environment == 'stage' ]
           then
+            echo "in if"
             echo "https://pureengage.jfrog.io/pureengage/helm-${{env.environment}}ing"
           else
+            echo "in else"
             echo "https://pureengage.jfrog.io/pureengage/helm-${{env.environment}}"
           fi
