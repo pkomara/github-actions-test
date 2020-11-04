@@ -11,12 +11,17 @@ on :
 jobs :
   run-shell-command :
     runs-on : ubuntu-latest
+    env:
+      environment : stage
     steps :
-      - name : payload
-        run : echo ${{ github.event.client_payload.env}}
-      - name : echo a string
-        run : echo "Run git actions"
-      - name : mutli line
-        run : |
-          node -v 
-          npm -v  
+      # - name : payload
+      #   run : echo ${{ github.event.client_payload.env}}
+      # - name : echo a string
+      #   run : echo "Run git actions"
+      # - name : mutli line
+      #   run : |
+      #     node -v 
+      #     npm -v  
+      - name : check 
+        run : | 
+          echo "https://pureengage.jfrog.io/pureengage/helm-${{ env.environment === 'stage' ? 'staging' : env.environment }}"
