@@ -27,8 +27,10 @@ jobs :
           echo "${{ env.environment}}"
           if [ ${{env.environment}} == 'stage' ]
           then
-            export PATH = $(echo 'staging')
+            echo "helm_path=staging" >> $GITHUB_ENV
           else
-            export PATH = $(echo 'prod')
+            echo "helm_path=staging" >> $GITHUB_ENV
           fi
-          echo "https://pureengage.jfrog.io/pureengage/helm-${{PATH}}"
+      - name : path_check
+        run : |
+          echo "https://pureengage.jfrog.io/pureengage/helm-$helm_path"
