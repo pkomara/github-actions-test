@@ -33,4 +33,4 @@ jobs :
           fi
       - name : path_check
         run : |
-          echo "https://pureengage.jfrog.io/pureengage/helm-$helm_path"
+          echo "https://pureengage.jfrog.io/pureengage/helm-${{helm_path}}"
