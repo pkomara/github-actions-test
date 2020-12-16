@@ -25,11 +25,10 @@ jobs :
           # echo "$GITHUB_CONTEXT"
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
-          echo "USER=$name" >> $GITHUB_ENV          
+          echo "USER=${{github.actor}}" >> $GITHUB_ENV          
           echo ${{ github.repositoryUrl }}
       - name: test 1
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run : |   
-          name=`echo ${{ env.USER }}`
-          echo $name                
+          echo ${{ env.USER }}                
