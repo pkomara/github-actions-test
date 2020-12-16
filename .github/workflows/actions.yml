@@ -19,7 +19,8 @@ jobs :
             pkomara
       - run : |
           # echo ${{ steps.issue.outputs.issue }}
-          echo ${{ fromJson(github.event.pull_request.user) }}
+          GITHUB_CONTEXT=${{ toJson(github) }}
+          echo "$GITHUB_CONTEXT"
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
           echo ${{ github.repositoryUrl }}
