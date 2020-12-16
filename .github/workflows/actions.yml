@@ -26,7 +26,8 @@ jobs :
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
           echo "USER=${{ github.actor }}" >> $GITHUB_ENV
-          echo ${{ env.USER }}
+          name=${{ env.USER }}
+          echo $name
           echo ${{ github.repositoryUrl }}
   
   testing-actions-1 :
@@ -35,6 +36,7 @@ jobs :
     steps :  
       - name: checking github env
         run : |
-          echo ${{ env.USER }}
+          name=${{ env.USER }}
+          echo $name
           
                     
