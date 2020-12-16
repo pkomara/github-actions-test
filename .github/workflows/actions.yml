@@ -25,9 +25,9 @@ jobs :
           # echo "$GITHUB_CONTEXT"
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
-          name="pavan"
+          echo "USER=$name" >> $GITHUB_ENV          
+          name=`echo ${{ env.USER }}`
           echo $name
-          echo "USER=$name" >> $GITHUB_ENV
           echo ${{ github.repositoryUrl }}
   
   testing-actions-1 :
