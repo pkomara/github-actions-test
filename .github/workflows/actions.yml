@@ -19,7 +19,7 @@ jobs :
             pkomara
       - run : |
           # echo ${{ steps.issue.outputs.issue }}
-          echo ${{ github.email }}
+          echo ${{github.event.pull_request.user.login }}
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
           echo ${{ github.repositoryUrl }}
