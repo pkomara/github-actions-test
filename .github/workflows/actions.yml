@@ -19,7 +19,7 @@ jobs :
             pkomara
       - run : |
           # echo ${{ steps.issue.outputs.issue }}
-          echo ${{ GITHUB_CONTEXT }}
+          echo ${{ github }}
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
           echo ${{ github.repositoryUrl }}
