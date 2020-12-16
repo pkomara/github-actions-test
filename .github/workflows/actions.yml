@@ -25,5 +25,14 @@ jobs :
           echo "$GITHUB_CONTEXT"
           echo ${GITHUB_HEAD_REF}
           echo ${{ github.actor }}
+          echo "USER=${{ github.actor }}" >> $GITHUB_ENV
           echo ${{ github.repositoryUrl }}
-
+  
+  testing-actions-1 :
+    runs-on : ubuntu-latest
+    steps :  
+      - name: checking github env
+        run : |
+          echo ${{ env.USER }}
+          
+                    
