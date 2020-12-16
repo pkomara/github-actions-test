@@ -4,6 +4,7 @@ on : pull_request
 jobs :
   testing-actions :
     runs-on : ubuntu-latest
+    if : false
     steps :
       - uses : actions/checkout@v2
       - run : |
@@ -32,3 +33,9 @@ jobs :
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run : |   
           echo ${{ env.USER }}                
+
+  testing-actions-1 :
+    runs-on : ubuntu-latest
+    steps :
+      - run : |  
+          echo 'checking'        
