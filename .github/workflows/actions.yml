@@ -37,6 +37,7 @@ jobs :
   testing-actions-1 :
     runs-on : ubuntu-latest
     needs: testing-actions
+    if: always()
     steps :
       - run : |  
           echo 'checking'        
