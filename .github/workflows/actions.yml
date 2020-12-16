@@ -4,6 +4,7 @@ on : pull_request
 jobs :
   testing-actions :
     runs-on : ubuntu-latest
+    if : false
     steps :
       - uses : actions/checkout@v2
       - run : |
@@ -17,5 +18,28 @@ jobs :
           body : Body
           assignees : |
             pkomara
-      - run : |
-          echo ${{ steps.issue.outputs.issue }}
+      - name: test
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run : |
+          # echo ${{ steps.issue.outputs.issue }}
+          # echo "$GITHUB_CONTEXT"
+          echo ${GITHUB_HEAD_REF}
+          echo ${{ github.actor }}
+          echo "USER=${{github.actor}}" >> $GITHUB_ENV          
+          echo ${{ github.repositoryUrl }}
+      - name: test 1
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run : |   
+          echo ${{ env.USER }}                
+
+  testing-actions-1 :
+    runs-on : ubuntu-latest
+    needs: testing-actions
+    if: always()
+    steps :
+      - run : |  
+          if [[ ${{ contains(github.event.pull_request.title, 'HELMFREEZE') ==  true }} ]]; then         
+            echo 'checking'   
+          fi       
