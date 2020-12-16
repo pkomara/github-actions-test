@@ -40,6 +40,6 @@ jobs :
     if: always()
     steps :
       - run : |  
-          if [[ contains(github.event.pull_request.title, 'HELMFREEZE') ==  true ]]; then         
+          if [[ ${{ contains(github.event.pull_request.title, 'HELMFREEZE') ==  true }} ]]; then         
             echo 'checking'   
           fi       
