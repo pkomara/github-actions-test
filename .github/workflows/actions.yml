@@ -28,7 +28,7 @@ jobs :
           # echo ${{ github.actor }}
           # echo "USER=${{github.actor}}" >> $GITHUB_ENV          
           # echo ${{ github.repositoryUrl }}
-          export REVISION=$(echo "$PR_TITLE" | sed -n 's/.*revision://pI' | cut -d ' ' -f1)
+          REVISION=$(echo "$PR_TITLE" | sed -n 's/.*revision://pI' | cut -d ' ' -f1)
           history="REVISION        UPDATED                         STATUS          CHART                   APP VERSION     DESCRIPTION
           1               Thu Jun  4 17:56:28 2020        superseded      voice-callthread-9.0.01 1               Install complete
           2               Thu Jun  4 18:50:05 2020        superseded      voice-callthread-9.0.01 1111               Upgrade complete
