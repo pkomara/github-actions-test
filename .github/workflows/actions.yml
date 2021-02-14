@@ -50,7 +50,7 @@ jobs :
             helmVersion= echo "$history" | awk 'NR==2 ,NR==$NR {print $1 " "  $8}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) { tgzExtn = ".tgz"  ; print $2tgzExtn}}'
             echo 'in else'  
           fi
-          oldAppVersion= $(jq .version -r versions.json )
-          oldHelmVersion= $(jq .version -r versions.json)
+          oldAppVersion=$(jq .version -r versions.json )
+          oldHelmVersion=$(jq .helm_version -r versions.json)
           echo $oldAppVersion
           echo $oldHelmVersion
