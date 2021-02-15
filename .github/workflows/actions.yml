@@ -53,8 +53,8 @@ jobs :
           cat helm_history.json | jq .
           if [[ -z "$REVISION" ]];
           then
-            appVersion=$(cat helm_history.json | jq '.[length-1]' | jq '.app_version' -r )
-            helmVersion=$(cat helm_history.json | jq '.[length-1]' | jq '.chart' -r)
+            appVersion=$(cat helm_history.json | jq -r ".[length-1] | .app_version" )
+            helmVersion=$(cat helm_history.json | jq -r ".[length-1] | .chart" )
             echo 'in if'
           else
             appVersion=$(cat helm_history.json | jq  -r ".[] | select(.revision==$REVISION) | .app_version" )
