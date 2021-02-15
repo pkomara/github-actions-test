@@ -19,7 +19,7 @@ jobs :
           assignees : |
             pkomara
       - name: test
-        # if: github.event.pull_request.merged == false && github.event.action == 'opened'           
+        if: github.event.pull_request.merged == false && github.event.action != 'closed'           
         env:
         #   GITHUB_CONTEXT: ${{ toJson(github) }}
           PR_TITLE: ${{ github.event.pull_request.title }}  
@@ -73,5 +73,4 @@ jobs :
           chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
           echo $chartVersion
           cat versions.json  
-          
           
