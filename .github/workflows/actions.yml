@@ -1,5 +1,7 @@
 name : user-defined actions
-on : pull_request
+on : 
+  pull_request :
+    types: [opened, closed, reopened, synchronize]
 
 jobs :
   testing-actions :
