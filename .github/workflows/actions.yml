@@ -42,12 +42,12 @@ jobs :
           echo "$history"
           if [[ -z "$REVISION" ]];
           then
-            export appVersion=  echo "$history" | awk  'END {print  $9}' 
-            export helmVersion= echo "$history" | awk  'END {tgzExtn = ".tgz"  ; print  $8tgzExtn}'
+            appVersion= $(echo "$history" | awk  'END {print  $9}' )
+            helmVersion=$(echo "$history" | awk  'END {tgzExtn = ".tgz"  ; print  $8tgzExtn}')
             echo 'in if'
           else
-            export appVersion= echo "$history" | awk  'NR==2 ,NR==$NR {print $1 " "  $9}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) print $2}'
-            export helmVersion= echo "$history" | awk 'NR==2 ,NR==$NR {print $1 " "  $8}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) { tgzExtn = ".tgz"  ; print $2tgzExtn}}'
+            appVersion=$(echo "$history" | awk  'NR==2 ,NR==$NR {print $1 " "  $9}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) print $2}')
+            helmVersion=$(echo "$history" | awk 'NR==2 ,NR==$NR {print $1 " "  $8}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) { tgzExtn = ".tgz"  ; print $2tgzExtn}}')
             echo 'in else'  
           fi
           oldAppVersion=$(jq .version -r versions.json )
