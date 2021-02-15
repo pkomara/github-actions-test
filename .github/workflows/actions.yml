@@ -56,8 +56,8 @@ jobs :
             helmVersion=$(cat helm_history.json | .jq '.[length-1] |  .jq '.app_version' -r)
             echo 'in if'
           else
-            appVersion=$(cat helm_history.json | .jq '.[] | select(.revision=="$REVISION")' | .jq '.app_version' -r )
-            helmVersion=$(cat helm_history.json | .jq '.[] | select(.revision=="$REVISION")' | .jq '.chart' -r)
+            appVersion=$(cat helm_history.json | .jq --arg REVISION "$REVISION" '.[] | select(.revision==$REVISION)' | .jq '.app_version' -r )
+            helmVersion=$(cat helm_history.json | .jq --arg REVISION "$REVISION" '.[] | select(.revision==$REVISION)' | .jq '.chart' -r)
             echo 'in else'  
           fi          
           oldAppVersion=$(jq .version -r versions.json )
