@@ -70,3 +70,4 @@ jobs :
           chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
           echo $chartVersion
           cat versions.json  
+          
