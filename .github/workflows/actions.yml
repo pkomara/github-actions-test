@@ -61,7 +61,7 @@ jobs :
             chart=$(cat helm_history.json | jq -r ".[] | select(.revision==$REVISION) | .chart")
             echo 'in else'  
           fi 
-          helmVersion=$chart+'.tgz'
+          helmVersion=`$chart.tgz`
           echo $appVersion
           echo $helmVersion
           oldAppVersion=$(jq .version -r versions.json )
