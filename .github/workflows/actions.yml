@@ -52,7 +52,8 @@ jobs :
           fi
           oldAppVersion=$(jq .version -r versions.json )
           oldHelmVersion=$(jq .helm_version -r versions.json)
-          echo $oldAppVersion
-          echo $oldHelmVersion
+          echo $appVersion
+          echo $helmVersion
           sed -i "s/$oldAppVersion/$appVersion/g" versions.json
+          sed -i "s/$oldHelmVersion/$helmVersion/g" versions.json
           cat versions.json  
