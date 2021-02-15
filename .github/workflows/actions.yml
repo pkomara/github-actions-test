@@ -42,7 +42,7 @@ jobs :
           echo "$history"
           if [[ -z "$REVISION" ]];
           then
-            appVersion= $(echo "$history" | awk  'END {print  $9}' )
+            appVersion=$(echo "$history" | awk  'END {print  $9}' )
             helmVersion=$(echo "$history" | awk  'END {tgzExtn = ".tgz"  ; print  $8tgzExtn}')
             echo 'in if'
           else
