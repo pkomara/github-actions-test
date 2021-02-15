@@ -56,4 +56,6 @@ jobs :
           echo $helmVersion
           sed -i "s/$oldAppVersion/$appVersion/g" versions.json
           sed -i "s/$oldHelmVersion/$helmVersion/g" versions.json
+          chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f1)
+          echo $chartVersion
           cat versions.json  
