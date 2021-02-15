@@ -51,6 +51,7 @@ jobs :
           #   echo 'in else'  
           # fi
           if [[ -z "$REVISION" ]];
+          cat helm_history.json | jq .
           then
             appVersion=$(cat helm_history.json | jq '.[length-1] | jq '.app_version' -r )
             helmVersion=$(cat helm_history.json | jq '.[length-1] | jq '.app_version' -r)
