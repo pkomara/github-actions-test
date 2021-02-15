@@ -11,16 +11,16 @@
       "revision": 2,
       "updated": "2020-06-04T18:50:05.791628378Z",
       "status": "superseded",
-      "chart": "voice-callthread-9.0.01",
-      "app_version": "1",
+      "chart": "voice-callthread-9.0.02",
+      "app_version": "2",
       "description": "Upgrade complete"
     },
     {
       "revision": 3,
       "updated": "2020-06-14T18:25:13.902517278Z",
       "status": "deployed",
-      "chart": "voice-callthread-9.0.01",
-      "app_version": "1",
+      "chart": "voice-callthread-9.0.03",
+      "app_version": "3",
       "description": "Upgrade complete"
     }
   ]
