@@ -30,7 +30,7 @@ jobs :
           # echo ${{ github.actor }}
           # echo "USER=${{github.actor}}" >> $GITHUB_ENV          
           # echo ${{ github.repositoryUrl }}
-          echo ${{ github.event.action }}
+          echo ${{ github.event.pull_request }}
           echo "$PR_TITLE"
           REVISION=$(echo "$PR_TITLE" | sed -n 's/.*revision://pI' | cut -d ' ' -f1)
           # history="REVISION        UPDATED                         STATUS          CHART                   APP VERSION     DESCRIPTION
