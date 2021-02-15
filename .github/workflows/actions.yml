@@ -58,7 +58,7 @@ jobs :
             echo 'in if'
           else
             appVersion=$(cat helm_history.json | jq  -r --arg REVISION "$REVISION" ".[] | select(.revision=='$REVISION') | .app_version" )
-            helmVersion=$(cat helm_history.json | jq -r --arg REVISION "$REVISION" ' ".[] | select(.revision=='$REVISION') | .chart")
+            helmVersion=$(cat helm_history.json | jq -r --arg REVISION "$REVISION" ".[] | select(.revision=='$REVISION') | .chart")
             echo 'in else'  
           fi          
           oldAppVersion=$(jq .version -r versions.json )
