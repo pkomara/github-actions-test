@@ -134,7 +134,7 @@ node (label: 'ci-vm114') {
             
             def versionJson = readJSON file: "${WORKSPACE}/voice-registrar-pipeline/helmvalues/azure/dev/westus2/versions.json"
             def helmVersion = versionJson['helm_version']
-            script{ chartYaml = readYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml" }
+            def chartYaml = readYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml" 
 
             writeFile(
                     file: "${WORKSPACE}/voice-registrar-pipeline/helmvalues/azure/dev/westus2/versions.json",
