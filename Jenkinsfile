@@ -146,7 +146,8 @@ node (label: 'ci-vm114') {
                     """.stripIndent()
             )
 
-            echo chartYaml.appVersion.toString()
+            echo chartYaml.appVersion
+            echo chartYaml.version.toString()
             // sed -i "s/${appVersion}/\"${IMAGE_VERSION}\"/g" ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
             cat ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
 
