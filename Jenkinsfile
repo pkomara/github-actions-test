@@ -146,7 +146,7 @@ node (label: 'ci-vm114') {
                     """.stripIndent()
             )
 
-            script{chartYaml.appVersion = "\"${IMAGE_VERSION}\""}
+            chartYaml.appVersion = IMAGE_VERSION
             chartYaml.appVersion = chartYaml.appVersion.toString()
             sh "rm ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
             writeYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml", data: chartYaml
