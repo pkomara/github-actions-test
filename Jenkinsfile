@@ -147,7 +147,7 @@ node (label: 'ci-vm114') {
             )
 
             chartYaml.appVersion = ${IMAGE_VERSION}
-            echo chartYaml
+            echo chartYaml.appVersion
             sh "rm ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
             writeYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml", data: chartYaml
             sh "cat `${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml`"
