@@ -145,9 +145,11 @@ node (label: 'ci-vm114') {
                     }
                     """.stripIndent()
             )
-            chartYaml.appVersion ="\"${IMAGE_VERSION}\""
+            def appVersion ="\"${IMAGE_VERSION}\""
+            println appVersion
+            chartYaml.appVersion =appVersion
             sh "rm ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
-            script { writeYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml", data: chartYaml }
+            writeYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml", data: chartYaml
             sh "cat ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
 
             def isChanged = sh(returnStdout: true, script: '''
