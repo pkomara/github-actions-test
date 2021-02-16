@@ -146,10 +146,12 @@ node (label: 'ci-vm114') {
                     """.stripIndent()
             )
 
-            echo chartYaml.appVersion
-            echo chartYaml.version.toString()
-            // sed -i "s/${appVersion}/\"${IMAGE_VERSION}\"/g" ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
-            cat ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
+            chartYaml.appVersion = ${IMAGE_VERSION}
+            writeYaml file: "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml", data: chartYaml
+            sh '''  
+                cat "${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
+            
+            '''
 
             def isChanged = sh(returnStdout: true, script: '''
             cd ${WORKSPACE}/voice-registrar-pipeline/
