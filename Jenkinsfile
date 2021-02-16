@@ -145,7 +145,7 @@ node (label: 'ci-vm114') {
                     }
                     """.stripIndent()
             )
-            def appVersion =${IMAGE_VERSION}
+            def appVersion =IMAGE_VERSION
             println appVersion
             chartYaml.appVersion =appVersion
             sh "rm ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml"
