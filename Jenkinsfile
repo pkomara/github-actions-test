@@ -147,6 +147,7 @@ node (label: 'ci-vm114') {
             )
 
             def appVersion = chartYaml.appVersion.toString()
+            println appVersion
             sh '''
                   sed -i "s/${appVersion}/\"${IMAGE_VERSION}\"/g" ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
                   cat ${WORKSPACE}/voice-registrar-pipeline/helmcharts/voice-registrar/Chart.yaml
