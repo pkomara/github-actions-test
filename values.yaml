@@ -1,0 +1,24 @@
+# Default values for voice-test.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+  
+image:
+  registry: genesysengagedev.azurecr.io
+  pullPolicy: Always
+  imagePullSecrets: 
+   - name: ''
+
+voice:
+  cprsImage:
+    repository: voice/cprs
+    tag: latest
+    
+  tenant:
+    sipdomain: voicestage.com
+    tserver: tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d
+
+    agent_range_first: 100000
+    agent_range_total: 100
+
+#command: '[ "/bin/bash", "-ce", "tail -f /dev/null" ]'
