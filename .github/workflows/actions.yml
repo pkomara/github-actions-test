@@ -86,6 +86,7 @@ jobs :
           export HELMNAMECANARY=$(echo "voice-agent-canary")
           chart_name=`cat ./values.yaml | grep tag: | awk '{ print \$2 }'`          
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
+          echo "::set-output name=CHART_NAME::$chart_name"
       - name : test env variables
         run : |
           echo ${{ env.CHART_NAME }}
