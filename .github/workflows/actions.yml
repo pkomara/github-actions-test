@@ -80,5 +80,5 @@ jobs :
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run : |
-          tag = yq r values.yaml "voice.cprsImage.tag"     
+          tag=yq r values.yaml "voice.cprsImage.tag"     
           echo "$tag"     
