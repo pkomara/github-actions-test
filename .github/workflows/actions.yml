@@ -84,7 +84,7 @@ jobs :
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run : |
           export chart_name=$(echo "voice-agent")
-          version=`cat ./values.yaml | grep tag: | awk '{ print \$2 }'` 
+          version=`cat ../../values.yaml | grep tag: | awk '{ print \$2 }'` 
           chart_version="9.0.05"         
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
@@ -99,5 +99,5 @@ jobs :
       - name : Testing
         run : |
           echo ${{ needs.testing-actions.outputs.output1 }}
-          export SERVICE_NAME=`cat ./values.yaml | grep repository: | awk '{ print \$2 }' | cut -d '/' -f2`
+          export SERVICE_NAME=`cat ../../values.yaml | grep repository: | awk '{ print \$2 }' | cut -d '/' -f2`
           echo $SERIVCE_NAME
