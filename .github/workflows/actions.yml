@@ -1,26 +1,31 @@
 name : user-defined actions
-on : pull_request
+on : 
+  pull_request :
+    types: [opened, closed, reopened, synchronize]
 
 jobs :
   testing-actions :
     runs-on : ubuntu-latest
+    outputs : 
+      output1 : ${{ steps.test2.outputs.CHART_NAME }}
     steps :
-      - uses : actions/checkout@v2
-      - run : |
-         pwd
-         ls -a
-      - uses : ./.github/actions/issues
-        id : issue 
-        with :
-          token : ${{ secrets.GITHUB_TOKEN }}
-          title : Title
-          body : Body
-          assignees : |
-            pkomara
+      # - uses : actions/checkout@v2
+      # - run : |
+      #    pwd
+      #    ls -a
+      # - uses : ./.github/actions/issues
+      #   id : issue 
+      #   with :
+      #     token : ${{ secrets.GITHUB_TOKEN }}
+      #     title : Title
+      #     body : Body
+      #     assignees : |
+      #       pkomara
       - name: test
         if : false
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+        #   GITHUB_CONTEXT: ${{ toJson(github) }}
+          PR_TITLE: ${{ github.event.pull_request.title }}  
         run : |
           # echo ${{ steps.issue.outputs.issue }}
           # echo "$GITHUB_CONTEXT"
@@ -28,27 +33,73 @@ jobs :
           # echo ${{ github.actor }}
           # echo "USER=${{github.actor}}" >> $GITHUB_ENV          
           # echo ${{ github.repositoryUrl }}
-          REVISION='37'
-          history="REVISION        UPDATED                         STATUS          CHART                   APP VERSION     DESCRIPTION
-          1               Thu Jun  4 17:56:28 2020        superseded      voice-callthread-9.0.01 1               Install complete
-          2               Thu Jun  4 18:50:05 2020        superseded      voice-callthread-9.0.01 1111               Upgrade complete
-          3               Sun Jun 14 18:25:13 2020        deployed        voice-callthread-9.0.01 1               Upgrade complete
-          4               Thu Jun  4 17:56:28 2020        superseded      voice-callthread-9.0.01 1               Install complete
-          5               Thu Jun  4 18:50:05 2020        superseded      voice-callthread-9.0.01 1               Upgrade complete
-          6               Sun Jun 14 18:25:13 2020        deployed        voice-callthread-9.0.02 1234               Upgrade complete"
-          if ${{ -z "$REVISION" }}
+          echo ${{ github.event.action }}
+          echo "$PR_TITLE"
+          REVISION=$(echo "$PR_TITLE" | sed -n 's/.*revision://pI' | cut -d ' ' -f1)
+          # history="REVISION        UPDATED                         STATUS          CHART                   APP VERSION     DESCRIPTION
+          # 1               Thu Jun  4 17:56:28 2020        superseded      voice-callthread-9.0.01 1               Install complete
+          # 2               Thu Jun  4 18:50:05 2020        superseded      voice-callthread-9.0.01 1111               Upgrade complete
+          # 3               Sun Jun 14 18:25:13 2020        deployed        voice-callthread-9.0.01 1               Upgrade complete
+          # 4               Thu Jun  4 17:56:28 2020        superseded      voice-callthread-9.0.01 1               Install complete
+          # 5               Thu Jun  4 18:50:05 2020        superseded      voice-callthread-9.0.01 1               Upgrade complete
+          # 6               Sun Jun 14 18:25:13 2020        deployed        voice-registrar-9.0.03-39f112f 1234               Upgrade complete"
+          echo "$REVISION"
+          # echo "$history"
+          # if [[ -z "$REVISION" ]];
+          # then
+          #   appVersion=$(echo "$history" | awk  'END {print  $9}' )
+          #   helmVersion=$(echo "$history" | awk  'END {tgzExtn = ".tgz"  ; print  $8tgzExtn}')
+          #   echo 'in if'
+          # else
+          #   appVersion=$(echo "$history" | awk  'NR==2 ,NR==$NR {print $1 " "  $9}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) print $2}')
+          #   helmVersion=$(echo "$history" | awk 'NR==2 ,NR==$NR {print $1 " "  $8}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) { tgzExtn = ".tgz"  ; print $2tgzExtn}}')
+          #   echo 'in else'  
+          # fi
+          cat helm_history.json | jq .
+          if [[ -z "$REVISION" ]];
           then
-            appVersion=  echo $history | awk  'END {print  $9}' 
-            helmVersion= echo $history | awk  'END {tgzExtn = ".tgz"  ; print  $8tgzExtn}'
+            appVersion=$(cat helm_history.json | jq -r ".[length-1] | .app_version" )
+            chart=$(cat helm_history.json | jq -r ".[length-1] | .chart" )
             echo 'in if'
           else
-            appVersion= echo $history | awk  'NR==2 ,NR==$NR {print $1 " "  $9}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) print $2}'
-            helmVersion= echo $history | awk 'NR==2 ,NR==$NR {print $1 " "  $8}' | awk -v REVISION="$REVISION" '{if($1 == REVISION) { tgzExtn = ".tgz"  ; print $2tgzExtn}}'
+            appVersion=$(cat helm_history.json | jq  -r ".[] | select(.revision==$REVISION) | .app_version" )
+            chart=$(cat helm_history.json | jq -r ".[] | select(.revision==$REVISION) | .chart")
             echo 'in else'  
+          fi 
+          helmVersion="${chart}.tgz"
+          echo $appVersion
+          echo $helmVersion
+          oldAppVersion=$(jq .version -r versions.json )
+          oldHelmVersion=$(jq .helm_version -r versions.json)
+          sed -i "s/$oldAppVersion/$appVersion/g" versions.json
+          sed -i "s/$oldHelmVersion/$helmVersion/g" versions.json
+          chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
+          echo $chartVersion
+          cat versions.json  
+          
           fi
-      - name : test yq
+      - name : test2
+        id: test2
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run : |
-          tag = yq r values.yaml "voice.cprsImage.tag"     
-          echo "$tag"     
+          export chart_name=$(echo "voice-agent")
+          version=`cat ./values.yaml | grep tag: | awk '{ print \$2 }'` 
+          chart_version="9.0.05"         
+          echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
+          echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
+      - name : test env variables
+        run : |
+          echo ${{ env.CHART_NAME }}
+
+  testing-actions-2 :
+    runs-on : ubuntu-latest
+    needs : testing-actions
+    steps :
+      - name : Testing
+        run : |
+          echo ${{ needs.testing-actions.outputs.output1 }}
+          oldversion="99.9.9" 
+          echo $oldversion
+          newversion=$(echo $oldversion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 9) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%d\n", $1, $2, $3 }')
+          echo $newversion
