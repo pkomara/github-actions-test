@@ -99,7 +99,7 @@ jobs :
       - name : Testing
         run : |
           echo ${{ needs.testing-actions.outputs.output1 }}
-          chmod -R 777
+          chmod -R 777 ./
           export SERVICE_NAME=`cat values.yaml | grep repository: | awk '{ print \$2 }' | cut -d '/' -f2`
           echo $SERIVCE_NAME
           echo $( cat ./helm_history.json | .jq .[])
