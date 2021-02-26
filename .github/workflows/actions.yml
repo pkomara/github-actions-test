@@ -9,18 +9,18 @@ jobs :
     outputs : 
       output1 : ${{ steps.test2.outputs.CHART_NAME }}
     steps :
-      - uses : actions/checkout@v2
-      - run : |
-         pwd
-         ls -a
-      - uses : ./.github/actions/issues
-        id : issue 
-        with :
-          token : ${{ secrets.GITHUB_TOKEN }}
-          title : Title
-          body : Body
-          assignees : |
-            pkomara
+      # - uses : actions/checkout@v2
+      # - run : |
+      #    pwd
+      #    ls -a
+      # - uses : ./.github/actions/issues
+      #   id : issue 
+      #   with :
+      #     token : ${{ secrets.GITHUB_TOKEN }}
+      #     title : Title
+      #     body : Body
+      #     assignees : |
+      #       pkomara
       - name: test
         if : false
         env:
