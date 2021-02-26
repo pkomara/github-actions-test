@@ -99,7 +99,5 @@ jobs :
       - name : Testing
         run : |
           echo ${{ needs.testing-actions.outputs.output1 }}
-          oldversion="99.9.9" 
-          echo $oldversion
-          newversion=$(echo $oldversion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 9) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%d\n", $1, $2, $3 }')
-          echo $newversion
+          export SERVICE_NAME=`cat ./values.yaml | grep repository: | awk '{ print \$2 }' | cut -d '/' -f2`
+          echo $SERIVCE_NAME
