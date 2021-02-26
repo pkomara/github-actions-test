@@ -98,7 +98,7 @@ jobs :
     steps :
       - run : |
           echo ${{ needs.testing-actions.outputs.output1 }}
-          oldversion="0.1.0" 
+          oldversion="9.9.0" 
           echo $oldversion
           newversion=$(echo $oldversion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 9) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%d\n", $1, $2, $3 }')
           echo $newversion
