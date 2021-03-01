@@ -96,10 +96,12 @@ jobs :
     runs-on : ubuntu-latest
     needs : testing-actions
     steps :
-      - name : Testing
-        run : |
-          echo ${{ needs.testing-actions.outputs.output1 }}
-          chmod -R 777 ./
-          export SERVICE_NAME=`cat values.yaml | grep repository: | awk '{ print \$2 }' | cut -d '/' -f2`
-          echo $SERIVCE_NAME
-          echo $( cat ./helm_history.json | .jq .[])
+      - id: modified
+        uses: pheel/path-watcher-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # no need to set this secret, it is always available!
+          paths: 'helm/**'
+          return_files: true # if true, return an array of the modified paths. defaults to false.
+      - if: steps.modified.outputs.modified
+        run: |
+          echo ${{ steps.modified.outputs.modified }}
