@@ -94,6 +94,9 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           echo "$GITHUB_CONTEXT"
+          lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
+          echo "last commit $lastCommit"
+          echo "master commit $GITHUB_SHA"          
 
   testing-actions-2 :
     runs-on : ubuntu-latest
