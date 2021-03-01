@@ -99,7 +99,7 @@ jobs :
     steps :
       - name : paths changed
         run: |
-          git remote set-url origin ${{ github.event.repository.ssh_url }}
+          git remote set-url origin ${{ github.event.repository.url }}
           git config --global user.name "${{ github.actor }}"   
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
           echo "last commit $lastCommit"
