@@ -98,10 +98,13 @@ jobs :
     if: github.event.pull_request.merged == true && github.event.action == 'closed'     
     steps :
       - name : paths changed
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}      
         run: |
           git remote set-url origin ${{ github.event.repository.url }}
           git config --global user.name "${{ github.actor }}"   
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
+          echo "$GITHUB_CONTEXT"
           echo "last commit $lastCommit"
           echo "master commit $GITHUB_SHA"
           if [[ -z "$(git diff --name-only ${GITHUB_SHA:0:7}..${lastCommit:0:7} 'helm/**')" ]];
