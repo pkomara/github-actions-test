@@ -97,12 +97,12 @@ jobs :
     needs : testing-actions
     steps :
       - name : pheel tester
-        id: modified
+        # id: modified
         uses: pheel/path-watcher-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # no need to set this secret, it is always available!
           paths: 'helm/**'
           return_files: true # if true, return an array of the modified paths. defaults to false.
-      - if: steps.modified.outputs.modified
-        run: |
-          echo ${{ steps.modified.outputs.modified }}
+      # - if: steps.modified.outputs.modified
+      #   run: |
+      #     echo ${{ steps.modified.outputs.modified }}
