@@ -91,13 +91,13 @@ jobs :
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
       - name : test env variables
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}       
+          GITHUB_CONTEXT: ${{ toJson(github) }}   
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}               
         run : |
           echo ${{ env.CHART_NAME }}
           # echo "$GITHUB_CONTEXT"
           git remote set-url origin ${{ github.event.repository.ssh_url }}
           git config --global user.name "${{ github.actor }}"
-          git pull
           git log  -n  1 master
           lastCommit=`git log  -n  1 master | grep commit | awk '{print $2}'` 
           echo "last commit $lastCommit"
