@@ -96,9 +96,9 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           # echo "$GITHUB_CONTEXT"
-          git remote set-url origin ${{ github.event.repository.ssh_url }}
-          git pull 
+          git remote set-url origin ${{ github.event.repository.ssh_url }}          
           git config --global user.name "${{ github.actor }}"
+          git pull 
           git log  -n  1 master
           lastCommit=`git log  -n  1 master | grep commit | awk '{print $2}'` 
           echo "last commit $lastCommit"
