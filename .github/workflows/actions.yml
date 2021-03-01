@@ -98,7 +98,7 @@ jobs :
           # echo "$GITHUB_CONTEXT"
           git remote set-url origin ${{ github.event.repository.ssh_url }}          
           git config --global user.name "${{ github.actor }}"
-          git checkout master
+          git checkout -b master
           git pull origin master --allow-unrelated-histories  
           git log  -n  1 master
           lastCommit=`git log  -n  1 master | grep commit | awk '{print $2}'` 
