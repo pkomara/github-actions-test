@@ -97,6 +97,7 @@ jobs :
           git init
           git remote add origin ${{ github.event.repository.clone_url }}
           git config --global user.name "${{ github.actor }}"
+          git log  -n  1 origin/master
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
           echo "last commit $lastCommit"
           echo "master commit $GITHUB_SHA"          
