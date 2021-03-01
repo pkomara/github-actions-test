@@ -94,6 +94,7 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           echo "$GITHUB_CONTEXT"
+          git init
           git remote add origin ${{ github.event.repository.clone_url }}
           git config --global user.name "${{ github.actor }}"
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
