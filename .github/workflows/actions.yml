@@ -102,6 +102,7 @@ jobs :
     steps :
       - name : paths changed     
         run: |
+          git init
           git remote set-url origin ${{ github.event.repository.clone_url }}
           git config --global user.name "${{ github.actor }}"   
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
