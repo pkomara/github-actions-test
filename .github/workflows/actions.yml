@@ -88,14 +88,14 @@ jobs :
           chart_version="9.0.05"         
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
       - name : test env variables
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}       
         run : |
           echo ${{ env.CHART_NAME }}
-          echo "$GITHUB_CONTEXT"
-          git init
-          git remote add origin ${{ github.event.repository.clone_url }}
+          # echo "$GITHUB_CONTEXT"
+          git remote set-url origin ${{ github.event.repository.ssh_url }}
           git config --global user.name "${{ github.actor }}"
           git log  -n  1 origin/master
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
