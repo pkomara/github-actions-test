@@ -96,7 +96,7 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           # echo "$GITHUB_CONTEXT"
-          echo "master commit $GITHUB_SHA"          
+          echo "commit $GITHUB_SHA"          
 
   testing-actions-2 :
     runs-on : ubuntu-latest
@@ -112,8 +112,8 @@ jobs :
           git config --global user.name "${{ github.actor }}"   
           echo "$GITHUB_CONTEXT"
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
-          echo "last commit $lastCommit"
-          echo "master commit $GITHUB_SHA"
+          echo "last master commit $lastCommit"
+          echo "commit $GITHUB_SHA"
           if [[ -z "$(git diff --name-only ${GITHUB_SHA:0:7}..${lastCommit:0:7} 'helm/**')" ]];
           then
             echo "false"
