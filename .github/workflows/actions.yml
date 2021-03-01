@@ -96,10 +96,10 @@ jobs :
     runs-on : ubuntu-latest
     needs : testing-actions
     steps :
-      - name : pheel tester
+      - name : paths changed
         run: |
           git remote set-url origin ${{ github.event.repository.ssh_url }}
           git config --global user.name "${{ github.actor }}"
           branch=$(echo ${GITHUB_HEAD_REF})
           git checkout -b $branch   
-          echo $(git status -s)       
+          helmPathChanged=$(git status -s 'helm/**')       
