@@ -101,10 +101,13 @@ jobs :
     if: github.event.pull_request.merged == true && github.event.action == 'closed'     
     steps :
       - name : paths changed     
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
           git init
           git remote add origin ${{ github.event.repository.clone_url }}
           git config --global user.name "${{ github.actor }}"   
+          echo "$GITHUB_CONTEXT"
           lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
           echo "last commit $lastCommit"
           echo "master commit $GITHUB_SHA"
