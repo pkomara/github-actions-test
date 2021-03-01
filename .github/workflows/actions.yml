@@ -96,13 +96,6 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           # echo "$GITHUB_CONTEXT"
-          git remote set-url origin ${{ github.event.repository.ssh_url }}          
-          git config --global user.name "${{ github.actor }}"
-          git checkout -b master
-          git pull origin master --allow-unrelated-histories  
-          git log  -n  1 master
-          lastCommit=`git log  -n  1 master | grep commit | awk '{print $2}'` 
-          echo "last commit $lastCommit"
           echo "master commit $GITHUB_SHA"          
 
   testing-actions-2 :
