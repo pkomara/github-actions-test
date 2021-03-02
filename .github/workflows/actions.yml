@@ -96,8 +96,9 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           lastCommit=${{github.event.pull_request.base.sha}}
-          echo $lastCommit       
-          var=`git diff --name-only $localCommit..${GITHUB_SHA:0:5}` 
+          echo $lastCommit   
+          echo ${GITHUB_SHA}    
+          var=`git diff --name-only ${GITHUB_SHA:0:5}..$localCommit` 
           echo "var-> $var"
   testing-actions-2 :
     runs-on : ubuntu-latest
