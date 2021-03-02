@@ -103,6 +103,7 @@ jobs :
           # var=`git diff $lastCommit $currentCommit --name-only`
           # echo "var-> $var"
           echo "var1-> $var1"
+          git fetch
           eval $var1
   testing-actions-2 :
     runs-on : ubuntu-latest
