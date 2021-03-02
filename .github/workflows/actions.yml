@@ -119,7 +119,7 @@ jobs :
     # if: github.event.pull_request.merged == true && github.event.action == 'closed'     
     steps :
       - name : test job output
-        if:  needs.check-helm-change.outputs.HELM_CHANGED == 'true'
+        if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
         run : | 
           echo "in job test"
       - name : paths changed     
