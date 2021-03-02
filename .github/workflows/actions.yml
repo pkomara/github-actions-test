@@ -100,8 +100,8 @@ jobs :
           currentCommit=$GITHUB_SHA    
           currentCommit=${currentCommit:0:5}
           var1="git diff --name-only  $currentCommit..$lastCommit"
-          var=`git diff --name-only  $currentCommit..$lastCommit`
-          echo "var-> $var"
+          # var=`git diff --name-only  $currentCommit..$lastCommit`
+          # echo "var-> $var"
           echo "var1-> $var1"
   testing-actions-2 :
     runs-on : ubuntu-latest
