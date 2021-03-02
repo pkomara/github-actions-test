@@ -95,7 +95,7 @@ jobs :
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}               
         run : |
           echo ${{ env.CHART_NAME }}
-          lastCommit=github.event.pull_request.base.sha
+          lastCommit=$github.event.pull_request.base.sha
           echo $lastCommit       
 
   testing-actions-2 :
