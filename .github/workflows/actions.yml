@@ -120,7 +120,7 @@ jobs :
     steps :
       - name : test job output
         run : | 
-          echo  ${{needs.check-helm-change.outputs.HELM_CHANGED}} 
+          echo  ${{needs.testing-actions.outputs.HELM_CHANGED}} 
       - name : paths changed     
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
