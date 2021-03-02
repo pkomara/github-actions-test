@@ -96,10 +96,10 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           lastCommit=${{github.event.pull_request.base.sha}}
-          echo $lastCommit   
+          lastCommit=${lastCommit:0:5}   
           currentCommit=$GITHUB_SHA    
-          echo $currentCommit
-          var=`$currentCommit..$localCommit` 
+          currentCommit=${currentCommit:0:5}
+          var="$currentCommit..$lastCommit"
           echo "var-> $var"
   testing-actions-2 :
     runs-on : ubuntu-latest
