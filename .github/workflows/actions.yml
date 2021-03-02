@@ -99,7 +99,7 @@ jobs :
           lastCommit=${lastCommit:0:7}   
           currentCommit=$GITHUB_SHA    
           currentCommit=${currentCommit:0:7}
-          var1="git diff $lastCommit $currentCommit --name-only"
+          var1="git diff $lastCommit $currentCommit --name-only 'helm/**'"
           # var=`git diff $lastCommit $currentCommit --name-only`
           # echo "var-> $var"
           echo "var1-> $var1"
