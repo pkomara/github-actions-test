@@ -96,9 +96,9 @@ jobs :
         run : |
           echo ${{ env.CHART_NAME }}
           lastCommit=${{github.event.pull_request.base.sha}}
-          lastCommit=${lastCommit:0:5}   
+          lastCommit=${lastCommit:0:7}   
           currentCommit=$GITHUB_SHA    
-          currentCommit=${currentCommit:0:5}
+          currentCommit=${currentCommit:0:7}
           var1="git diff --name-only $lastCommit $currentCommit"
           # var=`git diff --name-only $lastCommit $currentCommit`
           # echo "var-> $var"
