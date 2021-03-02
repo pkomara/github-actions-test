@@ -8,7 +8,7 @@ jobs :
     runs-on : ubuntu-latest
     outputs : 
       output1 : ${{ steps.test2.outputs.CHART_NAME }}
-      HELM_PATH_CHANGED : ${{ steps.helm_change.outputs.HELM_CHANGED }}      
+      HELM_CHANGED : ${{ steps.helm_change.outputs.HELM_CHANGED }}      
     steps :
       # - uses : actions/checkout@v2
       # - run : |
