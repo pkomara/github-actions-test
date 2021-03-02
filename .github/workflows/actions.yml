@@ -97,7 +97,7 @@ jobs :
           echo ${{ env.CHART_NAME }}
           lastCommit=${{github.event.pull_request.base.sha}}
           echo $lastCommit   
-          currentCommit=GITHUB_SHA    
+          currentCommit=$GITHUB_SHA    
           echo $currentCommit
           var=`$currentCommit..$localCommit` 
           echo "var-> $var"
