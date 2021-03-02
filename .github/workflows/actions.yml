@@ -121,6 +121,12 @@ jobs :
       - name : test job output
         run : | 
           echo  ${{needs.testing-actions.outputs.HELM_CHANGED}} 
+          if [[ ${{ needs.check-helm-change.outputs.HELM_CHANGED }} == 'true' ]];
+          then
+            echo "if branch"
+          else
+            echo "else branch"
+          fi
       - name : paths changed     
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
