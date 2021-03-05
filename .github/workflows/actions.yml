@@ -126,17 +126,8 @@ jobs :
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
-          git init
-          git remote add origin ${{ github.event.repository.clone_url }}
-          git config --global user.name "${{ github.actor }}"   
-          echo "$GITHUB_CONTEXT"
-          # lastCommit=`git log  -n  1 origin/master | grep commit | awk '{print $2}'` 
-          lastCommit=github.event.pull_request.base.sha
-          echo "last master commit $lastCommit"
-          echo "commit $GITHUB_SHA"
-          if [[ -z "$(git diff --name-only ${GITHUB_SHA:0:7}..${lastCommit:0:7} 'helm/**')" ]];
-          then
-            echo "false"
-          else
-            echo "true"
-          fi   
+          helm_version=`cat ./helm/Chart.yaml | grep helm_version: | awk '{ print \$2 }'`
+          currentHelmVersion= echo $helm_version |  cut -d '-' -f1 | cut -b 1-6 
+          newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
+          sed -i "s/$currentHelmVersion/$newHelmVersion/g" ./helm/Chart.yaml
+          cat ./helm/Chart.yaml          
