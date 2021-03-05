@@ -131,5 +131,5 @@ jobs :
           echo $currentHelmVersion
           newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
           echo $newHelmVersion 
-          new_helm_version=echo "$helm_version" | sed  -En "s/$currentHelmVersion/$newHelmVersion/g"    
+          new_helm_version=echo "${helm_version/currentHelmVersion/$newHelmVersion}"   
           echo $new_helm_version    
