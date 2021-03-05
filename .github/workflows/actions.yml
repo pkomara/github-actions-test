@@ -126,10 +126,9 @@ jobs :
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
-
           pwd
           ls
-          helm_version=`cat ./helm/Chart.yaml | grep helm_version: | awk '{ print \$2 }'`
+          helm_version='voice-test-9.0.01.tgz'
           currentHelmVersion= echo $helm_version |  cut -d '-' -f1 | cut -b 1-6 
           newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
           sed -i "s/$currentHelmVersion/$newHelmVersion/g" ./helm/Chart.yaml
