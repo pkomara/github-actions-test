@@ -130,7 +130,7 @@ jobs :
           echo $helm_version
           currentHelmVersion= echo $helm_version |  cut -d '-' -f3 | awk '{print substr($0,1,6)}'
           echo $currentHelmVersion
-          newHelmVersion=$(echo "$currentHelmVersion" | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
+          newHelmVersion=$(echo "9.0.02" | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version     
