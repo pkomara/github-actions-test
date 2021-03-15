@@ -105,7 +105,8 @@ jobs :
           git fetch
           var=`git diff $lastCommit $currentCommit --name-only 'helm/**'`
           echo "var-> $var"
-          if [[ -z "$var" ]]
+          if [[ -z "$var" ]];
+          then
             echo "false"
             echo "::set-output name=HELM_CHANGED::false"
           else
