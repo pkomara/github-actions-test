@@ -137,12 +137,12 @@ jobs :
           echo $new_helm_version  
       - name : git cmds check
         run: |
-          touch a.txt
-          touch b.txt
           git init
           git checkout -b master
-          git add a.txt
+          git add versions.json
           if [[ "$(git status -s -uno)" ]];
           then
             echo "in if"
+          else
+            echo "in else"  
           fi
