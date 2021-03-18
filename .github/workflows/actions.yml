@@ -140,5 +140,5 @@ jobs :
           touch b.txt
           git init
           git checkout -b master
-          git add a.txt
+          # git add a.txt
           git status -s -uno
