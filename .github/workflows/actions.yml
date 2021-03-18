@@ -141,4 +141,8 @@ jobs :
           git init
           git checkout -b master
           # git add a.txt
-          git status -s -uno
+          var=$(git status -s -uno)
+          if [[ -z "$var" ]];
+          then
+            echo "in if"
+          fi
