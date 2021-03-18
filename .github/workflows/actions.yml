@@ -138,6 +138,7 @@ jobs :
         run: |
            touch a.txt
            touch b.txt
+           git init
            git add a.txt
            if ![[ -z `git status -s -uno`]];
            then
