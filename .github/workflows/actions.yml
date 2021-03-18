@@ -1,5 +1,6 @@
 name : user-defined actions
-on : 
+on :
+  workflow_dispatch :
   pull_request :
     types: [opened, closed, reopened, synchronize]
 
