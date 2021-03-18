@@ -138,9 +138,10 @@ jobs :
         run: |
            touch a.txt
            touch b.txt
+           git checkout -b master
            git init
            git add a.txt
-           if ![[ -z `git status -s -uno`]];
+           if [[ `git status -s -uno`]];
            then
              echo "in if"
            fi
