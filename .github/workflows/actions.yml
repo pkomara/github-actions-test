@@ -1,8 +1,7 @@
 name : user-defined actions
-on :
-  workflow_dispatch :
-  pull_request :
-    types: [opened, closed, reopened, synchronize]
+on : [workflow_dispatch ]
+  # pull_request :
+  #   types: [opened, closed, reopened, synchronize]
 
 jobs :
   testing-actions :
