@@ -123,8 +123,8 @@ jobs :
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
         run : | 
           echo "in job test"
-      - name : Helm Version    
+      - name : Testing    
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
-          echo ${{ github.actor }}           
+          echo "$GITHUB_CONTEXT"           
