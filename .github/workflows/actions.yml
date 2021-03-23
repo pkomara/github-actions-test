@@ -127,4 +127,4 @@ jobs :
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
-          echo "${{ github.event.pusher.email }}"          
+          echo "${{ github.event }}"          
