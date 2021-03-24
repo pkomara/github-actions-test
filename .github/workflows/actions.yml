@@ -138,11 +138,11 @@ jobs :
           var=1 
           While [[ $var != 5 ]]
           do
-            var++
-            echo $var
-            if [[ $var == 3 ]];
-            then
-              echo "breakibg while"
-              break;
-            if
+              var++
+              echo $var
+              if [[ $var == 3 ]];
+              then
+                echo "breakibg while"
+                break;
+              fi
           done
