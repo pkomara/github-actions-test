@@ -135,8 +135,10 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-          var="Unknown"
+          var="Succeeded"
           if [[ "$var" =~ ^(Failed|Unknown)$ ]];
           then
             echo "in if"
+          else
+            echo "in else"  
           fi
