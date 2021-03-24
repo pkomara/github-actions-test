@@ -134,4 +134,15 @@ jobs :
           newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
-          echo $new_helm_version 
+          echo $new_helm_version
+          var=1 
+          While [[ $var != 5 ]]
+          do
+            var++
+            echo $var
+            if [[ $var == 3 ]];
+            then
+              echo "breakibg while"
+              break;
+            if
+          done
