@@ -138,7 +138,7 @@ jobs :
           var=1 
           while [[ $var != 5 ]]
           do
-              var++
+              var=var+1
               echo $var
               if [[ $var == 3 ]];
               then
