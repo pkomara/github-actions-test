@@ -135,14 +135,8 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-          var=1 
-          while [[ $var != 5 ]]
-          do
-              var=$(( var+1 ))
-              echo $var
-              if [[ $var == 3 ]];
-              then
-                echo "breakibg while"
-                break;
-              fi
-          done
+          var="Failed"
+          if [[ "$var" =~ ^(Failed|Uknown)$ ]];
+          then
+            echo "in if"
+          fi
