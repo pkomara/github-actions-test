@@ -136,7 +136,7 @@ jobs :
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
           var=1 
-          While [[ $var != 5 ]]
+          while [[ $var != 5 ]]
           do
               var++
               echo $var
