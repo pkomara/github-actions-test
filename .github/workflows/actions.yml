@@ -143,4 +143,4 @@ jobs :
             echo "in else"  
           fi
           status=`helm status grghrhrg >/dev/null 2>&1  | grep "deployed"`
-          echo $status        
+          # echo $status        
