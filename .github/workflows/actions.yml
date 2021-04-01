@@ -142,8 +142,3 @@ jobs :
           else
             echo "in else"  
           fi
-          status=`helm status grghrhrg  | grep "deployed"`
-          if [[ ($? -eq 0) && ($status == "deployed") ]];
-          then
-            echo "Remove canary version ${{ env.VERSION }} helm ${{ env.HELMNAMECANARY}}"
-          fi          
