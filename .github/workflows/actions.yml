@@ -142,5 +142,5 @@ jobs :
           else
             echo "in else"  
           fi
-          helm status grghrhrg >/dev/null 2>&1
+          status=`helm status grghrhrg >/dev/null 2>&1`
           echo $status        
