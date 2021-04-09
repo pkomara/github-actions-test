@@ -136,6 +136,7 @@ jobs :
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
           var=1
+          var2=9
           while [[ true ]]
           do 
              var=$((var+1))
@@ -144,7 +145,7 @@ jobs :
              then
                echo "in if"
                break;
-             elif [[ "$var" == 9 ]];
+             elif [[ "$var" == $var2 ]];
              then
                echo "in else"  
              fi   
