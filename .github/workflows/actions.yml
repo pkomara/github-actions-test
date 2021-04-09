@@ -144,7 +144,7 @@ jobs :
              then
                echo "in if"
                break;
-             else if [[ "$var" == 9 ]];
+             else [[ "$var" == 9 ]];
              then
                echo "in else"  
              fi   
