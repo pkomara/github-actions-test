@@ -135,12 +135,15 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-          var="Succeeded"
-          if [[ "$var" =~ ^(Failed|Unknown)$ ]];
-          then
-            echo "in if"
-          else
-            echo "in else"  
-          fi
-          status=`helm status grghrhrg >/dev/null 2>&1`
-          echo $status        
+          var=1
+          while [[ true ]]
+          do 
+             var=var+1
+             echo $var
+             if [[ "$var" == 10 ]];
+             then
+               echo "in if"
+               break;
+             fi   
+          done        
+          echo "after while"
