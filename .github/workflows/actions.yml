@@ -126,7 +126,7 @@ jobs :
       max-parallel: 4
       matrix :
         job : ['voice-dashboards','voice-alertrules','voice-network-policy','voice-infra']    
-    if: contains(github.event.pull_request.title, ${{fromJSON(matrix.job)}})
+    if: ${{ contains(github.event.pull_request.title, matrix.job) }}
     steps :
       - name : test job output
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
