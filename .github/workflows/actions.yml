@@ -128,11 +128,12 @@ jobs :
         job : ['voice-dashboards','voice-alertrules','voice-network-policy','voice-infra']    
     steps :
       - name : test job output
-        if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
+        if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' && contains( github.event.pull_request.title , matrix.job )
         run : | 
           echo "in job test"
       # - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4         
       - name : Check     
+        if: contains( github.event.pull_request.title , matrix.job )      
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
@@ -144,16 +145,3 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-  job1:
-    runs-on: ubuntu-latest  
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-    - run: | 
-        echo  ${{fromJSON(needs.job1.outputs.matrix)}}      
