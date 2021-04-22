@@ -145,3 +145,8 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
+  build:
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Try to fail
+      run: exit 1 2>&1
