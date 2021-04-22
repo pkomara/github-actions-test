@@ -129,9 +129,9 @@ jobs :
     # if: github.event.pull_request.merged == true && github.event.action == 'closed'     
     steps :
       - name : check if in matrix
-        if : matrix.job   == 'voice-dashboard' 
+        if : matrix.job   == 'voice-dashboards' 
         run : |
-          echo "start ${{ matrix.job }}"
+          exit
       - name : test job output
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
         run : | 
