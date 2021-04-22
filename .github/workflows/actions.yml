@@ -131,7 +131,7 @@ jobs :
       - name : check if in matrix
         if : matrix.job   == 'voice-dashboards' 
         run : |
-          exit 1
+          exit 1 2>&!
       - name : test job output
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
         run : | 
