@@ -129,7 +129,7 @@ jobs :
     # if: github.event.pull_request.merged == true && github.event.action == 'closed'     
     steps :
       - name : check if in matrix
-        if : ${{ ${{ matrix.job }}   == 'voice-dashboard' }}
+        if : matrix.job   == 'voice-dashboard' 
         run : |
           echo "start ${{ matrix.job }}"
       - name : test job output
