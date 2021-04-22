@@ -145,5 +145,6 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
+          git init
           git pull origin pavan 2>&1 || exit_code=echo $?
           echo $exit_code
