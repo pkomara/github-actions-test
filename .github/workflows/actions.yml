@@ -149,7 +149,7 @@ jobs :
     runs-on: ubuntu-latest
     steps:
     - name: Try to fail
-      run: exit 
+      run: exit 2
     - name : step 2
       run : | 
         echo "step 2"  
