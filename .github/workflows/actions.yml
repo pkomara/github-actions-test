@@ -150,3 +150,6 @@ jobs :
     steps:
     - name: Try to fail
       run: exit 1 2>&1
+    - name : step 2
+      run : | 
+        echo "step 2"  
