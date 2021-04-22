@@ -131,7 +131,7 @@ jobs :
       - name : check if in matrix
         if : ${{ matrix.job }} == 'voice-dashboard'
         run : |
-          echo "start"
+          echo "start ${{ matrix.job }}"
       - name : test job output
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true'
         run : | 
@@ -141,12 +141,11 @@ jobs :
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}         
         run: |
-          # helm_version="voice-test-9.0.01.tgz"
-          # echo $helm_version
-          # currentHelmVersion=`echo $helm_version |  cut -d '-' -f3 | awk '{printf "%s",substr($1,1,6)}'`
-          # echo $currentHelmVersion
-          # newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
-          # echo ${newHelmVersion} 
-          # new_helm_version="voice-test-${newHelmVersion}.tgz"      
-          # echo $new_helm_version
-          cat ./helm/Chart.yaml
+          helm_version="voice-test-9.0.01.tgz"
+          echo $helm_version
+          currentHelmVersion=`echo $helm_version |  cut -d '-' -f3 | awk '{printf "%s",substr($1,1,6)}'`
+          echo $currentHelmVersion
+          newHelmVersion=$(echo $currentHelmVersion | awk 'BEGIN { FS="." } { $3++;  if ($3 > 99) { $3=0; $2++; if ($2 > 9) { $2=0; $1++ } } } { printf "%d.%d.%02d\n", $1, $2, $3 }')
+          echo ${newHelmVersion} 
+          new_helm_version="voice-test-${newHelmVersion}.tgz"      
+          echo $new_helm_version
