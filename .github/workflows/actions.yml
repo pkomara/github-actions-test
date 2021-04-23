@@ -156,7 +156,7 @@ jobs :
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
           do
             exit_code=0
-            (git push origin $branch && echo ) || exit_code=$?
+            (git push origin $branch ) || exit_code=$?
             echo "exit code : $exit_code"
             echo "max_retry : $max_retry"
             sleep 5
