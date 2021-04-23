@@ -149,9 +149,14 @@ jobs :
           max_retry=5
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
           do
-            git status  2>&1 && exit_code=$?
+            (git push origin $branch >> error_msg.txt  2>&1 && exit_code=$?) || exit_code=$?
+            if [[ $max_retry -eq 3 ]];
+            then
+              exit_code=0
+            fi
             echo "exit code : $exit_code"
             echo "max_retry : $max_retry"
             sleep 5
             ((max_retry=max_retry-1))
           done
+          
