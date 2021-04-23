@@ -131,7 +131,7 @@ jobs :
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' && contains( github.event.pull_request.title , matrix.job )
         run : | 
           echo "in job test"
-      # - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4         
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4         
       - name : Check     
         if: contains( github.event.pull_request.title , matrix.job )      
         env:
@@ -145,6 +145,13 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-          echo $grjr 2>&1 
-          exit_code=echo $?
-          echo $exit_code
+          exit_code=1
+          max_retry=5
+          while [[ $exit_code != 0 && $max_retry -gt 0 ]]
+          do
+            git push origin $branch >./helm/error_msg.txt  2>&1
+            exit_code=$?
+            echo "exit code : $exit_code"
+            sleep 5
+            ((max_retry=max_retry-1))
+          done            
