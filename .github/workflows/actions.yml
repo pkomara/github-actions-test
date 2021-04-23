@@ -152,7 +152,7 @@ jobs :
             (git push origin $branch >> error_msg.txt  2>&1 && exit_code=$?) || exit_code=$?
             if [[ $max_retry -eq 3 ]];
             then
-              exit_code = 0
+              exit_code=0
             fi
             echo "exit code : $exit_code"
             echo "max_retry : $max_retry"
