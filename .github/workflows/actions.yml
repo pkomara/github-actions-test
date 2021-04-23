@@ -155,7 +155,7 @@ jobs :
           git commit -m 'trial'
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
           do
-            (git push origin $branch 2>&1 && echo "-------> successfully pushed" && exit_code=$?) || exit_code=$?
+            (git push origin $branch && echo "-------> successfully pushed" && exit_code=$?) || exit_code=$?
             echo "exit code : $exit_code"
             echo "max_retry : $max_retry"
             sleep 5
