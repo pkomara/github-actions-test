@@ -147,13 +147,12 @@ jobs :
           echo $new_helm_version
           exit_code=1
           max_retry=5
+          touch ./helm/trail.txt
+          git add ./helm/trail.txt
+          git commit -m 'trial'
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
           do
-            (git push origin $branch >> error_msg.txt  2>&1 && exit_code=$?) || exit_code=$?
-            if [[ $max_retry -eq 3 ]];
-            then
-              exit_code=0
-            fi
+            (git push origin $branch 2>&1 && exit_code=$?) || exit_code=$?
             echo "exit code : $exit_code"
             echo "max_retry : $max_retry"
             sleep 5
