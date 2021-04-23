@@ -136,7 +136,6 @@ jobs :
         if: contains( github.event.pull_request.title , matrix.job )      
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}       
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}                
         run: |
           helm_version="voice-test-9.0.01.tgz"
           echo $helm_version
@@ -149,6 +148,7 @@ jobs :
           exit_code=1
           max_retry=5
           touch ./helm/trail.txt
+          git config --global user.name "${{ github.actor }}"
           git add ./helm/trail.txt
           git commit -m 'trial'
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
