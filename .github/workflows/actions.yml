@@ -147,7 +147,7 @@ jobs :
           echo $new_helm_version
           exit_code=1
           max_retry=5
-          ls 
+          ls -a
           while [[ $exit_code != 0 && $max_retry -gt 0 ]]
           do
             git push origin $branch >./helm/error_msg.txt  2>&1
