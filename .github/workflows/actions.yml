@@ -121,22 +121,12 @@ jobs :
   testing-actions-2 :
     runs-on : ubuntu-latest
     needs : testing-actions
-    strategy:
-      fail-fast : false
-      max-parallel: 4
-      matrix :
-        job : ['voice-dashboards','voice-alertrules','voice-network-policy','voice-infra']    
-        exclude :
-          -  job : 'voice-network-policy'
-          -  job : 'voice-infra'
     steps :
       - name : test job output
-        if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' && contains( github.event.pull_request.title , matrix.job )
+        if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' 
         run : | 
           echo "in job test"
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4         
-        with:
-          ref: ${{ github.head_ref }}       
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4            
       - name : Check     
         if: contains( github.event.pull_request.title , matrix.job )      
         env:
@@ -150,18 +140,7 @@ jobs :
           echo ${newHelmVersion} 
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
-          exit_code=1
-          max_retry=5
-          touch ./helm/trail.txt
-          git config --global user.name "${{ github.actor }}"
-          git add ./helm/trail.txt
-          git commit -m 'trial'
-          while [[ $exit_code != 0 && $max_retry -gt 0 ]]
-          do
-            exit_code=0
-            (git push origin $branch ) || exit_code=$?
-            echo "exit code : $exit_code"
-            echo "max_retry : $max_retry"
-            sleep 5
-            ((max_retry=max_retry-1))
-          done
+      - name : Check 2
+        run : |
+          echo $new_helm_version
+
