@@ -127,7 +127,7 @@ jobs :
       matrix :
         job : ['voice-dashboards','voice-alertrules','voice-network-policy','voice-infra']    
         exclude :
-          -  job : ['voice-network-policy' , 'voice-infra']
+          -  job : 'voice-network-policy'
     steps :
       - name : test job output
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' && contains( github.event.pull_request.title , matrix.job )
