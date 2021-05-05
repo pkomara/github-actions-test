@@ -35,13 +35,14 @@ jobs:
           export REPO=$(echo "$REPONAME")
           export AUTHOR=$(echo "$USER")
           echo "REPO=$REPO"  >> $GITHUB_ENV
-          echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV                 
+          echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV   
+          echo "SHA=$GITHUB_REF" >> $GITHUB_ENV              
       - name: Test 
         run: |
           echo "REPO name : ${{ env.REPO }}"
           echo "AUTHOR name : ${{ env.AUTHOR }}"          
       - name: Dump GitHub context
-        run: echo 'Hi ${{ env.author }} -> $github.sha ' > artifact.txt
+        run: echo 'Hi ${{ env.author }} -> ${{ env.SHA }} ' > artifact.txt
         continue-on-error: true
       - uses: actions/upload-artifact@58740802ef971a2d71eff71e63d48ab68d1f5507
         with:
