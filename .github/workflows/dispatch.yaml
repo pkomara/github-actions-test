@@ -41,4 +41,4 @@ jobs:
           echo "REPO name : ${{ env.REPO }}"
           echo "AUTHOR name : ${{ env.AUTHOR }}"          
           echo "$GITHUB_REF"
-          echo ${{ secrets.CUSTOM_TOKEN1 }}
+          echo ${{ secrets.CUSTOM_TOKEN }}
