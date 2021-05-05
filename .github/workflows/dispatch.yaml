@@ -40,3 +40,10 @@ jobs:
         run: |
           echo "REPO name : ${{ env.REPO }}"
           echo "AUTHOR name : ${{ env.AUTHOR }}"          
+      - name: Dump GitHub context
+        run: echo '${{ toJson(github) }}' > githubcontext.json
+        continue-on-error: true
+      - uses: actions/upload-artifact@58740802ef971a2d71eff71e63d48ab68d1f5507
+        with:
+          name: githubcontext.json
+          path: githubcontext.json          
