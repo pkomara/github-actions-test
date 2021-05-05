@@ -1,4 +1,4 @@
-name: Dev Katana Test
+name: Dispatch Test
 
 on: 
   workflow_dispatch:
@@ -17,9 +17,7 @@ jobs:
     if: github.event.inputs.environment == 'dev'    
     strategy:
       fail-fast: false
-    runs-on:
-      - self-hosted 
-      - dev
+    runs-on : ubuntu-latest
     steps:
       - name: Clean Workspace
         uses: AutoModality/action-clean@d004b47eb728f2a83316fc70ba9a62ef97278013 # v1.1.0
