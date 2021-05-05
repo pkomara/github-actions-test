@@ -40,4 +40,4 @@ jobs:
         run: |
           echo "REPO name : ${{ env.REPO }}"
           echo "AUTHOR name : ${{ env.AUTHOR }}"          
-          echo "${{ GITHUB_REF }}"
+          echo "$GITHUB_REF"
