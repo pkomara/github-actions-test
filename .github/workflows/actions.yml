@@ -143,4 +143,6 @@ jobs :
       - name : Check 2
         run : |
           echo $new_helm_version
-
+          string="1:2:3:4:5"
+          array=(${string//:/ })
+          echo ${{ array }}
