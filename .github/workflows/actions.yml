@@ -143,6 +143,5 @@ jobs :
       - name : Check 2
         run : |
           echo $new_helm_version
-          string="1/2/3/4/5"
-          array=(${string//// })
-          echo ${array[-1]}
+          string="/opt/genesys/logs/volume/katana_test/20210513-voice-agent-katana-test-pod"
+          echo ${string:23:}
