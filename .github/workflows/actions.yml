@@ -143,6 +143,5 @@ jobs :
           echo "REPO=voice-agent" >> $GITHUB_ENV
       - name : Check 2
         run : |
-          echo $new_helm_version
           podName=$(date +'%Y%m%d')-${{ env.REPO }}-katana-test-pod      
           echo $podName
