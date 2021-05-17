@@ -145,3 +145,4 @@ jobs :
         run : |
           podName=$(date +'%Y%m%d')-${{ env.REPO }}-katana-test-pod      
           echo $podName
+          echo $(date)
