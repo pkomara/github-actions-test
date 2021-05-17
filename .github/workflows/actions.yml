@@ -143,4 +143,4 @@ jobs :
       - name : Check 2
         run : |
           echo $new_helm_version
-          echo $(date + '%Y-%m-%d')      
+          echo $(date +'%Y-%m-%d')      
