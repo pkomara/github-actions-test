@@ -1,7 +1,5 @@
 START /usr/local/bin/node /opt/genesys/test/main 001_001_inb_rp_basic
-mkdir results
-mkdir logs
-2021-04-30T13:47:21.034000000Z info  katana_test options.log_options {
+2021-05-17T08:07:20.149000000Z info  katana_test options.log_options {
   "level": "noise",
   "module": "katana_test",
   "streams": [
@@ -15,133 +13,26 @@ mkdir logs
     }
   ]
 }
-2021-04-30T13:47:21.044000000Z debug  katana_test sip proxy consul resolution result  [
+2021-05-17T08:07:20.160000000Z debug  katana_test sip proxy consul resolution result  [
   {
     "Node": {
-      "ID": "d3382e5a-3122-9d4e-6e44-4a37efaca906",
-      "Node": "aks-realtime0423-63750820-vmss000001",
-      "Address": "10.204.4.180",
+      "ID": "e7d6915d-5cb4-7f82-0dff-d8af4ad0ce52",
+      "Node": "aks-realtime0423-63750820-vmss000000",
+      "Address": "10.204.1.237",
       "Datacenter": "westus2-dev",
       "TaggedAddresses": {
-        "lan": "10.204.4.180",
-        "lan_ipv4": "10.204.4.180",
-        "wan": "10.204.4.180",
-        "wan_ipv4": "10.204.4.180"
+        "lan": "10.204.1.237",
+        "lan_ipv4": "10.204.1.237",
+        "wan": "10.204.1.237",
+        "wan_ipv4": "10.204.1.237"
       },
       "Meta": {
         "consul-network-segment": "",
-        "host-ip": "10.204.4.180",
-        "pod-name": "aks-realtime0423-63750820-vmss000001"
+        "host-ip": "10.204.1.237",
+        "pod-name": "aks-realtime0423-63750820-vmss000000"
       },
-      "CreateIndex": 1302179201,
-      "ModifyIndex": 1302179245
-    },
-    "Service": {
-      "ID": "voice-sipproxy-1-voice-sipproxy",
-      "Service": "voice-sipproxy",
-      "Tags": [
-        "voice-sipproxy-1"
-      ],
-      "Address": "10.204.4.206",
-      "TaggedAddresses": {
-        "lan_ipv4": {
-          "Address": "10.204.4.206",
-          "Port": 5080
-        },
-        "wan_ipv4": {
-          "Address": "10.204.4.206",
-          "Port": 5080
-        }
-      },
-      "Meta": {
-        "k8s-namespace": "voice",
-        "pod-name": "voice-sipproxy-1"
-      },
-      "Port": 5080,
-      "Weights": {
-        "Passing": 1,
-        "Warning": 1
-      },
-      "EnableTagOverride": false,
-      "Proxy": {
-        "MeshGateway": {},
-        "Expose": {}
-      },
-      "Connect": {},
-      "CreateIndex": 1343974328,
-      "ModifyIndex": 1343974328
-    },
-    "Checks": [
-      {
-        "Node": "aks-realtime0423-63750820-vmss000001",
-        "CheckID": "serfHealth",
-        "Name": "Serf Health Status",
-        "Status": "passing",
-        "Notes": "",
-        "Output": "Agent alive and reachable",
-        "ServiceID": "",
-        "ServiceName": "",
-        "ServiceTags": [],
-        "Type": "",
-        "Definition": {},
-        "CreateIndex": 1302179201,
-        "ModifyIndex": 1302179201
-      },
-      {
-        "Node": "aks-realtime0423-63750820-vmss000001",
-        "CheckID": "voice-sipproxy-1-voice-sipproxy",
-        "Name": "voice-sipproxy-1-voice-sipproxy health check",
-        "Status": "passing",
-        "Notes": "",
-        "Output": "HTTP GET http://10.204.4.206:11700/sipproxy_node/health: 200 OK Output: {\"kafka\":\"pass\",\"nactive_sip_nodes\":4,\"ntotal_sip_nodes\":4,\"tenant_resolver\":\"pass\",\"consul\":\"pass\"}",
-        "ServiceID": "voice-sipproxy-1-voice-sipproxy",
-        "ServiceName": "voice-sipproxy",
-        "ServiceTags": [
-          "voice-sipproxy-1"
-        ],
-        "Type": "http",
-        "Definition": {},
-        "CreateIndex": 1343974651,
-        "ModifyIndex": 1347050520
-      },
-      {
-        "Node": "aks-realtime0423-63750820-vmss000001",
-        "CheckID": "voice/voice-sipproxy-1-voice-sipproxy/kubernetes-health-check",
-        "Name": "Kubernetes Health Check",
-        "Status": "passing",
-        "Notes": "",
-        "Output": "Kubernetes health checks passing",
-        "ServiceID": "voice-sipproxy-1-voice-sipproxy",
-        "ServiceName": "voice-sipproxy",
-        "ServiceTags": [
-          "voice-sipproxy-1"
-        ],
-        "Type": "ttl",
-        "Definition": {},
-        "CreateIndex": 1343974451,
-        "ModifyIndex": 1343976872
-      }
-    ]
-  },
-  {
-    "Node": {
-      "ID": "188364dc-6143-9247-468b-1f20df8a52cc",
-      "Node": "aks-realtime0423-63750820-vmss000003",
-      "Address": "10.204.4.31",
-      "Datacenter": "westus2-dev",
-      "TaggedAddresses": {
-        "lan": "10.204.4.31",
-        "lan_ipv4": "10.204.4.31",
-        "wan": "10.204.4.31",
-        "wan_ipv4": "10.204.4.31"
-      },
-      "Meta": {
-        "consul-network-segment": "",
-        "host-ip": "10.204.4.31",
-        "pod-name": "aks-realtime0423-63750820-vmss000003"
-      },
-      "CreateIndex": 1303173022,
-      "ModifyIndex": 1303173062
+      "CreateIndex": 1301605538,
+      "ModifyIndex": 1301605696
     },
     "Service": {
       "ID": "voice-sipproxy-2-voice-sipproxy",
@@ -149,22 +40,22 @@ mkdir logs
       "Tags": [
         "voice-sipproxy-2"
       ],
-      "Address": "10.204.8.248",
+      "Address": "10.204.1.246",
       "TaggedAddresses": {
         "lan_ipv4": {
-          "Address": "10.204.8.248",
-          "Port": 5080
+          "Address": "10.204.1.246",
+          "Port": 11700
         },
         "wan_ipv4": {
-          "Address": "10.204.8.248",
-          "Port": 5080
+          "Address": "10.204.1.246",
+          "Port": 11700
         }
       },
       "Meta": {
         "k8s-namespace": "voice",
         "pod-name": "voice-sipproxy-2"
       },
-      "Port": 5080,
+      "Port": 11700,
       "Weights": {
         "Passing": 1,
         "Warning": 1
@@ -175,12 +66,12 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1343968227,
-      "ModifyIndex": 1343968227
+      "CreateIndex": 1459549558,
+      "ModifyIndex": 1459549558
     },
     "Checks": [
       {
-        "Node": "aks-realtime0423-63750820-vmss000003",
+        "Node": "aks-realtime0423-63750820-vmss000000",
         "CheckID": "serfHealth",
         "Name": "Serf Health Status",
         "Status": "passing",
@@ -191,16 +82,16 @@ mkdir logs
         "ServiceTags": [],
         "Type": "",
         "Definition": {},
-        "CreateIndex": 1303173022,
-        "ModifyIndex": 1303173022
+        "CreateIndex": 1301605538,
+        "ModifyIndex": 1301605538
       },
       {
-        "Node": "aks-realtime0423-63750820-vmss000003",
+        "Node": "aks-realtime0423-63750820-vmss000000",
         "CheckID": "voice-sipproxy-2-voice-sipproxy",
         "Name": "voice-sipproxy-2-voice-sipproxy health check",
         "Status": "passing",
         "Notes": "",
-        "Output": "HTTP GET http://10.204.8.248:11700/sipproxy_node/health: 200 OK Output: {\"kafka\":\"pass\",\"nactive_sip_nodes\":4,\"ntotal_sip_nodes\":4,\"tenant_resolver\":\"pass\",\"consul\":\"pass\"}",
+        "Output": "HTTP GET http://10.204.1.246:11700/sipproxy_node/health: 200 OK Output: {\"nactive_sip_nodes\":3,\"ntotal_sip_nodes\":3,\"kafka\":\"pass\",\"tenant_resolver\":\"pass\",\"consul\":\"pass\",\"envoy_status\":\"pass\",\"service_health_level\":2}",
         "ServiceID": "voice-sipproxy-2-voice-sipproxy",
         "ServiceName": "voice-sipproxy",
         "ServiceTags": [
@@ -208,11 +99,11 @@ mkdir logs
         ],
         "Type": "http",
         "Definition": {},
-        "CreateIndex": 1343968758,
-        "ModifyIndex": 1347058845
+        "CreateIndex": 1459549655,
+        "ModifyIndex": 1461801881
       },
       {
-        "Node": "aks-realtime0423-63750820-vmss000003",
+        "Node": "aks-realtime0423-63750820-vmss000000",
         "CheckID": "voice/voice-sipproxy-2-voice-sipproxy/kubernetes-health-check",
         "Name": "Kubernetes Health Check",
         "Status": "passing",
@@ -225,8 +116,115 @@ mkdir logs
         ],
         "Type": "ttl",
         "Definition": {},
-        "CreateIndex": 1343968294,
-        "ModifyIndex": 1343970786
+        "CreateIndex": 1459549629,
+        "ModifyIndex": 1459551944
+      }
+    ]
+  },
+  {
+    "Node": {
+      "ID": "827d0970-d5bc-da5d-c1b9-82d829cf1ab7",
+      "Node": "aks-realtime0423-63750820-vmss000002",
+      "Address": "10.204.5.15",
+      "Datacenter": "westus2-dev",
+      "TaggedAddresses": {
+        "lan": "10.204.5.15",
+        "lan_ipv4": "10.204.5.15",
+        "wan": "10.204.5.15",
+        "wan_ipv4": "10.204.5.15"
+      },
+      "Meta": {
+        "consul-network-segment": "",
+        "host-ip": "10.204.5.15",
+        "pod-name": "aks-realtime0423-63750820-vmss000002"
+      },
+      "CreateIndex": 1302177552,
+      "ModifyIndex": 1302177652
+    },
+    "Service": {
+      "ID": "voice-sipproxy-0-voice-sipproxy",
+      "Service": "voice-sipproxy",
+      "Tags": [
+        "voice-sipproxy-0"
+      ],
+      "Address": "10.204.6.17",
+      "TaggedAddresses": {
+        "lan_ipv4": {
+          "Address": "10.204.6.17",
+          "Port": 11700
+        },
+        "wan_ipv4": {
+          "Address": "10.204.6.17",
+          "Port": 11700
+        }
+      },
+      "Meta": {
+        "k8s-namespace": "voice",
+        "pod-name": "voice-sipproxy-0"
+      },
+      "Port": 11700,
+      "Weights": {
+        "Passing": 1,
+        "Warning": 1
+      },
+      "EnableTagOverride": false,
+      "Proxy": {
+        "MeshGateway": {},
+        "Expose": {}
+      },
+      "Connect": {},
+      "CreateIndex": 1459559376,
+      "ModifyIndex": 1459559376
+    },
+    "Checks": [
+      {
+        "Node": "aks-realtime0423-63750820-vmss000002",
+        "CheckID": "serfHealth",
+        "Name": "Serf Health Status",
+        "Status": "passing",
+        "Notes": "",
+        "Output": "Agent alive and reachable",
+        "ServiceID": "",
+        "ServiceName": "",
+        "ServiceTags": [],
+        "Type": "",
+        "Definition": {},
+        "CreateIndex": 1302177552,
+        "ModifyIndex": 1302177552
+      },
+      {
+        "Node": "aks-realtime0423-63750820-vmss000002",
+        "CheckID": "voice-sipproxy-0-voice-sipproxy",
+        "Name": "voice-sipproxy-0-voice-sipproxy health check",
+        "Status": "passing",
+        "Notes": "",
+        "Output": "HTTP GET http://10.204.6.17:11700/sipproxy_node/health: 200 OK Output: {\"nactive_sip_nodes\":3,\"ntotal_sip_nodes\":3,\"kafka\":\"pass\",\"tenant_resolver\":\"pass\",\"consul\":\"pass\",\"envoy_status\":\"pass\",\"service_health_level\":2}",
+        "ServiceID": "voice-sipproxy-0-voice-sipproxy",
+        "ServiceName": "voice-sipproxy",
+        "ServiceTags": [
+          "voice-sipproxy-0"
+        ],
+        "Type": "http",
+        "Definition": {},
+        "CreateIndex": 1459559492,
+        "ModifyIndex": 1461794127
+      },
+      {
+        "Node": "aks-realtime0423-63750820-vmss000002",
+        "CheckID": "voice/voice-sipproxy-0-voice-sipproxy/kubernetes-health-check",
+        "Name": "Kubernetes Health Check",
+        "Status": "passing",
+        "Notes": "",
+        "Output": "Kubernetes health checks passing",
+        "ServiceID": "voice-sipproxy-0-voice-sipproxy",
+        "ServiceName": "voice-sipproxy",
+        "ServiceTags": [
+          "voice-sipproxy-0"
+        ],
+        "Type": "ttl",
+        "Definition": {},
+        "CreateIndex": 1459559468,
+        "ModifyIndex": 1459561560
       }
     ]
   },
@@ -251,27 +249,27 @@ mkdir logs
       "ModifyIndex": 1303938448
     },
     "Service": {
-      "ID": "voice-sipproxy-0-voice-sipproxy",
+      "ID": "voice-sipproxy-1-voice-sipproxy",
       "Service": "voice-sipproxy",
       "Tags": [
-        "voice-sipproxy-0"
+        "voice-sipproxy-1"
       ],
-      "Address": "10.204.12.48",
+      "Address": "10.204.12.64",
       "TaggedAddresses": {
         "lan_ipv4": {
-          "Address": "10.204.12.48",
-          "Port": 5080
+          "Address": "10.204.12.64",
+          "Port": 11700
         },
         "wan_ipv4": {
-          "Address": "10.204.12.48",
-          "Port": 5080
+          "Address": "10.204.12.64",
+          "Port": 11700
         }
       },
       "Meta": {
         "k8s-namespace": "voice",
-        "pod-name": "voice-sipproxy-0"
+        "pod-name": "voice-sipproxy-1"
       },
-      "Port": 5080,
+      "Port": 11700,
       "Weights": {
         "Passing": 1,
         "Warning": 1
@@ -282,8 +280,8 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1343980103,
-      "ModifyIndex": 1343980103
+      "CreateIndex": 1459555000,
+      "ModifyIndex": 1459555000
     },
     "Checks": [
       {
@@ -303,37 +301,37 @@ mkdir logs
       },
       {
         "Node": "aks-realtime0423-63750820-vmss000005",
-        "CheckID": "voice-sipproxy-0-voice-sipproxy",
-        "Name": "voice-sipproxy-0-voice-sipproxy health check",
+        "CheckID": "voice-sipproxy-1-voice-sipproxy",
+        "Name": "voice-sipproxy-1-voice-sipproxy health check",
         "Status": "passing",
         "Notes": "",
-        "Output": "HTTP GET http://10.204.12.48:11700/sipproxy_node/health: 200 OK Output: {\"kafka\":\"pass\",\"nactive_sip_nodes\":4,\"ntotal_sip_nodes\":4,\"tenant_resolver\":\"pass\",\"consul\":\"pass\"}",
-        "ServiceID": "voice-sipproxy-0-voice-sipproxy",
+        "Output": "HTTP GET http://10.204.12.64:11700/sipproxy_node/health: 200 OK Output: {\"nactive_sip_nodes\":3,\"ntotal_sip_nodes\":3,\"kafka\":\"pass\",\"tenant_resolver\":\"pass\",\"consul\":\"pass\",\"envoy_status\":\"pass\",\"service_health_level\":2}",
+        "ServiceID": "voice-sipproxy-1-voice-sipproxy",
         "ServiceName": "voice-sipproxy",
         "ServiceTags": [
-          "voice-sipproxy-0"
+          "voice-sipproxy-1"
         ],
         "Type": "http",
         "Definition": {},
-        "CreateIndex": 1343980504,
-        "ModifyIndex": 1347062185
+        "CreateIndex": 1459555161,
+        "ModifyIndex": 1461793928
       },
       {
         "Node": "aks-realtime0423-63750820-vmss000005",
-        "CheckID": "voice/voice-sipproxy-0-voice-sipproxy/kubernetes-health-check",
+        "CheckID": "voice/voice-sipproxy-1-voice-sipproxy/kubernetes-health-check",
         "Name": "Kubernetes Health Check",
         "Status": "passing",
         "Notes": "",
         "Output": "Kubernetes health checks passing",
-        "ServiceID": "voice-sipproxy-0-voice-sipproxy",
+        "ServiceID": "voice-sipproxy-1-voice-sipproxy",
         "ServiceName": "voice-sipproxy",
         "ServiceTags": [
-          "voice-sipproxy-0"
+          "voice-sipproxy-1"
         ],
         "Type": "ttl",
         "Definition": {},
-        "CreateIndex": 1343980322,
-        "ModifyIndex": 1343982111
+        "CreateIndex": 1459555104,
+        "ModifyIndex": 1459556307
       }
     ]
   },
@@ -351,12 +349,12 @@ mkdir logs
       "ModifyIndex": 726768599
     },
     "Service": {
-      "ID": "voice-sipproxy-246ab9b5265b",
+      "ID": "voice-sipproxy-40e298a66895",
       "Service": "voice-sipproxy",
       "Tags": [
         "k8s"
       ],
-      "Address": "10.204.4.206",
+      "Address": "10.204.6.17",
       "Meta": {
         "external-k8s-ns": "voice",
         "external-source": "kubernetes",
@@ -373,8 +371,8 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1343979993,
-      "ModifyIndex": 1343979993
+      "CreateIndex": 1459563438,
+      "ModifyIndex": 1459563438
     },
     "Checks": []
   },
@@ -392,12 +390,12 @@ mkdir logs
       "ModifyIndex": 726768599
     },
     "Service": {
-      "ID": "voice-sipproxy-5c6bf6ef7b17",
+      "ID": "voice-sipproxy-afe4bfae4c0f",
       "Service": "voice-sipproxy",
       "Tags": [
         "k8s"
       ],
-      "Address": "10.204.8.248",
+      "Address": "10.204.12.64",
       "Meta": {
         "external-k8s-ns": "voice",
         "external-source": "kubernetes",
@@ -414,8 +412,8 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1343972965,
-      "ModifyIndex": 1343972965
+      "CreateIndex": 1459557453,
+      "ModifyIndex": 1459557453
     },
     "Checks": []
   },
@@ -433,12 +431,12 @@ mkdir logs
       "ModifyIndex": 726768599
     },
     "Service": {
-      "ID": "voice-sipproxy-e1d8f1dd5f79",
+      "ID": "voice-sipproxy-c62a6fe7fad0",
       "Service": "voice-sipproxy",
       "Tags": [
         "k8s"
       ],
-      "Address": "10.204.12.48",
+      "Address": "10.204.1.246",
       "Meta": {
         "external-k8s-ns": "voice",
         "external-source": "kubernetes",
@@ -455,45 +453,45 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1343982468,
-      "ModifyIndex": 1343982468
+      "CreateIndex": 1459554198,
+      "ModifyIndex": 1459554198
     },
     "Checks": []
   }
 ]
-2021-04-30T13:47:21.047000000Z debug  katana_test tenant consul resolution result  [
+2021-05-17T08:07:20.163000000Z debug  katana_test tenant consul resolution result  [
   {
     "Node": {
-      "ID": "d3382e5a-3122-9d4e-6e44-4a37efaca906",
-      "Node": "aks-realtime0423-63750820-vmss000001",
-      "Address": "10.204.4.180",
+      "ID": "462578a8-4a59-9add-7719-00d4b84ac6ca",
+      "Node": "aks-realtime0423-63750820-vmss000005",
+      "Address": "10.204.11.180",
       "Datacenter": "westus2-dev",
       "TaggedAddresses": {
-        "lan": "10.204.4.180",
-        "lan_ipv4": "10.204.4.180",
-        "wan": "10.204.4.180",
-        "wan_ipv4": "10.204.4.180"
+        "lan": "10.204.11.180",
+        "lan_ipv4": "10.204.11.180",
+        "wan": "10.204.11.180",
+        "wan_ipv4": "10.204.11.180"
       },
       "Meta": {
         "consul-network-segment": "",
-        "host-ip": "10.204.4.180",
-        "pod-name": "aks-realtime0423-63750820-vmss000001"
+        "host-ip": "10.204.11.180",
+        "pod-name": "aks-realtime0423-63750820-vmss000005"
       },
-      "CreateIndex": 1302179201,
-      "ModifyIndex": 1302179245
+      "CreateIndex": 1303938301,
+      "ModifyIndex": 1303938448
     },
     "Service": {
       "ID": "t205-0-tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
       "Service": "tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
       "Tags": [],
-      "Address": "10.204.4.216",
+      "Address": "10.204.12.28",
       "TaggedAddresses": {
         "lan_ipv4": {
-          "Address": "10.204.4.216",
+          "Address": "10.204.12.28",
           "Port": 8888
         },
         "wan_ipv4": {
-          "Address": "10.204.4.216",
+          "Address": "10.204.12.28",
           "Port": 8888
         }
       },
@@ -512,12 +510,12 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1347217737,
-      "ModifyIndex": 1347217737
+      "CreateIndex": 1463002663,
+      "ModifyIndex": 1463002663
     },
     "Checks": [
       {
-        "Node": "aks-realtime0423-63750820-vmss000001",
+        "Node": "aks-realtime0423-63750820-vmss000005",
         "CheckID": "serfHealth",
         "Name": "Serf Health Status",
         "Status": "passing",
@@ -528,11 +526,11 @@ mkdir logs
         "ServiceTags": [],
         "Type": "",
         "Definition": {},
-        "CreateIndex": 1302179201,
-        "ModifyIndex": 1302179201
+        "CreateIndex": 1303938301,
+        "ModifyIndex": 1303938301
       },
       {
-        "Node": "aks-realtime0423-63750820-vmss000001",
+        "Node": "aks-realtime0423-63750820-vmss000005",
         "CheckID": "voice/t205-0-tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d/kubernetes-health-check",
         "Name": "Kubernetes Health Check",
         "Status": "passing",
@@ -543,8 +541,8 @@ mkdir logs
         "ServiceTags": [],
         "Type": "ttl",
         "Definition": {},
-        "CreateIndex": 1347219609,
-        "ModifyIndex": 1347219612
+        "CreateIndex": 1463002729,
+        "ModifyIndex": 1463010104
       }
     ]
   },
@@ -562,12 +560,12 @@ mkdir logs
       "ModifyIndex": 726768599
     },
     "Service": {
-      "ID": "tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d-1544da52506d",
+      "ID": "tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d-745ad0cfe291",
       "Service": "tenant-2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
       "Tags": [
         "k8s"
       ],
-      "Address": "10.204.4.216",
+      "Address": "10.204.12.28",
       "Meta": {
         "external-k8s-ns": "voice",
         "external-source": "kubernetes",
@@ -588,154 +586,134 @@ mkdir logs
         "Expose": {}
       },
       "Connect": {},
-      "CreateIndex": 1339268910,
-      "ModifyIndex": 1339268910
+      "CreateIndex": 1463010608,
+      "ModifyIndex": 1463010608
     },
     "Checks": []
   }
 ]
-2021-04-30T13:47:21.047000001Z info  katana_test starting epi after resolving sipproxy and tenant from consul
-2021-04-30T13:47:21.052000000Z debug  katana_test Listen on port 9260
-2021-04-30T13:47:21.054000000Z info  katana_test EpiClient:Connect 10.204.2.48 5200
-2021-04-30T13:47:21.055000000Z debug  katana_test redis ors stream options: {"client":"ioredis","servers":[{"host":"redis-ors-stream.service.dc1.consul","is_redis_cluster":true,"redis_dns_rrtype":"ANY"}],"redis_options":{"keepAlive":120000}}
-2021-04-30T13:47:21.085000000Z info  katana_test ioredis redis-ors-stream.service.dc1.consul:undefined
-2021-04-30T13:47:21.089000000Z info  katana_test EpiClient:Error Error: connect ECONNREFUSED 10.204.2.48:5200
-2021-04-30T13:47:21.091000000Z info  katana_test tlib:connected 10.204.4.216 8000
-2021-04-30T13:47:21.115000000Z noise  katana_test EventLinkConnected undefined undefined
-2021-04-30T13:47:21.115000001Z debug  katana_test Start Monitoring DNs
-2021-04-30T13:47:21.115000002Z debug  katana_test Register RPs 5050
-2021-04-30T13:47:21.116000000Z debug  katana_test Register RPs 6060
-2021-04-30T13:47:21.116000001Z debug  katana_test Register RPs 7007
-2021-04-30T13:47:21.116000002Z debug  katana_test Register Agents Dns
-2021-04-30T13:47:21.117000000Z debug  katana_test Register TrunkGroup TG_DN
-2021-04-30T13:47:21.119000000Z info  katana_test RedisAccess DNS resolution failure redis-ors-stream.service.dc1.consul ANY {
+2021-05-17T08:07:20.163000001Z info  katana_test starting epi after resolving sipproxy and tenant from consul
+2021-05-17T08:07:20.168000000Z debug  katana_test Listen on port 9260
+2021-05-17T08:07:20.170000000Z info  katana_test EpiClient:Connect 10.204.0.244 5200
+2021-05-17T08:07:20.171000000Z debug  katana_test redis ors stream options: {"client":"ioredis","servers":[{"host":"redis-ors-stream.service.dc1.consul","is_redis_cluster":true,"redis_dns_rrtype":"ANY"}],"redis_options":{"keepAlive":120000}}
+2021-05-17T08:07:20.201000000Z info  katana_test ioredis redis-ors-stream.service.dc1.consul:undefined
+2021-05-17T08:07:20.207000000Z info  katana_test EpiClient:Error Error: connect ECONNREFUSED 10.204.0.244:5200
+2021-05-17T08:07:20.208000000Z info  katana_test tlib:connected 10.204.12.28 8000
+2021-05-17T08:07:20.211000000Z noise  katana_test EventLinkConnected undefined undefined
+2021-05-17T08:07:20.211000001Z debug  katana_test Start Monitoring DNs
+2021-05-17T08:07:20.211000002Z debug  katana_test Register RPs 5050
+2021-05-17T08:07:20.211000003Z debug  katana_test Register RPs 6060
+2021-05-17T08:07:20.211000004Z debug  katana_test Register RPs 7007
+2021-05-17T08:07:20.211000005Z debug  katana_test Register Agents Dns
+2021-05-17T08:07:20.213000000Z debug  katana_test Register TrunkGroup TG_DN
+2021-05-17T08:07:20.216000000Z noise  katana_test EventRegistered 100000 undefined
+2021-05-17T08:07:20.216000001Z noise  katana_test Send TAgentLogin 100000 Cprs.100000
+2021-05-17T08:07:20.216000002Z noise  katana_test EventRegistered 100001 undefined
+2021-05-17T08:07:20.216000003Z noise  katana_test Send TAgentLogin 100001 Cprs.100001
+2021-05-17T08:07:20.216000004Z noise  katana_test EventRegistered 100002 undefined
+2021-05-17T08:07:20.216000005Z noise  katana_test Send TAgentLogin 100002 Cprs.100002
+2021-05-17T08:07:20.217000000Z noise  katana_test EventRegistered 100003 undefined
+2021-05-17T08:07:20.217000001Z noise  katana_test Send TAgentLogin 100003 Cprs.100003
+2021-05-17T08:07:20.217000002Z noise  katana_test EventRegistered 100004 undefined
+2021-05-17T08:07:20.217000003Z noise  katana_test Send TAgentLogin 100004 Cprs.100004
+2021-05-17T08:07:20.217000004Z noise  katana_test EventRegistered 100005 undefined
+2021-05-17T08:07:20.217000005Z noise  katana_test Send TAgentLogin 100005 Cprs.100005
+2021-05-17T08:07:20.217000006Z noise  katana_test EventRegistered 100006 undefined
+2021-05-17T08:07:20.217000007Z noise  katana_test Send TAgentLogin 100006 Cprs.100006
+2021-05-17T08:07:20.217000008Z noise  katana_test EventRegistered 100007 undefined
+2021-05-17T08:07:20.217000009Z noise  katana_test Send TAgentLogin 100007 Cprs.100007
+2021-05-17T08:07:20.219000000Z info  katana_test RedisAccess DNS resolution failure redis-ors-stream.service.dc1.consul ANY {
   "errno": "ENOTFOUND",
   "code": "ENOTFOUND",
   "syscall": "queryAny",
   "hostname": "redis-ors-stream.service.dc1.consul"
 }
-2021-04-30T13:47:21.120000000Z noise  katana_test EventRegistered 100000 undefined
-2021-04-30T13:47:21.120000001Z noise  katana_test Send TAgentLogin 100000 Cprs.100000
-2021-04-30T13:47:21.120000002Z noise  katana_test EventRegistered 100001 undefined
-2021-04-30T13:47:21.120000003Z noise  katana_test Send TAgentLogin 100001 Cprs.100001
-2021-04-30T13:47:21.120000004Z noise  katana_test EventRegistered 100002 undefined
-2021-04-30T13:47:21.120000005Z noise  katana_test Send TAgentLogin 100002 Cprs.100002
-2021-04-30T13:47:21.120000006Z noise  katana_test EventRegistered 100003 undefined
-2021-04-30T13:47:21.120000007Z noise  katana_test Send TAgentLogin 100003 Cprs.100003
-2021-04-30T13:47:21.121000000Z noise  katana_test EventRegistered 100004 undefined
-2021-04-30T13:47:21.121000001Z noise  katana_test Send TAgentLogin 100004 Cprs.100004
-2021-04-30T13:47:21.121000002Z noise  katana_test EventRegistered 100005 undefined
-2021-04-30T13:47:21.121000003Z noise  katana_test Send TAgentLogin 100005 Cprs.100005
-2021-04-30T13:47:21.121000004Z noise  katana_test EventRegistered 100006 undefined
-2021-04-30T13:47:21.121000005Z noise  katana_test Send TAgentLogin 100006 Cprs.100006
-2021-04-30T13:47:21.121000006Z noise  katana_test EventRegistered 100007 undefined
-2021-04-30T13:47:21.121000007Z noise  katana_test Send TAgentLogin 100007 Cprs.100007
-2021-04-30T13:47:21.121000008Z noise  katana_test EventRegistered 100008 undefined
-2021-04-30T13:47:21.121000009Z noise  katana_test Send TAgentLogin 100008 Cprs.100008
-2021-04-30T13:47:21.121000010Z noise  katana_test EventRegistered 100009 undefined
-2021-04-30T13:47:21.121000011Z noise  katana_test Send TAgentLogin 100009 Cprs.100009
-2021-04-30T13:47:21.122000000Z noise  katana_test EventRegistered 100010 undefined
-2021-04-30T13:47:21.122000001Z noise  katana_test Send TAgentLogin 100010 Cprs.100010
-2021-04-30T13:47:21.122000002Z noise  katana_test EventRegistered 100011 undefined
-2021-04-30T13:47:21.122000003Z noise  katana_test Send TAgentLogin 100011 Cprs.100011
-2021-04-30T13:47:21.122000004Z noise  katana_test EventRegistered 100012 undefined
-2021-04-30T13:47:21.122000005Z noise  katana_test Send TAgentLogin 100012 Cprs.100012
-2021-04-30T13:47:21.122000006Z noise  katana_test EventRegistered 100013 undefined
-2021-04-30T13:47:21.122000007Z noise  katana_test Send TAgentLogin 100013 Cprs.100013
-2021-04-30T13:47:21.122000008Z noise  katana_test EventRegistered 100014 undefined
-2021-04-30T13:47:21.122000009Z noise  katana_test Send TAgentLogin 100014 Cprs.100014
-2021-04-30T13:47:21.122000010Z noise  katana_test EventRegistered 100015 undefined
-2021-04-30T13:47:21.122000011Z noise  katana_test Send TAgentLogin 100015 Cprs.100015
-2021-04-30T13:47:21.125000000Z noise  katana_test EventRegistered 100016 undefined
-2021-04-30T13:47:21.125000001Z noise  katana_test Send TAgentLogin 100016 Cprs.100016
-2021-04-30T13:47:21.125000002Z noise  katana_test EventRegistered 100017 undefined
-2021-04-30T13:47:21.125000003Z noise  katana_test Send TAgentLogin 100017 Cprs.100017
-2021-04-30T13:47:21.125000004Z noise  katana_test EventRegistered 100018 undefined
-2021-04-30T13:47:21.125000005Z noise  katana_test Send TAgentLogin 100018 Cprs.100018
-2021-04-30T13:47:21.125000006Z noise  katana_test EventRegistered 100019 undefined
-2021-04-30T13:47:21.125000007Z noise  katana_test Send TAgentLogin 100019 Cprs.100019
-2021-04-30T13:47:21.135000000Z noise  katana_test EventRegistered 5050 undefined
-2021-04-30T13:47:21.136000000Z noise  katana_test EventRegistered 7007 undefined
-2021-04-30T13:47:21.137000000Z noise  katana_test EventRegistered TG_DN undefined
-2021-04-30T13:47:21.137000001Z noise  katana_test EventRegistered 6060 undefined
-2021-04-30T13:47:21.147000000Z noise  katana_test EventAgentLogin 100003 undefined
-2021-04-30T13:47:21.153000000Z noise  katana_test EventAgentNotReady 100003 undefined
-2021-04-30T13:47:21.158000000Z noise  katana_test EventAgentLogin 100001 undefined
-2021-04-30T13:47:21.161000000Z noise  katana_test EventAgentNotReady 100001 undefined
-2021-04-30T13:47:21.168000000Z noise  katana_test EventAgentLogin 100015 undefined
-2021-04-30T13:47:21.172000000Z noise  katana_test EventAgentNotReady 100015 undefined
-2021-04-30T13:47:21.182000000Z noise  katana_test EventAgentLogin 100005 undefined
-2021-04-30T13:47:21.186000000Z noise  katana_test EventAgentNotReady 100005 undefined
-2021-04-30T13:47:21.192000000Z noise  katana_test EventAgentLogin 100007 undefined
-2021-04-30T13:47:21.197000000Z noise  katana_test EventAgentNotReady 100007 undefined
-2021-04-30T13:47:21.208000000Z noise  katana_test EventAgentLogin 100006 undefined
-2021-04-30T13:47:21.212000000Z noise  katana_test EventAgentNotReady 100006 undefined
-2021-04-30T13:47:21.212000001Z noise  katana_test EventAgentLogin 100018 undefined
-2021-04-30T13:47:21.216000000Z noise  katana_test EventAgentNotReady 100018 undefined
-2021-04-30T13:47:21.255000000Z noise  katana_test EventAgentLogin 100014 undefined
-2021-04-30T13:47:21.259000000Z noise  katana_test EventAgentNotReady 100014 undefined
-2021-04-30T13:47:21.260000000Z noise  katana_test EventAgentLogin 100016 undefined
-2021-04-30T13:47:21.262000000Z noise  katana_test EventAgentNotReady 100016 undefined
-2021-04-30T13:47:21.327000000Z noise  katana_test EventAgentLogin 100010 undefined
-2021-04-30T13:47:21.331000000Z noise  katana_test EventAgentNotReady 100010 undefined
-2021-04-30T13:47:21.331000001Z noise  katana_test EventAgentLogin 100004 undefined
-2021-04-30T13:47:21.333000000Z noise  katana_test EventAgentNotReady 100004 undefined
-2021-04-30T13:47:21.334000000Z noise  katana_test EventAgentLogin 100008 undefined
-2021-04-30T13:47:21.339000000Z noise  katana_test EventAgentNotReady 100008 undefined
-2021-04-30T13:47:21.339000001Z noise  katana_test EventAgentLogin 100009 undefined
-2021-04-30T13:47:21.341000000Z noise  katana_test EventAgentNotReady 100009 undefined
-2021-04-30T13:47:21.368000000Z noise  katana_test EventAgentLogin 100002 undefined
-2021-04-30T13:47:21.372000000Z noise  katana_test EventAgentNotReady 100002 undefined
-2021-04-30T13:47:21.378000000Z noise  katana_test EventAgentLogin 100017 undefined
-2021-04-30T13:47:21.382000000Z noise  katana_test EventAgentNotReady 100017 undefined
-2021-04-30T13:47:21.401000000Z noise  katana_test EventAgentLogin 100000 undefined
-2021-04-30T13:47:21.404000000Z noise  katana_test EventAgentLogin 100011 undefined
-2021-04-30T13:47:21.406000000Z noise  katana_test EventAgentNotReady 100000 undefined
-2021-04-30T13:47:21.407000000Z noise  katana_test EventAgentNotReady 100011 undefined
-2021-04-30T13:47:21.428000000Z noise  katana_test EventAgentLogin 100013 undefined
-2021-04-30T13:47:21.432000000Z noise  katana_test EventAgentNotReady 100013 undefined
-2021-04-30T13:47:21.433000000Z noise  katana_test EventAgentLogin 100012 undefined
-2021-04-30T13:47:21.435000000Z noise  katana_test EventAgentNotReady 100012 undefined
-2021-04-30T13:47:21.437000000Z noise  katana_test EventAgentLogin 100019 undefined
-2021-04-30T13:47:21.440000000Z noise  katana_test EventAgentNotReady 100019 undefined
+2021-05-17T08:07:20.220000000Z noise  katana_test EventRegistered 100008 undefined
+2021-05-17T08:07:20.220000001Z noise  katana_test Send TAgentLogin 100008 Cprs.100008
+2021-05-17T08:07:20.220000002Z noise  katana_test EventRegistered 100009 undefined
+2021-05-17T08:07:20.220000003Z noise  katana_test Send TAgentLogin 100009 Cprs.100009
+2021-05-17T08:07:20.220000004Z noise  katana_test EventRegistered 100010 undefined
+2021-05-17T08:07:20.220000005Z noise  katana_test Send TAgentLogin 100010 Cprs.100010
+2021-05-17T08:07:20.220000006Z noise  katana_test EventRegistered 100011 undefined
+2021-05-17T08:07:20.220000007Z noise  katana_test Send TAgentLogin 100011 Cprs.100011
+2021-05-17T08:07:20.220000008Z noise  katana_test EventRegistered 100012 undefined
+2021-05-17T08:07:20.220000009Z noise  katana_test Send TAgentLogin 100012 Cprs.100012
+2021-05-17T08:07:20.220000010Z noise  katana_test EventRegistered 100013 undefined
+2021-05-17T08:07:20.221000000Z noise  katana_test Send TAgentLogin 100013 Cprs.100013
+2021-05-17T08:07:20.221000001Z noise  katana_test EventRegistered 100014 undefined
+2021-05-17T08:07:20.221000002Z noise  katana_test Send TAgentLogin 100014 Cprs.100014
+2021-05-17T08:07:20.221000003Z noise  katana_test EventRegistered 100015 undefined
+2021-05-17T08:07:20.221000004Z noise  katana_test Send TAgentLogin 100015 Cprs.100015
+2021-05-17T08:07:20.221000005Z noise  katana_test EventRegistered 100016 undefined
+2021-05-17T08:07:20.221000006Z noise  katana_test Send TAgentLogin 100016 Cprs.100016
+2021-05-17T08:07:20.221000007Z noise  katana_test EventRegistered 100017 undefined
+2021-05-17T08:07:20.221000008Z noise  katana_test Send TAgentLogin 100017 Cprs.100017
+2021-05-17T08:07:20.221000009Z noise  katana_test EventRegistered 100018 undefined
+2021-05-17T08:07:20.221000010Z noise  katana_test Send TAgentLogin 100018 Cprs.100018
+2021-05-17T08:07:20.221000011Z noise  katana_test EventRegistered 100019 undefined
+2021-05-17T08:07:20.221000012Z noise  katana_test Send TAgentLogin 100019 Cprs.100019
+2021-05-17T08:07:20.224000000Z noise  katana_test EventRegistered 6060 undefined
+2021-05-17T08:07:20.224000001Z noise  katana_test EventRegistered 7007 undefined
+2021-05-17T08:07:20.224000002Z noise  katana_test EventRegistered 5050 undefined
+2021-05-17T08:07:20.233000000Z noise  katana_test EventRegistered TG_DN undefined
+2021-05-17T08:07:20.245000000Z noise  katana_test EventAgentLogin 100001 undefined
+2021-05-17T08:07:20.257000000Z noise  katana_test EventAgentLogin 100003 undefined
+2021-05-17T08:07:20.258000000Z noise  katana_test EventAgentNotReady 100003 undefined
+2021-05-17T08:07:20.258000001Z noise  katana_test EventAgentLogin 100000 undefined
+2021-05-17T08:07:20.258000002Z noise  katana_test EventAgentNotReady 100000 undefined
+2021-05-17T08:07:20.258000003Z noise  katana_test EventAgentNotReady 100001 undefined
+2021-05-17T08:07:20.259000000Z noise  katana_test EventAgentLogin 100005 undefined
+2021-05-17T08:07:20.259000001Z noise  katana_test EventAgentNotReady 100005 undefined
+2021-05-17T08:07:20.263000000Z noise  katana_test EventAgentLogin 100012 undefined
+2021-05-17T08:07:20.269000000Z noise  katana_test EventAgentNotReady 100012 undefined
+2021-05-17T08:07:20.271000000Z noise  katana_test EventAgentLogin 100006 undefined
+2021-05-17T08:07:20.272000000Z noise  katana_test EventAgentNotReady 100006 undefined
+2021-05-17T08:07:20.272000001Z noise  katana_test EventAgentLogin 100013 undefined
+2021-05-17T08:07:20.272000002Z noise  katana_test EventAgentNotReady 100013 undefined
+2021-05-17T08:07:20.275000000Z noise  katana_test EventAgentLogin 100018 undefined
+2021-05-17T08:07:20.283000000Z noise  katana_test EventAgentNotReady 100018 undefined
+2021-05-17T08:07:20.283000001Z noise  katana_test EventAgentLogin 100009 undefined
+2021-05-17T08:07:20.283000002Z noise  katana_test EventAgentNotReady 100009 undefined
+2021-05-17T08:07:20.284000000Z noise  katana_test EventAgentLogin 100008 undefined
+2021-05-17T08:07:20.284000001Z noise  katana_test EventAgentNotReady 100008 undefined
+2021-05-17T08:07:20.284000002Z noise  katana_test EventAgentLogin 100019 undefined
+2021-05-17T08:07:20.285000000Z noise  katana_test EventAgentNotReady 100019 undefined
+2021-05-17T08:07:20.297000000Z noise  katana_test EventAgentLogin 100016 undefined
+2021-05-17T08:07:20.300000000Z noise  katana_test EventAgentNotReady 100016 undefined
+2021-05-17T08:07:20.319000000Z noise  katana_test EventAgentLogin 100007 undefined
+2021-05-17T08:07:20.321000000Z noise  katana_test EventAgentNotReady 100007 undefined
+2021-05-17T08:07:20.322000000Z noise  katana_test EventAgentLogin 100017 undefined
+2021-05-17T08:07:20.322000001Z noise  katana_test EventAgentNotReady 100017 undefined
+2021-05-17T08:07:20.379000000Z noise  katana_test EventAgentLogin 100002 undefined
+2021-05-17T08:07:20.384000000Z noise  katana_test EventAgentNotReady 100002 undefined
+2021-05-17T08:07:20.385000000Z noise  katana_test EventAgentLogin 100011 undefined
+2021-05-17T08:07:20.385000001Z noise  katana_test EventAgentNotReady 100011 undefined
+2021-05-17T08:07:20.397000000Z noise  katana_test EventAgentLogin 100010 undefined
+2021-05-17T08:07:20.397000001Z noise  katana_test EventAgentNotReady 100010 undefined
+2021-05-17T08:07:20.400000000Z noise  katana_test EventAgentLogin 100004 undefined
+2021-05-17T08:07:20.400000001Z noise  katana_test EventAgentNotReady 100004 undefined
+2021-05-17T08:07:20.400000002Z noise  katana_test EventAgentLogin 100015 undefined
+2021-05-17T08:07:20.401000000Z noise  katana_test EventAgentNotReady 100015 undefined
+2021-05-17T08:07:20.432000000Z noise  katana_test EventAgentLogin 100014 undefined
+2021-05-17T08:07:20.435000000Z noise  katana_test EventAgentNotReady 100014 undefined
 Start EpiPhone: estng_64 -ng esttt.conf
-2021-04-30T13:47:21.737000000Z noise  katana_test EventDNBackInService 100000 undefined
-2021-04-30T13:47:21.741000000Z noise  katana_test EventDNBackInService 100001 undefined
-2021-04-30T13:47:21.744000000Z noise  katana_test EventDNBackInService 100002 undefined
-2021-04-30T13:47:21.745000000Z noise  katana_test EventDNBackInService 100003 undefined
-2021-04-30T13:47:21.746000000Z noise  katana_test EventDNBackInService 100004 undefined
-2021-04-30T13:47:21.749000000Z noise  katana_test EventDNBackInService 100006 undefined
-2021-04-30T13:47:21.750000000Z noise  katana_test EventDNBackInService 100005 undefined
-2021-04-30T13:47:21.753000000Z noise  katana_test EventDNBackInService 100007 undefined
-2021-04-30T13:47:21.756000000Z noise  katana_test EventDNBackInService 100008 undefined
-2021-04-30T13:47:21.757000000Z noise  katana_test EventDNBackInService 100009 undefined
-2021-04-30T13:47:21.765000000Z noise  katana_test EventDNBackInService 100011 undefined
-2021-04-30T13:47:21.773000000Z noise  katana_test EventDNBackInService 100014 undefined
-2021-04-30T13:47:21.787000000Z noise  katana_test EventDNBackInService 100016 undefined
-2021-04-30T13:47:21.790000000Z noise  katana_test EventDNBackInService 100010 undefined
-2021-04-30T13:47:21.791000000Z noise  katana_test EventDNBackInService 100012 undefined
-2021-04-30T13:47:21.792000000Z noise  katana_test EventDNBackInService 100015 undefined
-2021-04-30T13:47:21.793000000Z noise  katana_test EventDNBackInService 100017 undefined
-2021-04-30T13:47:21.794000000Z noise  katana_test EventDNBackInService 100018 undefined
-2021-04-30T13:47:21.833000000Z noise  katana_test EventDNBackInService 100013 undefined
-2021-04-30T13:47:21.836000000Z noise  katana_test EventDNBackInService 100019 undefined
-2021-04-30T13:47:22.120000000Z noise  katana_test {
+2021-05-17T08:07:21.221000000Z noise  katana_test {
   "errno": "ENOTFOUND",
   "code": "ENOTFOUND",
   "syscall": "queryAny",
   "hostname": "redis-ors-stream.service.dc1.consul"
 }
-2021-04-30T13:47:23.091000000Z info  katana_test EpiClient:Connect 10.204.2.48 5200
-2021-04-30T13:47:23.091000001Z info  katana_test EpiClient:Connected 10.204.2.48 5200
-2021-04-30T13:47:23.091000002Z info  katana_test Register with EpiPhone 8.5.020.05 <sip:10.204.2.48:5069>
-2021-04-30T13:47:23.121000000Z noise  katana_test {
+2021-05-17T08:07:22.207000000Z info  katana_test EpiClient:Connect 10.204.0.244 5200
+2021-05-17T08:07:22.208000000Z info  katana_test EpiClient:Connected 10.204.0.244 5200
+2021-05-17T08:07:22.210000000Z info  katana_test Register with EpiPhone 8.5.020.05 <sip:10.204.0.244:5069>
+2021-05-17T08:07:22.221000000Z noise  katana_test {
   "errno": "ENOTFOUND",
   "code": "ENOTFOUND",
   "syscall": "queryAny",
   "hostname": "redis-ors-stream.service.dc1.consul"
 }
-2021-04-30T13:47:24.093000000Z info  katana_test Start Test Suite
-2021-04-30T13:47:24.093000001Z info  katana_test log_results {
+2021-05-17T08:07:23.211000000Z info  katana_test Start Test Suite
+2021-05-17T08:07:23.212000000Z info  katana_test log_results {
   "level": "debug",
   "module": "",
   "tenant_id": "",
@@ -750,23 +728,23 @@ Start EpiPhone: estng_64 -ng esttt.conf
     }
   ]
 }
-2021-04-30T13:47:24.096000000Z noise  katana_test Epi Send: call,dn="98$$",from="980001",to=5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:24.096000001Z debug  katana_test Asking EpiPhone to call from 980001 to 5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:24.096000000Z debug  T01_Inb_basic PASS EpiPhone call 980001 to 5050
-2021-04-30T13:47:24.100000000Z noise  katana_test Epi Data: (200,id=23)
-2021-04-30T13:47:24.100000001Z debug  katana_test Call generated id: 23
-2021-04-30T13:47:24.122000000Z noise  katana_test {
+2021-05-17T08:07:23.214000000Z noise  katana_test Epi Send: call,dn="98$$",from="980001",to=5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:23.214000001Z debug  katana_test Asking EpiPhone to call from 980001 to 5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:23.214000000Z debug  T01_Inb_basic PASS EpiPhone call 980001 to 5050
+2021-05-17T08:07:23.217000000Z noise  katana_test Epi Data: (200,id=23)
+2021-05-17T08:07:23.217000001Z debug  katana_test Call generated id: 23
+2021-05-17T08:07:23.222000000Z noise  katana_test {
   "errno": "ENOTFOUND",
   "code": "ENOTFOUND",
   "syscall": "queryAny",
   "hostname": "redis-ors-stream.service.dc1.consul"
 }
-2021-04-30T13:47:24.125000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
-2021-04-30T13:47:24.126000000Z noise  katana_test EventRouteRequest 5050 980001
-2021-04-30T13:47:24.126000001Z noise  katana_test EventRouteRequest 5050 {
+2021-05-17T08:07:23.233000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
+2021-05-17T08:07:23.233000001Z noise  katana_test EventRouteRequest 5050 980001
+2021-05-17T08:07:23.234000000Z noise  katana_test EventRouteRequest 5050 {
   "id": "EventRouteRequest",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001f932",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000021e3d",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "original-dialplan-digits": "5050",
@@ -775,115 +753,115 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980001",
   "AddressType": 4,
-  "PartyUUID": "02AJUTJU2888N6L0KG5SO2LAES00187R",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183G",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
   "ThisDN": "5050",
-  "CallThreadID": "02AK3EJU2888N6L0KG5SO2LAES000452",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JS",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980001",
   "DNIS": "5050",
-  "CallUUID": "019MV4JU1G88N6L0KG5SO2LAES00055N",
-  "ConnID": "10e5031851d130a2",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QA",
+  "ConnID": "20860319b7d81e7c",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.197000001Z info 10e5031851d130a2 T01_Inb_basic PASS EventRouteRequest 5050
-2021-04-30T13:47:24.198000000Z info 10e5031851d130a2 T01_Inb_basic PASS RouteCall 5050 100003 45
-2021-04-30T13:47:24.265000000Z noise  katana_test EventAttachedDataChanged 100003 undefined
-2021-04-30T13:47:24.267000000Z noise  katana_test EventRinging 100003 980001
-2021-04-30T13:47:24.267000001Z noise  katana_test EventRinging 100003 {
+2021-05-17T08:07:23.314000001Z info 20860319b7d81e7c T01_Inb_basic PASS EventRouteRequest 5050
+2021-05-17T08:07:23.315000000Z info 20860319b7d81e7c T01_Inb_basic PASS RouteCall 5050 100001 45
+2021-05-17T08:07:23.430000000Z noise  katana_test EventAttachedDataChanged 100001 undefined
+2021-05-17T08:07:23.431000000Z noise  katana_test EventRinging 100001 980001
+2021-05-17T08:07:23.431000001Z noise  katana_test EventRinging 100001 {
   "id": "EventRinging",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001f937",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000021e42",
   "Extensions": {
-    "parent-party-uuid": "02AJUTJU2888N6L0KG5SO2LAES00187R",
+    "parent-party-uuid": "028JAKMUG48A348UH42SO2LAES00183G",
     "OtherTrunkName": "pstn_trunk",
     "OriginationDN": "980001",
     "OriginationDN_location": "SIP_Cluster",
-    "original-dialplan-digits": "100003",
+    "original-dialplan-digits": "100001",
     "BusinessCall": 1,
     "LoginLocation": "westus2-dev"
   },
   "AddressType": 1,
-  "AgentID": "Cprs.100003",
-  "PartyUUID": "02AJUTJU2888N6L0KG5SO2LAES00187S",
+  "AgentID": "Cprs.100001",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183H",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100003",
-  "CallThreadID": "02AK3EJU2888N6L0KG5SO2LAES000452",
+  "ThisDN": "100001",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JS",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980001",
   "DNIS": "5050",
-  "CallUUID": "019MV4JU1G88N6L0KG5SO2LAES00055N",
-  "ConnID": "10e5031851d130a2",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QA",
+  "ConnID": "20860319b7d81e7c",
   "CallType": "Inbound",
   "CallState": "Ok",
   "OtherDNRole": "Origination",
   "OtherDN": "980001",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.298000001Z info 10e5031851d130a2 T01_Inb_basic PASS EventRinging 100003
-2021-04-30T13:47:24.299000000Z info 10e5031851d130a2 T01_Inb_basic PASS AnswerCall 100003 46
-2021-04-30T13:47:24.351000000Z noise  katana_test EventRouteUsed 5050 980001
-2021-04-30T13:47:24.351000001Z noise  katana_test EventRouteUsed 5050 {
+2021-05-17T08:07:23.515000001Z info 20860319b7d81e7c T01_Inb_basic PASS EventRinging 100001
+2021-05-17T08:07:23.515000002Z info 20860319b7d81e7c T01_Inb_basic PASS AnswerCall 100001 46
+2021-05-17T08:07:23.562000000Z noise  katana_test EventRouteUsed 5050 980001
+2021-05-17T08:07:23.562000001Z noise  katana_test EventRouteUsed 5050 {
   "id": "EventRouteUsed",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001f938",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000021e43",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1
   },
   "ReferenceID": 45,
   "ThirdPartyDNRole": "Destination",
-  "ThirdPartyDN": "100003",
+  "ThirdPartyDN": "100001",
   "OtherDNRole": "Origination",
   "OtherDN": "980001",
   "AddressType": 4,
-  "PartyUUID": "02AJUTJU2888N6L0KG5SO2LAES00187R",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183G",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
   "ThisDN": "5050",
-  "CallThreadID": "02AK3EJU2888N6L0KG5SO2LAES000452",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JS",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980001",
   "DNIS": "5050",
-  "CallUUID": "019MV4JU1G88N6L0KG5SO2LAES00055N",
-  "ConnID": "10e5031851d130a2",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QA",
+  "ConnID": "20860319b7d81e7c",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.354000000Z noise  katana_test EventUserEvent 100003 undefined
-2021-04-30T13:47:24.354000001Z noise  katana_test EventUserEvent 100003 {
+2021-05-17T08:07:23.564000000Z noise  katana_test EventUserEvent 100001 undefined
+2021-05-17T08:07:23.565000000Z noise  katana_test EventUserEvent 100001 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001f93b",
+  "EventSequenceNumber": "0000000000021e46",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTPartiesLength": 0
   },
-  "ConnID": "10e5031851d130a2",
-  "ThisDN": "100003"
+  "ConnID": "20860319b7d81e7c",
+  "ThisDN": "100001"
 }
-2021-04-30T13:47:24.354000002Z noise  katana_test EventUserEvent 100003 undefined
-2021-04-30T13:47:24.354000003Z noise  katana_test EventUserEvent 100003 {
+2021-05-17T08:07:23.565000001Z noise  katana_test EventUserEvent 100001 undefined
+2021-05-17T08:07:23.565000002Z noise  katana_test EventUserEvent 100001 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001f93c",
+  "EventSequenceNumber": "0000000000021e47",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTPartiesLength": 0
   },
-  "ConnID": "10e5031851d130a2",
-  "ThisDN": "100003"
+  "ConnID": "20860319b7d81e7c",
+  "ThisDN": "100001"
 }
-2021-04-30T13:47:24.355000000Z noise  katana_test EventEstablished 100003 980001
-2021-04-30T13:47:24.355000001Z noise  katana_test EventEstablished 100003 {
+2021-05-17T08:07:23.565000003Z noise  katana_test EventEstablished 100001 980001
+2021-05-17T08:07:23.565000004Z noise  katana_test EventEstablished 100001 {
   "id": "EventEstablished",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001f93f",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000021e4a",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -893,63 +871,63 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980001",
   "AddressType": 1,
-  "AgentID": "Cprs.100003",
-  "PartyUUID": "02AJUTJU2888N6L0KG5SO2LAES00187S",
+  "AgentID": "Cprs.100001",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183H",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100003",
-  "CallThreadID": "02AK3EJU2888N6L0KG5SO2LAES000452",
+  "ThisDN": "100001",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JS",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980001",
   "DNIS": "5050",
-  "CallUUID": "019MV4JU1G88N6L0KG5SO2LAES00055N",
-  "ConnID": "10e5031851d130a2",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QA",
+  "ConnID": "20860319b7d81e7c",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.356000000Z noise  katana_test EventUserEvent 100003 undefined
-2021-04-30T13:47:24.356000001Z noise  katana_test EventUserEvent 100003 {
+2021-05-17T08:07:23.565000005Z noise  katana_test EventUserEvent 100001 undefined
+2021-05-17T08:07:23.565000006Z noise  katana_test EventUserEvent 100001 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001f940",
+  "EventSequenceNumber": "0000000000021e4b",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
-    "LCTParty0": "100003",
+    "LCTParty0": "100001",
     "LCTParty0_location": "SIP_Cluster",
     "LCTPartiesLength": 1
   },
-  "ConnID": "10e5031851d130a2",
-  "ThisDN": "100003"
+  "ConnID": "20860319b7d81e7c",
+  "ThisDN": "100001"
 }
-2021-04-30T13:47:24.367000000Z noise  katana_test EventUserEvent 100003 undefined
-2021-04-30T13:47:24.367000001Z noise  katana_test EventUserEvent 100003 {
+2021-05-17T08:07:23.597000000Z noise  katana_test EventUserEvent 100001 undefined
+2021-05-17T08:07:23.597000001Z noise  katana_test EventUserEvent 100001 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001f941",
+  "EventSequenceNumber": "0000000000021e4c",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTParty0": "980001",
     "LCTParty0_location": "SIP_Cluster",
-    "LCTParty1": "100003",
+    "LCTParty1": "100001",
     "LCTParty1_location": "SIP_Cluster",
     "LCTPartiesLength": 2
   },
-  "ConnID": "10e5031851d130a2",
-  "ThisDN": "100003"
+  "ConnID": "20860319b7d81e7c",
+  "ThisDN": "100001"
 }
-2021-04-30T13:47:24.400000000Z info 10e5031851d130a2 T01_Inb_basic IGNR EventRouteUsed 5050 undefined
-2021-04-30T13:47:24.400000002Z info 10e5031851d130a2 T01_Inb_basic IGNR EventUserEvent 100003 undefined
-2021-04-30T13:47:24.400000004Z info 10e5031851d130a2 T01_Inb_basic IGNR EventUserEvent 100003 undefined
-2021-04-30T13:47:24.400000006Z info 10e5031851d130a2 T01_Inb_basic PASS EventEstablished 100003
-2021-04-30T13:47:24.400000007Z info 10e5031851d130a2 T01_Inb_basic PASS ReleaseCall '100003'
-2021-04-30T13:47:24.400000009Z info 10e5031851d130a2 T01_Inb_basic IGNR EventUserEvent 100003 undefined
-2021-04-30T13:47:24.400000011Z info 10e5031851d130a2 T01_Inb_basic IGNR EventUserEvent 100003 undefined
-2021-04-30T13:47:24.489000000Z noise  katana_test EventReleased 100003 980001
-2021-04-30T13:47:24.489000001Z noise  katana_test EventReleased 100003 {
+2021-05-17T08:07:23.616000000Z info 20860319b7d81e7c T01_Inb_basic IGNR EventRouteUsed 5050 undefined
+2021-05-17T08:07:23.616000002Z info 20860319b7d81e7c T01_Inb_basic IGNR EventUserEvent 100001 undefined
+2021-05-17T08:07:23.616000004Z info 20860319b7d81e7c T01_Inb_basic IGNR EventUserEvent 100001 undefined
+2021-05-17T08:07:23.616000006Z info 20860319b7d81e7c T01_Inb_basic PASS EventEstablished 100001
+2021-05-17T08:07:23.616000007Z info 20860319b7d81e7c T01_Inb_basic PASS ReleaseCall '100001'
+2021-05-17T08:07:23.616000009Z info 20860319b7d81e7c T01_Inb_basic IGNR EventUserEvent 100001 undefined
+2021-05-17T08:07:23.616000011Z info 20860319b7d81e7c T01_Inb_basic IGNR EventUserEvent 100001 undefined
+2021-05-17T08:07:23.752000000Z noise  katana_test EventReleased 100001 980001
+2021-05-17T08:07:23.752000001Z noise  katana_test EventReleased 100001 {
   "id": "EventReleased",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001f942",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000021e4d",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -959,36 +937,36 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980001",
   "AddressType": 1,
-  "AgentID": "Cprs.100003",
-  "PartyUUID": "02AJUTJU2888N6L0KG5SO2LAES00187S",
+  "AgentID": "Cprs.100001",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183H",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100003",
-  "CallThreadID": "02AK3EJU2888N6L0KG5SO2LAES000452",
+  "ThisDN": "100001",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JS",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980001",
   "DNIS": "5050",
-  "CallUUID": "019MV4JU1G88N6L0KG5SO2LAES00055N",
-  "ConnID": "10e5031851d130a2",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QA",
+  "ConnID": "20860319b7d81e7c",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.500000001Z info 10e5031851d130a2 T01_Inb_basic PASS EventReleased 100003
-2021-04-30T13:47:24.501000000Z info 10e5031851d130a2 T01_Inb_basic PASS 001_1PCC.001_001_inb_rp_basic.T01_Inb_basic undefined
-2021-04-30T13:47:24.501000000Z info  katana_test Test result PASS 001_1PCC.001_001_inb_rp_basic.T01_Inb_basic undefined
-2021-04-30T13:47:24.501000001Z info  katana_test STARTED=1 PASS=1 FAIL=0
-2021-04-30T13:47:24.501000002Z noise  katana_test Epi Send: call,dn="98$$",from="980002",to=5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:24.501000003Z debug  katana_test Asking EpiPhone to call from 980002 to 5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:24.501000001Z debug  T02_Inb_hold_ PASS EpiPhone call 980002 to 5050
-2021-04-30T13:47:24.505000000Z noise  katana_test Epi Data: (200,id=25)
-2021-04-30T13:47:24.505000001Z debug  katana_test Call generated id: 25
-2021-04-30T13:47:24.521000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
-2021-04-30T13:47:24.522000000Z noise  katana_test EventRouteRequest 5050 980002
-2021-04-30T13:47:24.522000001Z noise  katana_test EventRouteRequest 5050 {
+2021-05-17T08:07:23.818000001Z info 20860319b7d81e7c T01_Inb_basic PASS EventReleased 100001
+2021-05-17T08:07:23.818000002Z info 20860319b7d81e7c T01_Inb_basic PASS 001_1PCC.001_001_inb_rp_basic.T01_Inb_basic undefined
+2021-05-17T08:07:23.818000000Z info  katana_test Test result PASS 001_1PCC.001_001_inb_rp_basic.T01_Inb_basic undefined
+2021-05-17T08:07:23.819000000Z info  katana_test STARTED=1 PASS=1 FAIL=0
+2021-05-17T08:07:23.819000001Z noise  katana_test Epi Send: call,dn="98$$",from="980002",to=5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:23.819000002Z debug  katana_test Asking EpiPhone to call from 980002 to 5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:23.819000000Z debug  T02_Inb_hold_ PASS EpiPhone call 980002 to 5050
+2021-05-17T08:07:23.820000000Z noise  katana_test Epi Data: (200,id=25)
+2021-05-17T08:07:23.820000001Z debug  katana_test Call generated id: 25
+2021-05-17T08:07:23.842000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
+2021-05-17T08:07:23.842000001Z noise  katana_test EventRouteRequest 5050 980002
+2021-05-17T08:07:23.842000002Z noise  katana_test EventRouteRequest 5050 {
   "id": "EventRouteRequest",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001d9f2",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "0000000000023119",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "original-dialplan-digits": "5050",
@@ -997,115 +975,115 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 4,
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q3",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019F9",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
   "ThisDN": "5050",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.601000001Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventRouteRequest 5050
-2021-04-30T13:47:24.602000000Z info 00c4031851cfefbc T02_Inb_hold_ PASS RouteCall 5050 100001 48
-2021-04-30T13:47:24.653000000Z noise  katana_test EventAttachedDataChanged 100001 undefined
-2021-04-30T13:47:24.655000000Z noise  katana_test EventRinging 100001 980002
-2021-04-30T13:47:24.655000001Z noise  katana_test EventRinging 100001 {
+2021-05-17T08:07:23.920000000Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventRouteRequest 5050
+2021-05-17T08:07:23.920000001Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS RouteCall 5050 100003 48
+2021-05-17T08:07:23.956000000Z noise  katana_test EventAttachedDataChanged 100003 undefined
+2021-05-17T08:07:23.956000001Z noise  katana_test EventRinging 100003 980002
+2021-05-17T08:07:23.956000002Z noise  katana_test EventRinging 100003 {
   "id": "EventRinging",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001d9f7",
+  "TimeStamp": 1621238843000,
+  "EventSequenceNumber": "000000000002311e",
   "Extensions": {
-    "parent-party-uuid": "01NKH63TVO88ND3N2C3CO2LAES0015Q3",
+    "parent-party-uuid": "00L2RMMU888A3ADAKG5SO2LAES0019F9",
     "OtherTrunkName": "pstn_trunk",
     "OriginationDN": "980002",
     "OriginationDN_location": "SIP_Cluster",
-    "original-dialplan-digits": "100001",
+    "original-dialplan-digits": "100003",
     "BusinessCall": 1,
     "LoginLocation": "westus2-dev"
   },
   "AddressType": 1,
-  "AgentID": "Cprs.100001",
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q4",
+  "AgentID": "Cprs.100003",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019FA",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100001",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "ThisDN": "100003",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.703000001Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventRinging 100001
-2021-04-30T13:47:24.703000002Z info 00c4031851cfefbc T02_Inb_hold_ PASS AnswerCall 100001 49
-2021-04-30T13:47:24.739000000Z noise  katana_test EventRouteUsed 5050 980002
-2021-04-30T13:47:24.739000001Z noise  katana_test EventRouteUsed 5050 {
+2021-05-17T08:07:24.019000001Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventRinging 100003
+2021-05-17T08:07:24.020000000Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS AnswerCall 100003 49
+2021-05-17T08:07:24.150000000Z noise  katana_test EventRouteUsed 5050 980002
+2021-05-17T08:07:24.150000001Z noise  katana_test EventRouteUsed 5050 {
   "id": "EventRouteUsed",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001d9f8",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "000000000002311f",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1
   },
   "ReferenceID": 48,
   "ThirdPartyDNRole": "Destination",
-  "ThirdPartyDN": "100001",
+  "ThirdPartyDN": "100003",
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 4,
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q3",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019F9",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
   "ThisDN": "5050",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.744000000Z noise  katana_test EventUserEvent 100001 undefined
-2021-04-30T13:47:24.744000001Z noise  katana_test EventUserEvent 100001 {
+2021-05-17T08:07:24.153000000Z noise  katana_test EventUserEvent 100003 undefined
+2021-05-17T08:07:24.153000001Z noise  katana_test EventUserEvent 100003 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001d9fb",
+  "EventSequenceNumber": "0000000000023122",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTPartiesLength": 0
   },
-  "ConnID": "00c4031851cfefbc",
-  "ThisDN": "100001"
+  "ConnID": "30a70319b7d42ee6",
+  "ThisDN": "100003"
 }
-2021-04-30T13:47:24.746000000Z noise  katana_test EventUserEvent 100001 undefined
-2021-04-30T13:47:24.746000001Z noise  katana_test EventUserEvent 100001 {
+2021-05-17T08:07:24.153000002Z noise  katana_test EventUserEvent 100003 undefined
+2021-05-17T08:07:24.153000003Z noise  katana_test EventUserEvent 100003 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001d9fc",
+  "EventSequenceNumber": "0000000000023123",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTPartiesLength": 0
   },
-  "ConnID": "00c4031851cfefbc",
-  "ThisDN": "100001"
+  "ConnID": "30a70319b7d42ee6",
+  "ThisDN": "100003"
 }
-2021-04-30T13:47:24.746000002Z noise  katana_test EventEstablished 100001 980002
-2021-04-30T13:47:24.746000003Z noise  katana_test EventEstablished 100001 {
+2021-05-17T08:07:24.153000004Z noise  katana_test EventEstablished 100003 980002
+2021-05-17T08:07:24.154000000Z noise  katana_test EventEstablished 100003 {
   "id": "EventEstablished",
-  "TimeStamp": 1619790444000,
-  "EventSequenceNumber": "000000000001d9ff",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "0000000000023126",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -1115,63 +1093,70 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 1,
-  "AgentID": "Cprs.100001",
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q4",
+  "AgentID": "Cprs.100003",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019FA",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100001",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "ThisDN": "100003",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:24.748000000Z noise  katana_test EventUserEvent 100001 undefined
-2021-04-30T13:47:24.748000001Z noise  katana_test EventUserEvent 100001 {
+2021-05-17T08:07:24.154000001Z noise  katana_test EventUserEvent 100003 undefined
+2021-05-17T08:07:24.154000002Z noise  katana_test EventUserEvent 100003 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001da00",
+  "EventSequenceNumber": "0000000000023127",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
-    "LCTParty0": "100001",
+    "LCTParty0": "100003",
     "LCTParty0_location": "SIP_Cluster",
     "LCTPartiesLength": 1
   },
-  "ConnID": "00c4031851cfefbc",
-  "ThisDN": "100001"
+  "ConnID": "30a70319b7d42ee6",
+  "ThisDN": "100003"
 }
-2021-04-30T13:47:24.748000002Z noise  katana_test EventUserEvent 100001 undefined
-2021-04-30T13:47:24.748000003Z noise  katana_test EventUserEvent 100001 {
+2021-05-17T08:07:24.154000003Z noise  katana_test EventUserEvent 100003 undefined
+2021-05-17T08:07:24.154000004Z noise  katana_test EventUserEvent 100003 {
   "id": "EventUserEvent",
   "TimeStamp": 0,
-  "EventSequenceNumber": "000000000001da01",
+  "EventSequenceNumber": "0000000000023128",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "Extensions": {
     "LCTParty0": "980002",
     "LCTParty0_location": "SIP_Cluster",
-    "LCTParty1": "100001",
+    "LCTParty1": "100003",
     "LCTParty1_location": "SIP_Cluster",
     "LCTPartiesLength": 2
   },
-  "ConnID": "00c4031851cfefbc",
-  "ThisDN": "100001"
+  "ConnID": "30a70319b7d42ee6",
+  "ThisDN": "100003"
 }
-2021-04-30T13:47:24.803000001Z info 00c4031851cfefbc T02_Inb_hold_ IGNR EventRouteUsed 5050 undefined
-2021-04-30T13:47:24.803000003Z info 00c4031851cfefbc T02_Inb_hold_ IGNR EventUserEvent 100001 undefined
-2021-04-30T13:47:24.803000005Z info 00c4031851cfefbc T02_Inb_hold_ IGNR EventUserEvent 100001 undefined
-2021-04-30T13:47:24.803000007Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventEstablished 100001
-2021-04-30T13:47:24.804000000Z info 00c4031851cfefbc T02_Inb_hold_ PASS HoldCall '100001'
-2021-04-30T13:47:24.804000002Z info 00c4031851cfefbc T02_Inb_hold_ IGNR EventUserEvent 100001 undefined
-2021-04-30T13:47:24.804000004Z info 00c4031851cfefbc T02_Inb_hold_ IGNR EventUserEvent 100001 undefined
-2021-04-30T13:47:25.048000000Z noise  katana_test EventHeld 100001 980002
-2021-04-30T13:47:25.048000001Z noise  katana_test EventHeld 100001 {
+2021-05-17T08:07:24.214000000Z info  katana_test STARTED=2 PASS=1 FAIL=0
+2021-05-17T08:07:24.221000001Z info 30a70319b7d42ee6 T02_Inb_hold_ IGNR EventRouteUsed 5050 undefined
+2021-05-17T08:07:24.221000003Z info 30a70319b7d42ee6 T02_Inb_hold_ IGNR EventUserEvent 100003 undefined
+2021-05-17T08:07:24.221000005Z info 30a70319b7d42ee6 T02_Inb_hold_ IGNR EventUserEvent 100003 undefined
+2021-05-17T08:07:24.221000007Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventEstablished 100003
+2021-05-17T08:07:24.221000008Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS HoldCall '100003'
+2021-05-17T08:07:24.221000010Z info 30a70319b7d42ee6 T02_Inb_hold_ IGNR EventUserEvent 100003 undefined
+2021-05-17T08:07:24.221000012Z info 30a70319b7d42ee6 T02_Inb_hold_ IGNR EventUserEvent 100003 undefined
+2021-05-17T08:07:24.222000000Z noise  katana_test {
+  "errno": "ENOTFOUND",
+  "code": "ENOTFOUND",
+  "syscall": "queryAny",
+  "hostname": "redis-ors-stream.service.dc1.consul"
+}
+2021-05-17T08:07:24.358000000Z noise  katana_test EventHeld 100003 980002
+2021-05-17T08:07:24.358000001Z noise  katana_test EventHeld 100003 {
   "id": "EventHeld",
-  "TimeStamp": 1619790445000,
-  "EventSequenceNumber": "000000000001da03",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "000000000002312a",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -1181,35 +1166,28 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 1,
-  "AgentID": "Cprs.100001",
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q4",
+  "AgentID": "Cprs.100003",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019FA",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100001",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "ThisDN": "100003",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:25.097000000Z info  katana_test STARTED=2 PASS=1 FAIL=0
-2021-04-30T13:47:25.104000001Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventHeld 100001 PASSED ReferenceID is 50
-2021-04-30T13:47:25.105000000Z info 00c4031851cfefbc T02_Inb_hold_ PASS RetrieveCall '100001'
-2021-04-30T13:47:25.123000000Z noise  katana_test {
-  "errno": "ENOTFOUND",
-  "code": "ENOTFOUND",
-  "syscall": "queryAny",
-  "hostname": "redis-ors-stream.service.dc1.consul"
-}
-2021-04-30T13:47:25.181000000Z noise  katana_test EventRetrieved 100001 980002
-2021-04-30T13:47:25.181000001Z noise  katana_test EventRetrieved 100001 {
+2021-05-17T08:07:24.421000001Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventHeld 100003 PASSED ReferenceID is 50
+2021-05-17T08:07:24.422000000Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS RetrieveCall '100003'
+2021-05-17T08:07:24.450000000Z noise  katana_test EventRetrieved 100003 980002
+2021-05-17T08:07:24.450000001Z noise  katana_test EventRetrieved 100003 {
   "id": "EventRetrieved",
-  "TimeStamp": 1619790445000,
-  "EventSequenceNumber": "000000000001da06",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "000000000002312d",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -1219,28 +1197,28 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 1,
-  "AgentID": "Cprs.100001",
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q4",
+  "AgentID": "Cprs.100003",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019FA",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100001",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "ThisDN": "100003",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:25.206000001Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventRetrieved 100001
-2021-04-30T13:47:25.206000002Z info 00c4031851cfefbc T02_Inb_hold_ PASS ReleaseCall '100001'
-2021-04-30T13:47:25.218000000Z noise  katana_test EventReleased 100001 980002
-2021-04-30T13:47:25.218000001Z noise  katana_test EventReleased 100001 {
+2021-05-17T08:07:24.522000001Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventRetrieved 100003
+2021-05-17T08:07:24.522000002Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS ReleaseCall '100003'
+2021-05-17T08:07:24.538000000Z noise  katana_test EventReleased 100003 980002
+2021-05-17T08:07:24.538000001Z noise  katana_test EventReleased 100003 {
   "id": "EventReleased",
-  "TimeStamp": 1619790445000,
-  "EventSequenceNumber": "000000000001da08",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "000000000002312f",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "BusinessCall": 1,
@@ -1250,36 +1228,36 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980002",
   "AddressType": 1,
-  "AgentID": "Cprs.100001",
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015Q4",
+  "AgentID": "Cprs.100003",
+  "PartyUUID": "00L2RMMU888A3ADAKG5SO2LAES0019FA",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
-  "ThisDN": "100001",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TS",
+  "ThisDN": "100003",
+  "CallThreadID": "00LJLO6U888A3ADAKG5SO2LAES0003N6",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980002",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QP",
-  "ConnID": "00c4031851cfefbc",
+  "CallUUID": "020RFK6U848A3ADAKG5SO2LAES0003TL",
+  "ConnID": "30a70319b7d42ee6",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:25.306000001Z info 00c4031851cfefbc T02_Inb_hold_ PASS EventReleased 100001
-2021-04-30T13:47:25.306000002Z info 00c4031851cfefbc T02_Inb_hold_ PASS 001_1PCC.001_001_inb_rp_basic.T02_Inb_hold_ undefined
-2021-04-30T13:47:25.306000000Z info  katana_test Test result PASS 001_1PCC.001_001_inb_rp_basic.T02_Inb_hold_ undefined
-2021-04-30T13:47:25.306000001Z info  katana_test STARTED=2 PASS=2 FAIL=0
-2021-04-30T13:47:25.307000000Z noise  katana_test Epi Send: call,dn="98$$",from="980003",to=5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:25.307000001Z debug  katana_test Asking EpiPhone to call from 980003 to 5050"@"10.204.4.206":"5080";transport=tcp"
-2021-04-30T13:47:25.307000000Z debug  T02_Inb_error PASS EpiPhone call 980003 to 5050
-2021-04-30T13:47:25.309000000Z noise  katana_test Epi Data: (200,id=27)
-2021-04-30T13:47:25.309000001Z debug  katana_test Call generated id: 27
-2021-04-30T13:47:25.323000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
-2021-04-30T13:47:25.324000000Z noise  katana_test EventRouteRequest 5050 980003
-2021-04-30T13:47:25.324000001Z noise  katana_test EventRouteRequest 5050 {
+2021-05-17T08:07:24.622000001Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS EventReleased 100003
+2021-05-17T08:07:24.623000000Z info 30a70319b7d42ee6 T02_Inb_hold_ PASS 001_1PCC.001_001_inb_rp_basic.T02_Inb_hold_ undefined
+2021-05-17T08:07:24.623000000Z info  katana_test Test result PASS 001_1PCC.001_001_inb_rp_basic.T02_Inb_hold_ undefined
+2021-05-17T08:07:24.623000001Z info  katana_test STARTED=2 PASS=2 FAIL=0
+2021-05-17T08:07:24.623000002Z noise  katana_test Epi Send: call,dn="98$$",from="980003",to=5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:24.623000003Z debug  katana_test Asking EpiPhone to call from 980003 to 5050"@"10.204.1.246":"5080";transport=tcp"
+2021-05-17T08:07:24.623000001Z debug  T02_Inb_error PASS EpiPhone call 980003 to 5050
+2021-05-17T08:07:24.626000000Z noise  katana_test Epi Data: (200,id=27)
+2021-05-17T08:07:24.626000001Z debug  katana_test Call generated id: 27
+2021-05-17T08:07:24.646000000Z noise  katana_test EventAttachedDataChanged 5050 undefined
+2021-05-17T08:07:24.646000001Z noise  katana_test EventRouteRequest 5050 980003
+2021-05-17T08:07:24.646000002Z noise  katana_test EventRouteRequest 5050 {
   "id": "EventRouteRequest",
-  "TimeStamp": 1619790445000,
-  "EventSequenceNumber": "000000000001da11",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "0000000000021e56",
   "Extensions": {
     "OtherTrunkName": "pstn_trunk",
     "original-dialplan-digits": "5050",
@@ -1288,28 +1266,66 @@ Start EpiPhone: estng_64 -ng esttt.conf
   "OtherDNRole": "Origination",
   "OtherDN": "980003",
   "AddressType": 4,
-  "PartyUUID": "01NKH63TVO88ND3N2C3CO2LAES0015QA",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183L",
   "ThisQueue": "5050",
   "ThisDNRole": "Destination",
   "ThisDN": "5050",
-  "CallThreadID": "01OAHN3TVO88ND3N2C3CO2LAES0003TT",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JT",
   "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
   "ANI": "980003",
   "DNIS": "5050",
-  "CallUUID": "00MNFM3TVO88ND3N2C3CO2LAES0004QQ",
-  "ConnID": "00c4031851cfefbd",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QB",
+  "ConnID": "20860319b7d81e7d",
   "CallType": "Inbound",
   "CallState": "Ok",
   "UserData": "...hiden..."
 }
-2021-04-30T13:47:25.407000001Z info 00c4031851cfefbd T02_Inb_error PASS EventRouteRequest 5050
-2021-04-30T13:47:25.408000000Z info 00c4031851cfefbd T02_Inb_error PASS RouteCall 5050 100015 53
-2021-04-30T13:47:25.501000000Z info  katana_test Stop Test Suite
-2021-04-30T13:47:25.502000000Z info  katana_test Tests success: 2
-2021-04-30T13:47:25.502000001Z info  katana_test Tests failed: 0
-2021-04-30T13:47:25.502000002Z info  katana_test Available Agents 19
-2021-04-30T13:47:25.502000003Z info  katana_test Active tests [
-  "00c4031851cfefbd"
+2021-05-17T08:07:24.723000001Z info 20860319b7d81e7d T02_Inb_error PASS EventRouteRequest 5050
+2021-05-17T08:07:24.724000000Z info 20860319b7d81e7d T02_Inb_error PASS RouteCall 5050 100000 53
+2021-05-17T08:07:24.758000000Z noise  katana_test EventAttachedDataChanged 100000 undefined
+2021-05-17T08:07:24.759000000Z noise  katana_test EventRinging 100000 980003
+2021-05-17T08:07:24.759000001Z noise  katana_test EventRinging 100000 {
+  "id": "EventRinging",
+  "TimeStamp": 1621238844000,
+  "EventSequenceNumber": "0000000000021e5b",
+  "Extensions": {
+    "parent-party-uuid": "028JAKMUG48A348UH42SO2LAES00183L",
+    "OtherTrunkName": "pstn_trunk",
+    "OriginationDN": "980003",
+    "OriginationDN_location": "SIP_Cluster",
+    "original-dialplan-digits": "100000",
+    "BusinessCall": 1,
+    "LoginLocation": "westus2-dev"
+  },
+  "AddressType": 1,
+  "AgentID": "Cprs.100000",
+  "PartyUUID": "028JAKMUG48A348UH42SO2LAES00183M",
+  "ThisQueue": "5050",
+  "ThisDNRole": "Destination",
+  "ThisDN": "100000",
+  "CallThreadID": "02939IMUG48A348UH42SO2LAES0003JT",
+  "TenantID": "2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d",
+  "ANI": "980003",
+  "DNIS": "5050",
+  "CallUUID": "018EPLMUG48A348UH42SO2LAES0003QB",
+  "ConnID": "20860319b7d81e7d",
+  "CallType": "Inbound",
+  "CallState": "Ok",
+  "OtherDNRole": "Origination",
+  "OtherDN": "980003",
+  "UserData": "...hiden..."
+}
+2021-05-17T08:07:24.819000000Z info  katana_test Stop Test Suite
+2021-05-17T08:07:24.820000000Z info  katana_test Tests success: 2
+2021-05-17T08:07:24.820000001Z info  katana_test Tests failed: 0
+2021-05-17T08:07:24.820000002Z info  katana_test Available Agents 19
+2021-05-17T08:07:24.820000003Z info  katana_test Active tests [
+  "20860319b7d81e7d"
 ]
-2021-04-30T13:47:25.502000004Z info  katana_test 1pcc items {}
-2021-04-30T13:47:25.502000005Z info  katana_test 3pcc items {}
+2021-05-17T08:07:24.820000004Z info  katana_test 1pcc items {}
+2021-05-17T08:07:24.820000005Z info  katana_test 3pcc items {}
+2021-05-17T08:07:24.820000006Z info  katana_test azure file path /opt/genesys/logs/volume
+2021-05-17T08:07:24.820000007Z info  katana_test writing result ot file: Test Results: 
+Successful tests: 2
+Failed tests: 0
+2021-05-17T08:07:24.820000008Z info  katana_test writing result ot file: /opt/genesys/logs/volume/katana_test/20210517-voice-agent-katana-test-pod/test_result/katana_test.log
