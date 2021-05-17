@@ -143,7 +143,4 @@ jobs :
       - name : Check 2
         run : |
           echo $new_helm_version
-          # echo "/opt/genesys/logs/volume/katana_test/20210513-voice-agent-katana-test-pod" | cut -d "/" -f 6,7 --output-delimiter="/"
-          chmod 777 ./helm/trail.txt
-          filePath=`cat ./helm/trail.txt | grep -w 'writing result ot file:' | tail -1 | awk '{print $NF}' | cut -d "/" -f 6,7,8,9 --output-delimiter="/"`
-          echo $filePath         
+          echo $(date + '%Y-%m-%d')      
