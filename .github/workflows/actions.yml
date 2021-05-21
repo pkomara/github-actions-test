@@ -146,3 +146,7 @@ jobs :
           podName=$(date +'%Y%m%d')-${{ env.REPO }}-katana-test-pod      
           echo $podName
           echo $(date)
+          sample="abc,def,fgh"
+          arr=(${sample//,/ })
+          echo "${arr[@]}"
+          echo "${#arr[@]}"
