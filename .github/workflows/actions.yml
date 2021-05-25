@@ -152,7 +152,8 @@ jobs :
           echo "${#arr[@]}"
           num1=9
           num2=23324
-          if [[ num1 < num2  ]];
+          if [[ $num1 < $num2  ]];
           then
+            echo $num1
             echo 'in if'
           fi
