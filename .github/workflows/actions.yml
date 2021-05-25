@@ -150,8 +150,8 @@ jobs :
           arr=(${sample//,/ })
           echo "${arr[@]}"
           echo "${#arr[@]}"
-          num1=9
-          num2=23324
+          num1=1
+          num2=10
           if [[ $num1 -lt $num2  ]];
           then
             echo $num1
