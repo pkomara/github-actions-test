@@ -151,7 +151,7 @@ jobs :
           echo "${arr[@]}"
           echo "${#arr[@]}"
           num1=1
-          num2=10
+          num2=099
           if [[ $num1 < $num2  ]];
           then
             echo $num1
