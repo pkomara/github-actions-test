@@ -151,10 +151,10 @@ jobs :
           echo "${arr[@]}"
           echo "${#arr[@]}"
           num1=1
-          num2=099
-          if (( "$num1" < "$num2" ));
+          num2=010
+          if (( 10#"$num1" < 10#"$num2" ));
           then
-            echo $num1
+            echo 10#$num1
             echo 'in if'
           else
             echo 'else'
