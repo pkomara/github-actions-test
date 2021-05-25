@@ -150,3 +150,9 @@ jobs :
           arr=(${sample//,/ })
           echo "${arr[@]}"
           echo "${#arr[@]}"
+          num1=9
+          num2=23324
+          if [[ num1 < num2  ]];
+          then
+            echo 'in if'
+          fi
