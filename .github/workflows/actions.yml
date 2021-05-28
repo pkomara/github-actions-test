@@ -143,19 +143,19 @@ jobs :
           echo "REPO=voice-agent" >> $GITHUB_ENV
       - name : Check 2
         run : |
-          podName=$(date +'%Y%m%d')-${{ env.REPO }}-katana-test-pod      
-          echo $podName
-          echo $(date)
-          sample="abc,def,fgh"
-          arr=(${sample//,/ })
-          echo "${arr[@]}"
-          echo "${#arr[@]}"
-          num1=1
-          num2=010
-          if (( 10#"$num1" < 10#"$num2" ));
-          then
-            echo 10#$num1
-            echo 'in if'
-          else
-            echo 'else'
-          fi
+          time=$(date -u +'%H:%M')   
+          echo $time
+          # echo $(date)
+          # sample="abc,def,fgh"
+          # arr=(${sample//,/ })
+          # echo "${arr[@]}"
+          # echo "${#arr[@]}"
+          # num1=1
+          # num2=010
+          # if (( 10#"$num1" < 10#"$num2" ));
+          # then
+          #   echo 10#$num1
+          #   echo 'in if'
+          # else
+          #   echo 'else'
+          # fi

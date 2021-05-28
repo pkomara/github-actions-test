@@ -1,0 +1,14 @@
+{
+   "voice-sip": {
+      "startTime": "16:58",
+      "endTime": "3:30",
+      "preScaleUpPods": "10",
+      "resourceType": "statefulset"
+   },
+   "voice-ors": {
+      "startTime": "9:25",
+      "endTime": "12:27",
+      "preScaleUpPods": "15",
+      "resourceType": "statefulset"
+   }
+}
