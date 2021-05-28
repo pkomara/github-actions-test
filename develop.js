@@ -1,3 +1,3 @@
 let inputs = process.argv[2];
 
-console.log(inputs)
+console.log(JSON.parse(inputs,null,3))
