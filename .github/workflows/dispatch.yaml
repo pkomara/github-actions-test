@@ -46,7 +46,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github.event.inputs) }}      
         run: |
           echo $GITHUB_CONTEXT  
-          node develop.js ${{ env.GITHUB_CONTEXT }}
+          node develop.js ${{ toJson(github.event.inputs) }}
       - name: Dump GitHub context
         run: echo 'Hi ${{ env.author }} -> ${{ env.SHA }} ' > artifact.txt
         continue-on-error: true
