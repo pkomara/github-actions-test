@@ -11,6 +11,9 @@ on:
         description: 'Location to upgrade service'
         required: true
         default: 'westus2'
+  schedule:
+    # Run for every 0th min and 30th min.
+    - cron:  '0,30 * * * *'
 
 jobs:
   pr-katana-test:
@@ -37,14 +40,24 @@ jobs:
           echo "REPO=$REPO"  >> $GITHUB_ENV
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV   
           echo "SHA=$GITHUB_REF" >> $GITHUB_ENV              
-      - name: Test 
+      # - name: Test 
+      #   run: |
+      #     echo "REPO name : ${{ env.REPO }}"
+      #     echo "AUTHOR name : ${{ env.AUTHOR }}"          
+      # - name : Git inputs
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJson(github.event.inputs) }}      
+      #   run: |
+      #     echo $GITHUB_CONTEXT  
+      #     node develop.js '${{ toJson(github.event.inputs) }}'
+      # - name: Dump GitHub context
+      #   run: echo 'Hi ${{ env.author }} -> ${{ env.SHA }} ' > artifact.txt
+      #   continue-on-error: true
+      # - uses: actions/upload-artifact@58740802ef971a2d71eff71e63d48ab68d1f5507
+      #   with:
+      #     name: artifact.txt
+      #     path: artifact.txt         
+      - name: Scale pods   
         run: |
-          echo "REPO name : ${{ env.REPO }}"
-          echo "AUTHOR name : ${{ env.AUTHOR }}"          
-      - name: Dump GitHub context
-        run: echo 'Hi ${{ env.author }} -> ${{ env.SHA }} ' > artifact.txt
-        continue-on-error: true
-      - uses: actions/upload-artifact@58740802ef971a2d71eff71e63d48ab68d1f5507
-        with:
-          name: artifact.txt
-          path: artifact.txt         
+          echo "Invoking schedule scale pods script"
+          node scale_pods.js 
