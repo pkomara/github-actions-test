@@ -2,15 +2,11 @@ const fs = require('fs');
 
 let scheduleFile = './schedule_scale_pods.json';
 let dateNow = new Date();
-// dateNow.setUTCMinutes(30);
-// dateNow.setUTCHours(21);
+dateNow.setUTCMinutes(10);
+dateNow.setUTCHours(16);
 let hourNow = dateNow.getUTCHours();
 let minsNow = dateNow.getUTCMinutes();
 
-minsNow=(minsNow>=0 && minsNow<5)?0:minsNow;
-minsNow=(minsNow>=30 && minsNow<35)?30:minsNow;
-
-dateNow.setUTCMinutes(minsNow);
 
 console.log('Time now is '+dateNow.getUTCHours()+":"+dateNow.getUTCMinutes());
 
@@ -28,9 +24,8 @@ try {
 
         let timeDiffInMins=(LoadStartTimeHour-hourNow)*60 +LoadStartTimeMins-minsNow;
 
-        if (timeDiffInMins>=0 && timeDiffInMins<30){
+        if (timeDiffInMins>=0 && timeDiffInMins<60){
             // pre-scale up the pods as load test is about to begin.
-            console.log(jsonSchedule[service]['preScaleUpPods']);
             if( parseInt(jsonSchedule[service]['actualPods']) < parseInt(jsonSchedule[service]['preScaleUpPods']) ) // donot pre-scale pods when actual pod count is more than preScaleUpPods value
             {
                 console.log("Prescaling to "+ jsonSchedule[service]['preScaleUpPods'] + " pods for service " + service);
@@ -42,9 +37,9 @@ try {
             }
         }
         
-        timeDiffInMins=(LoadEndTimeHour-hourNow)*60 +LoadEndTimeMins-minsNow;
+        timeDiffInMins=(hourNow-LoadEndTimeHour)*60 +minsNow-LoadEndTimeMins;
 
-        if(timeDiffInMins>-30 && timeDiffInMins<=0){
+        if(timeDiffInMins>=0 && timeDiffInMins<60){
             //scale down the pods as load test has ended.
             console.log("Down scaling to "+ jsonSchedule[service]['actualPods'] + " pods for service " + service);
             // let output = execSync("kubectl scale "+ jsonSchedule[service]['resourceType'] +" -n voice "+service+" --replicas="+jsonSchedule[service]['actualPods']);
