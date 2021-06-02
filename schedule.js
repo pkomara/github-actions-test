@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // let inputs = process.argv[2];
-let inputs ='{"environment": "dev","load_end_time": "21:00","load_start_time": "21:45","location": "westus2","pre_scaleup_pods": "8","service_name": "voice-ors"}';
+let inputs ='{"load_end_time": "21:00","load_start_time": "21:45","location": "westus2","pre_scaleup_pods": "8","service_name": "voice-ors"}';
 
 inputsJSON = JSON.parse(inputs,null,3);
 // console.log(inputsJSON);

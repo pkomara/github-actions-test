@@ -6,6 +6,11 @@
          "resourceType": "statefulset",
          "preScaleUpPods": "5",
          "replicaCount": 2
+      },
+      "voice-ors": {
+         "resourceType": "statefulset",
+         "preScaleUpPods": "8",
+         "replicaCount": 3
       }
    }
 }
