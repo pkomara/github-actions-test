@@ -1,16 +1,48 @@
 {
-   "loadStartTime": "14:00",
-   "loadEndTime": "14:45",
+   "loadTests": {
+      "load1": {
+         "startTime": "15:00",
+         "endTime": "16:45",
+         "recursive": false
+      },
+      "load2": {
+         "startTime": "18:00",
+         "endTime": "19:00",
+         "recursive": true
+      }
+   },
    "services": {
       "voice-sip": {
-         "resourceType": "statefulset",
-         "preScaleUpPods": "5",
+         "preScaleUpPods": "3",
          "replicaCount": 2
       },
       "voice-ors": {
-         "resourceType": "statefulset",
-         "preScaleUpPods": "8",
-         "replicaCount": 3
+         "preScaleUpPods": "6",
+         "replicaCount": 2
+      },
+      "voice-agent": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
+      },
+      "voice-callthread": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
+      },
+      "voice-dialplan": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
+      },
+      "voice-config": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
+      },
+      "voice-registrar": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
+      },
+      "voice-sipfe": {
+         "preScaleUpPods": "3",
+         "replicaCount": 1
       }
    }
 }
