@@ -5,11 +5,8 @@ on :
     types: [opened, closed, reopened, synchronize]
 
 jobs :
-  parser:
-    if: github.event.pull_request.merged == true && github.event.action == 'closed'  
-    runs-on:
-      - self-hosted
-      - dev
+  parser: 
+    runs-on: ubuntu-latest
     outputs:
       environment: ${{ steps.prtitle.outputs.environment }}
       location: ${{ steps.prtitle.outputs.location }}
