@@ -78,7 +78,6 @@ jobs :
           chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
           echo $chartVersion
           cat versions.json  
-          
           fi
       - name : test2
         id: test2
@@ -143,8 +142,8 @@ jobs :
           echo "REPO=voice-agent" >> $GITHUB_ENV
       - name : Check 2
         run : |
-          time=$(date -u +'%H:%M')   
-          echo $time
+          # time=$(date -u +'%H:%M')   
+          # echo $time
           # echo $(date)
           # sample="abc,def,fgh"
           # arr=(${sample//,/ })
@@ -159,3 +158,5 @@ jobs :
           # else
           #   echo 'else'
           # fi
+          env='prod002'
+          echo ${{ env ^^}}
