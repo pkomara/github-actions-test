@@ -159,4 +159,4 @@ jobs :
           #   echo 'else'
           # fi
           env='prod002'
-          echo ${{ env ^^}}
+          echo ${{ env^^}}
