@@ -143,9 +143,9 @@ jobs :
           new_helm_version="voice-test-${newHelmVersion}.tgz"      
           echo $new_helm_version
           echo "REPO=voice-agent" >> $GITHUB_ENV
-          IMAGE_VERSION='100.0.1000020'
+          IMAGE_VERSION='100.0.1000028'
           echo $IMAGE_VERSION
-          if [[ ! $IMAGE_VERSION =~ ^[1]{1}[0-9]{2}\\.[0-9]{1}\\.[0-9]{7}$  ]];
+          if [[ ! $IMAGE_VERSION =~ ^[1]{1}[0-9]{2}.[0-9]{1}.[0-9]{7}$  ]];
           then
             echo "Unsupported IMAGE VERSION. Exiting"
           fi
