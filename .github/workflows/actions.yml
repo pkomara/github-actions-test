@@ -145,5 +145,5 @@ jobs :
           echo "REPO=voice-agent" >> $GITHUB_ENV
           IMAGE_VERSION='100.0.1010028'
           version_arr=(${IMAGE_VERSION//./ })
-          FREEZE_FORM_VERSION=${version_arr[0]}.${version_arr[1]}.${version_arr[2]:0:3}.${version_arr[2]:3:6}
+          FREEZE_FORM_VERSION=${version_arr[0]}.${version_arr[1]}.${version_arr[2]:0:3}.${version_arr[2]:3:7}
           echo $FREEZE_FORM_VERSION
