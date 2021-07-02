@@ -1,15 +1,15 @@
 {
-   "loadTests": {
-      "load1": {
-         "startTime": "15:00",
-         "endTime": "16:45",
-         "recursive": false
-      },
-      "load2": {
-         "startTime": "18:00",
-         "endTime": "19:00",
+   "loadSchedules": {
+      "schedule1": {
+         "startTime": "03:00",
+         "endTime": "05:30",
          "recursive": true
-      }
+      },
+      "schedule2": {
+         "startTime": "20:30",
+         "endTime": "02:30",
+         "recursive": true
+    }
    },
    "services": {
       "voice-sip": {
