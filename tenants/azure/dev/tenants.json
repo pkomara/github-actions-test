@@ -1,29 +1,24 @@
 [
-   {
-      "name": "tenant_dev",
-      "tenant_id": "1234",
-      "tenant_uuid": "9f52c749-c558-428d-892c-609786e41234",
-      "primaryLocation": "westus2",
-      "locations": [
-         "westus2",
-         "eastus2"
-      ],
-      "status": "TERMINATED",
-      "dateAdded": ":2020-25-01T09:50:21.153Z",
-      "environment": "dev",
-      "responsible_party_email": "andrey.yankelevich@genesys.com"
-   },
-   {
-      "name": "voicecommon",
-      "tenant_id": "1102",
-      "tenant_uuid": "d7f2defe-77a9-6ef8-d2a3-db6a4b06563e",
-      "primaryLocation": "eastus2",
-      "locations": [
-         "eastus2"
-      ],
-      "status": "INIT",
-      "dateAdded": ":2020-13-08T16:40:43.959Z",
-      "environment": "dev",
-      "responsible_party_email": "andrey.yankelevich@genesys.com"
-   }
+    {
+        "name":"tenant_dev",
+        "tenant_id":"1234",
+        "tenant_uuid":"9f52c749-c558-428d-892c-609786e41234",
+        "primaryLocation":"westus2",
+        "locations":["westus2","eastus2"],
+        "status":"TERMINATED",
+        "dateAdded":":2020-25-01T09:50:21.153Z",
+        "environment": "dev",
+        "responsible_party_email" : "andrey.yankelevich@genesys.com"
+    },
+    {
+        "name":"voicecommon",
+        "tenant_id":"1102",
+        "tenant_uuid":"d7f2defe-77a9-6ef8-d2a3-db6a4b06563e",
+        "primaryLocation":"eastus2",
+        "locations":["eastus2"],
+        "status":"INIT",
+        "dateAdded":":2020-13-08T16:40:43.959Z",
+        "environment": "dev",
+        "responsible_party_email": "andrey.yankelevich@genesys.com"
+    }
 ]
