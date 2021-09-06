@@ -1651,6 +1651,19 @@
       "responsible_party_email": "gomathi.manoharan@genesys.com"
    },
    {
+      "name": "DesignerQA_east1",
+      "tenant_id": "1998",
+      "tenant_uuid": "c86c772f-58f9-41ae-b4ce-ac245eab1998",
+      "primaryLocation": "eastus2",
+      "locations": [
+         "eastus2"
+      ],
+      "status": "INIT",
+      "dateAdded": ":2021-07-23T11:06:00.000Z",
+      "environment": "dev",
+      "responsible_party_email": "saurabh.saxena@genesys.com"
+   },
+   {
       "name": "ptest",
       "tenant_id": "1818",
       "tenant_uuid": "4adcdcc6-f776-4fe4-bbe8-fffef0291818",
