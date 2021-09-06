@@ -1,0 +1,14 @@
+{
+    "tenant_performance_test_7---1813": {
+      "name": "tenant_performance_test_7",
+      "tenant_id": "1813",
+      "tenant_uuid": "ae800b2f-0147-4779-ab72-c54e51801813",
+      "primaryLocation": "eastus2",
+      "locations": ["eastus2"],
+      "status": "INIT",
+      "dateAdded": ":2021-08-28T10:27:00.000Z",
+      "environment": "dev",
+      "responsible_party_email": "dinesh.balaji_s@genesys.com",
+      "key": "tenant_performance_test_7---1813"
+    }
+}
