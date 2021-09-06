@@ -1,8 +1,8 @@
 const fs = require('fs');
 
 let environment = process.argv[2] || 'dev';
-// let tenant_data = process.argv[3] ;
-let tenant_data = fs.readFileSync('./tenants/azure/'+environment+'/sample.json', 'utf8');
+let tenant_data = process.argv[3] ;
+// let tenant_data = fs.readFileSync('./tenants/azure/'+environment+'/sample.json', 'utf8');
 console.log(tenant_data)
 
 let tenantsFile = './tenants/azure/'+environment+'/tenants.json';
