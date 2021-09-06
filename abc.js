@@ -14,6 +14,9 @@ try {
     const tenant_found = false;
     tenant_key = Object.keys(tenantData)[0];
     tenant_value = tenantData[tenant_key];
+    if(tenant_value['key']){
+        delete tenant_value['key']
+    }
 
     tenantsJSON.map((object,index)=>{
         if(object.name === tenant_value.name){
