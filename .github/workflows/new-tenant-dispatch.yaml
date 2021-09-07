@@ -70,6 +70,7 @@ jobs:
           echo $tenant_id
           pwd
           mkdir -p ./tenants/azure/${absenv}
+          echo $tenant_data > ./tenants/azure/${absenv}/new_tenant.json
           node update_tenants.js ${absenv} $tenant_data
           echo "tenants.json updated"
           git config user.name "pkomara"
