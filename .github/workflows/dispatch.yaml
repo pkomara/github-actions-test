@@ -46,11 +46,11 @@ jobs:
       #     node scale_pods.js 
       - name: Execute dispatch for pipelines     
         env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
         run: |
           jq '.' ./tenants/azure/dev/sample.json | jq -aRs '{ ref: "master", inputs: {action: "plan", tenant: .} }' > tenant.json
           jq . tenant.json
-          curl -v -H "Authorization: Bearer ${{secrets.GIT_ACTION_PAT}}" \
+          curl -v -H "Authorization: Bearer ${{secrets.CUSTOM_TOKEN}}" \
             -H 'content-type: application/json' \
             -H 'accept: application/vnd.github.v3+json' \
             'https://api.github.com/repos/pkomara/github-actions-test/actions/workflows/new-tenant-dispatch.yaml/dispatches' \
