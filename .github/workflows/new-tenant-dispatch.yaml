@@ -75,9 +75,9 @@ jobs:
           echo "tenants.json updated"
           git config user.name "pkomara"
           git config user.email "Pavan_Sai.Komara@genesys.com"
-          git pull origin master
           git checkout -b ${env}-tenant-${tenant_id}-update
           echo "created branch"
+          git pull origin master
           git add ./tenants/azure/${absenv}/tenants.json
           echo "added files"
           git commit -m "${env} ${tenant_id} tenant update"
