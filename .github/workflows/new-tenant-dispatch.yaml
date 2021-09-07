@@ -51,7 +51,7 @@ jobs:
         if: github.event.inputs.action == 'apply'
         id: apply-tenant
         env:
-          GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WF_ENV }}
         run: |
           echo 'Apply'
           echo '${{ github.event.inputs.tenant }}'          
