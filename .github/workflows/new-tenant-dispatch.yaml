@@ -72,6 +72,9 @@ jobs:
           mkdir -p ./tenants/azure/${absenv}
           node update_tenants.js ${absenv} $tenant_data
           echo "tenants.json updated"
+          git config user.name "pkomara"
+          git config user.email "Pavan_Sai.Komara@genesys.com"
+          git checkout -b ${env}-tenant-${tenant_id}-update
           echo "created branch"
           git add ./tenants/azure/${absenv}/tenants.json
           echo "added files"
