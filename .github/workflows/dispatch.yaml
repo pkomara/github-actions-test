@@ -40,7 +40,18 @@ jobs:
           echo "REPO=$REPO"  >> $GITHUB_ENV
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV   
           echo "SHA=$GITHUB_REF" >> $GITHUB_ENV              
-      - name: Test 
+      # - name: Test 
+      #   run: |
+      #     echo "Invoking schedule scale pods script"
+      #     node scale_pods.js 
+      - name: Execute dispatch for pipelines     
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}
         run: |
-          echo "Invoking schedule scale pods script"
-          node scale_pods.js 
+          jq '.' ./tenants/azure/dev/sample.json | jq -aRs '{ ref: "master", inputs: {action: "plan", tenant: .} }' > tenant.json
+          jq . tenant.json
+          curl -v -H "Authorization: Bearer ${{secrets.GIT_ACTION_PAT}}" \
+            -H 'content-type: application/json' \
+            -H 'accept: application/vnd.github.v3+json' \
+            'https://api.github.com/repos/pkomara/github-actions-test/actions/workflows/new-tenant-dispatch.yaml/dispatches' \
+            -d @tenant.json
