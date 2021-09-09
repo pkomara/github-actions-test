@@ -71,7 +71,7 @@ jobs:
           pwd
           mkdir -p ./tenants/azure/${absenv}
           echo $tenant_data > ./tenants/azure/${absenv}/new_tenant.json
-          node update_tenants.js ${absenv} $tenant_data
+          node update_tenants.js ${absenv}
           echo "tenants.json updated"
           git config user.name "pkomara"
           git config user.email "Pavan_Sai.Komara@genesys.com"
@@ -82,5 +82,5 @@ jobs:
           echo "added files"
           git commit -m "${env} ${tenant_id} tenant update"
           echo "committed files"
-          hub pull-request -p -m "${absenv} ${tenant_id} tenant update"
+          hub pull-request -p -m "${absenv} ${tenant_id} tenant update" -l "cabapproved"
           echo "Raised PR"          
