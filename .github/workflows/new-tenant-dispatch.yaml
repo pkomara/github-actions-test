@@ -82,5 +82,5 @@ jobs:
           echo "added files"
           git commit -m "${env} ${tenant_id} tenant update"
           echo "committed files"
-          hub pull-request -p -m "${absenv} ${tenant_id} tenant update"
+          hub pull-request -p -m "${absenv} ${tenant_id} tenant update" -l "cabapproved"
           echo "Raised PR"          
