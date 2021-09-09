@@ -73,7 +73,7 @@ jobs:
           echo $tenant_data > ./tenants/azure/${absenv}/new_tenant.json
           node update_tenants.js ${absenv}
           echo "tenants.json updated"
-          git config user.name "pkomara"
+          # git config user.name "pkomara"
           git config user.email "Pavan_Sai.Komara@genesys.com"
           git checkout -b ${env}-tenant-${tenant_id}-update
           echo "created branch"
