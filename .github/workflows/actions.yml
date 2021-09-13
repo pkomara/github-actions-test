@@ -104,7 +104,7 @@ jobs :
           all_locations=${all_locations//$']'/}
           all_locations=${all_locations//$','/}
 
-          for loc  in "${all_locations}";do
+          for loc  in $all_locations;do
               echo "current location is $loc"    
           done
       - name : test env variables
