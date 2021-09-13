@@ -90,6 +90,21 @@ jobs :
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+      - name: test3
+        run: |
+          tenant=$(jq '.[].key' -r $CWD/delta_tenants.json)
+          tenantData=$(jq ".\"$tenant\"" "./tenants/azure/dev/sample.json")
+          all_locations=$(jq .locations <<< "$tenantData")
+
+          
+          all_locations=${all_locations//$'\n'/}
+          all_locations=${all_locations//$'"'/}
+          all_locations=${all_locations//$'\n'/}
+          all_locations=${all_locations//$'['/}
+          all_locations=${all_locations//$']'/}
+          all_locations=${all_locations//$','/}
+
+          echo $all_locations
       - name : test env variables
         id : helm_change        
         env:
