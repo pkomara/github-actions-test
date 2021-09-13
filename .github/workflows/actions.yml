@@ -104,7 +104,9 @@ jobs :
           all_locations=${all_locations//$']'/}
           all_locations=${all_locations//$','/}
 
-          echo $all_locations
+          for loc  in "{$all_locations[@]}";do
+              echo $loc    
+          done
       - name : test env variables
         id : helm_change        
         env:
