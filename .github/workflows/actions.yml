@@ -98,7 +98,6 @@ jobs :
           for (( index=0; index < $currentReplica; index++ ))
           do
             echo "kubectl delete pods -n voice voice-rq-$index" 
-            kubectl delete pods -n voice voice-rq-$index
             while [[ 0 != 1 ]]
             do
               echo "Waiting for voice-rq-$index pod to complete"
@@ -108,7 +107,6 @@ jobs :
           done
           if [[ $rqreplica -gt $currentReplica ]];
           then
-            kubectl label pods -n voice voice-rq-$index seq=even
             for (( index = $currentReplica; index < $rqreplica; index++ ))
             do
               echo "kubectl delete pods -n voice voice-rq-$index"
