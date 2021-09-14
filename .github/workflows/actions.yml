@@ -93,7 +93,7 @@ jobs :
       - name: test3
         run: |
           currentReplica='10'
-          for (( index = 0; index < $currentReplica; index++ ))
+          for (( index = 2; index < $currentReplica; index++ ))
           do
             echo "hello $index"      
           done 
