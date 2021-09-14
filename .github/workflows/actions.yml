@@ -92,21 +92,11 @@ jobs :
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
       - name: test3
         run: |
-          tenant=$(jq '.[].key' -r ./tenants/azure/dev/sample.json)
-          tenantData=$(jq ".\"$tenant\"" "./tenants/azure/dev/sample.json")
-          all_locations=$(jq .locations <<< "$tenantData")
-
-          
-          all_locations=${all_locations//$'\n'/}
-          all_locations=${all_locations//$'"'/}
-          all_locations=${all_locations//$'\n'/}
-          all_locations=${all_locations//$'['/}
-          all_locations=${all_locations//$']'/}
-          all_locations=${all_locations//$','/}
-
-          for loc  in $all_locations;do
-            echo "current location is $loc"    
-          done
+          currentReplica='10'
+          for (( index = 0; index < $currentReplica; index++ ))
+          do
+            echo "hello $index"      
+          done 
       - name : test env variables
         id : helm_change        
         env:
