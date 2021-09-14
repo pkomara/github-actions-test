@@ -92,11 +92,28 @@ jobs :
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
       - name: test3
         run: |
-          currentReplica='10'
-          for (( index = 2; index < $currentReplica; index++ ))
+          rqreplica=16
+          currentReplica=10
+          echo "Deleting the pods to upgrade"
+          for (( index=0; index < $currentReplica; index++ ))
           do
-            echo "hello $index"      
-          done 
+            echo "kubectl delete pods -n voice voice-rq-$index" 
+            kubectl delete pods -n voice voice-rq-$index
+            while [[ 0 != 1 ]]
+            do
+              echo "Waiting for voice-rq-$index pod to complete"
+              sleep 2
+              break ;
+            done            
+          done
+          if [[ $rqreplica -gt $currentReplica ]];
+          then
+            kubectl label pods -n voice voice-rq-$index seq=even
+            for (( index = $currentReplica; index < $rqreplica; index++ ))
+            do
+              echo "kubectl delete pods -n voice voice-rq-$index"
+            done            
+          fi
       - name : test env variables
         id : helm_change        
         env:
