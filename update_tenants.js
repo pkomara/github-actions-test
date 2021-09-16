@@ -3,15 +3,14 @@ const fs = require('fs');
 let environment = process.argv[2] || 'dev';
 let location = process.argv[3] || 'westus2';
 let action = process.argv[4] || 'apply'
-let tenant_data = fs.readFileSync('./tenants/azure/'+environment+'/new_tenant.json', 'utf8');
-console.log(tenant_data)
+let tenant_data = fs.readFileSync('./tenants/azure/' + environment + '/new_tenant.json', 'utf8');
 
-let tenantsFile = './tenants/azure/'+environment+'/tenants.json';
- 
+let tenantsFile = './helmvalues/azure/' + environment + '/' + location + '/tenants.json';
+
 try {
     const tenants = fs.readFileSync(tenantsFile, 'utf8');
     const tenantsJSON = JSON.parse(tenants, null, 3);
-    const tenantData = JSON.parse(tenant_data,null,3);
+    const tenantData = JSON.parse(tenant_data, null, 3);
     let tenant_found = false;
     tenant_key = Object.keys(tenantData)[0];
     tenant_value = tenantData[tenant_key];
