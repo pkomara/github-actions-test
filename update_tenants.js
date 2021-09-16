@@ -47,11 +47,11 @@ try {
             if (diffLocations.includes(location)) {
                 tenantsJSON.splice(index, 1);
             } else {
-                let locations = tenantsJSON[index][locations];
+                let locations = tenantsJSON[index]['locations'];
                 locations = locations.filter((loc) => {
                     return !diffLocations.includes(loc);
                 })
-                tenantsJSON[index][locations] = locations;
+                tenantsJSON[index]['locations'] = locations;
             }
         }
     }
