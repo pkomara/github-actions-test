@@ -31,7 +31,7 @@ jobs :
         run : |
           # echo ${{ steps.issue.outputs.issue }}
           # echo "$GITHUB_CONTEXT"
-          # echo ${GITHUB_HEAD_REF}
+          echo ${GITHUB_HEAD_REF}
           # echo ${{ github.actor }}
           # echo "USER=${{github.actor}}" >> $GITHUB_ENV          
           # echo ${{ github.repositoryUrl }}
