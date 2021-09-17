@@ -37,6 +37,7 @@ jobs:
         run: |
           export REPO=$(echo "$REPONAME")
           export AUTHOR=$(echo "$USER")
+          git checkout ${GITHUB_HEAD_REF}
           echo "REPO=$REPO"  >> $GITHUB_ENV
           echo "AUTHOR=$AUTHOR" >> $GITHUB_ENV   
           echo "SHA=$GITHUB_REF" >> $GITHUB_ENV              
