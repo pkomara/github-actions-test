@@ -37,7 +37,7 @@ jobs:
         run: |
           export REPO=$(echo "$REPONAME")
           export AUTHOR=$(echo "$USER")
-          echo ${GITHUB_HEAD_REF}
+          echo ${{ github.event.pull_request.head.ref }}
           branch=${GITHUB_HEAD_REF}
           git checkout -b feature
           echo $branch
