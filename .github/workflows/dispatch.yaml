@@ -37,7 +37,7 @@ jobs:
         run: |
           export REPO=$(echo "$REPONAME")
           export AUTHOR=$(echo "$USER")
-          echo ${{ github.event }} | jq .
+          echo ${{ github.event }}
           branch=${{ github.event.ref }}
           git checkout -b feature
           echo $branch
