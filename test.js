@@ -1,3 +1,6 @@
+var axios = require('axios');
+const execSync = require('child_process').execSync;
+
 // axios.get("https://consul-ui.api01-westus2.dev.genazure.com/v1/internal/ui/services?dc=westus2-dev").then(
 //     res => {
 //         let services = res.data.filter((obj)=>{
@@ -6,8 +9,6 @@
 //         console.log(services)
 //     }
 // )
-
-var axios = require('axios');
 
 let environment = process.argv[2] || 'dev';
 let region = process.argv[3] || 'westus2';
@@ -19,14 +20,12 @@ function print_result() {
     if (redis_err) {
         console.log(redis_err);
     }
-        
 }
 
 async function check_redis_entries_in_consul(environment, region) {
     return new Promise(async (resolve, reject) => {
         try {
-            let redis_entries = [];
-            let missing_consul_entries = [];
+            let redis_entries = {};
             let required_consul_entries = [
                 'redis-config-state',
                 'redis-agent-state',
@@ -39,24 +38,30 @@ async function check_redis_entries_in_consul(environment, region) {
                 'redis-rq-state'
             ];
 
+            console.log('Get redis enterprise list in', environment, region);
+            let redisEnterpriseCmd = `az redisenterprise list --resource-group "service-voice-${region}-${environment}"`
+            console.log('Command - ' + redisEnterpriseCmd);
+            let redisEnterpriseCmdOutput = JSON.parse(execSync(redisEnterpriseCmd).toString(), null, 3);
+            let redisEnterpriseList = redisEnterpriseCmdOutput.map(obj => obj.hostName);
+
             consul_entries = await axios.get(`https://consul-ui.api01-${region}.${environment}.genazure.com/v1/internal/ui/services?dc=${region}-${environment}`);
             consul_entries.data.map((entry) => {
-                if (entry["Name"].toUpperCase().includes('REDIS')) {
-                    redis_entries.push(entry["Name"]);
+                if ((index = required_consul_entries.indexOf(entry["Name"])) > -1) {
+                    // redis_entries[entry["Name"]] = { Nodes : entry.Nodes,InstanceCount: entry.InstanceCount,ChecksPassing: entry.ChecksPassing,ChecksWarning: entry.ChecksWarning,ChecksCritical: entry.ChecksCritical}
+                    // if (entry.Name === 'redis-rq-state') entry.Nodes = ['voice@redis01-voice-wlgtgdua-westus2-dev.westus2.redisenterprise.cache.azure.net']
+                    false_redis_address = false;
+                    entry.Nodes.forEach((node) => {
+                        if (!redisEnterpriseList.includes(node.split('@')[1])) {
+                            false_redis_address = true;
+                            redis_err += `\n${node} is not present in ${environment} ${region} redis enterprise list for consul entry ${entry.Name}`;
+                        }
+                    })
+                    if (!false_redis_address) required_consul_entries.splice(index, 1);
                 }
             });
 
-            required_consul_entries.map((entry, idx) => {
-                let index = redis_entries.indexOf(entry.trim());
-                if (index < 0) {
-                    missing_consul_entries.push(required_consul_entries[idx]);
-                } else {
-                    console.log(entry + " entry is present in consul")
-                }
-            });
-
-            if (missing_consul_entries.length > 0) {
-                redis_err += '\nRedis entries required for voice services are missing in consul: ' + missing_consul_entries;
+            if (required_consul_entries.length > 0) {
+                redis_err += '\nRedis entries required for voice services are missing in consul: ' + required_consul_entries;
             }
 
             resolve();

@@ -73,7 +73,7 @@ jobs :
           echo $helmVersion
           oldAppVersion=$(jq .version -r versions.json )
           oldHelmVersion=$(jq .helm_version -r versions.json)
-          sed -i "s/$oldAppVersion/$appVersion/g" versions.json
+          sed -i "s/$oldAppVersion/latest/g" versions.json
           sed -i "s/$oldHelmVersion/$helmVersion/g" versions.json
           chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
           echo $chartVersion
