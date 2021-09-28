@@ -73,7 +73,7 @@ jobs :
           echo $helmVersion
           oldAppVersion=$(jq .version -r versions.json )
           oldHelmVersion=$(jq .helm_version -r versions.json)
-          sed -i "s/$oldAppVersion/latest/g" versions.json
+          sed -i "s/$oldAppVersion/$appVersion/g" versions.json
           sed -i "s/$oldHelmVersion/$helmVersion/g" versions.json
           chartVersion=$(echo $helmVersion| cut -d '-' -f3 | cut -d '.' -f 1,2,3)
           echo $chartVersion
@@ -91,6 +91,9 @@ jobs :
           chart_version="9.0.05"         
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
+          oldAppVersion=$(jq .version -r versions.json )
+          sed -i "s/$oldAppVersion/latest/g" versions.json
+          cat versions.json  
       - name: test3
         run: |
           env_locations=$(cat ./regions.json | jq . )
