@@ -92,6 +92,7 @@ jobs :
           echo "CHART_NAME=${chart_name}" >> $GITHUB_ENV
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
           oldAppVersion=$(jq .version -r versions.json )
+          echo $oldAppVersion
           sed -i "s/$oldAppVersion/latest/g" versions.json
           cat versions.json  
       - name: test3
