@@ -93,17 +93,10 @@ jobs :
           echo "::set-output name=CHART_NAME::${chart_name}-${chart_version}.tgz"
       - name: test3
         run: |
-          env_locations=$(cat ./regions.json | jq . )
-          env_locations=${env_locations//$'\n'/}
-          env_locations=${env_locations//$'"'/}
-          env_locations=${env_locations//$'\n'/}
-          env_locations=${env_locations//$'['/}
-          env_locations=${env_locations//$']'/}
-          env_locations=${env_locations//$','/}
-          echo $env_locations
-          for location  in $env_locations;do
-            echo "Location is $location"
-          done  
+          oldversion='100.0.1000006'
+          oldversionFormat=$(echo $oldversion | awk 'BEGIN {FS="."} { $4= substr($3,4,7) ; $3=substr($3,1,3) } { printf "%d.%d.%03d.%04d\n",$1 , $2 , $3 , $4}')
+          newversion=$(echo $oldversionFormat | awk 'BEGIN { FS="."} { $4--;  if ($4 < 0) { $4=9999; $3--; if ($3 < 100) { $3=199; $2-- ; if ($2<0) { $2=9 ;$1-- } } } } { printf "%d.%d.%03d%04d\n", $1, $2, $3 , $4 }')
+          echo "$newversion"
       - name : test env variables
         id : helm_change        
         env:
