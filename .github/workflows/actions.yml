@@ -99,7 +99,7 @@ jobs :
           echo "$newversion"
           service='voice-agent'
           # version=$(cat ./helmvalues/azure/upgrade_services_info.json | jq --arg service=$service '.versions| to_entries[] | select(.key=="$service") | .value ' )
-          version=$(cat ./helmvalues/azure/upgrade_services_info.json | jq '.versions' )
+          version=$(cat ./helmvalues/azure/upgrade_services_info.json | jq '.versions| to_entries[]' )
           echo $version
       - name : test env variables
         id : helm_change        
