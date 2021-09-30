@@ -98,7 +98,7 @@ jobs :
           newversion=$(echo $oldversionFormat | awk 'BEGIN { FS="."} { $4--;  if ($4 < 0) { $4=9999; $3--; if ($3 < 100) { $3=199; $2-- ; if ($2<0) { $2=9 ;$1-- } } } } { printf "%d.%d.%03d%04d\n", $1, $2, $3 , $4 }')
           echo "$newversion"
           service='voice-agent'
-          version=$(jq --arg service=$service '.versions| to_entries[] | select(.key | startswith("voice-agent")) | .value' helmvalues/azure/upgrade_services_info.json  )
+          version=$(jq --arg service=$service '.versions| to_entries[] ' helmvalues/azure/upgrade_services_info.json  )
           echo $version
       - name : test env variables
         id : helm_change        
