@@ -1,0 +1,29 @@
+{
+   "action" : "",
+   "versions": {
+      "voice-config": "",
+      "voice-dialplan": "",
+      "voice-registrar": "",
+      "voice-agent": "100.0.1000001",
+      "voice-callthread": "",
+      "voice-sip": "",
+      "voice-sipfe": "",
+      "voice-sipproxy": "",
+      "voice-rq": "",
+      "voice-ors": "",
+      "voice-voicemail": ""
+   },
+   "helm_versions": {
+      "voice-config": "",
+      "voice-dialplan": "",
+      "voice-registrar": "",
+      "voice-agent": "",
+      "voice-callthread": "",
+      "voice-sip": "",
+      "voice-sipfe": "",
+      "voice-sipproxy": "",
+      "voice-rq": "",
+      "voice-ors": "",
+      "voice-voicemail": ""
+   }
+}

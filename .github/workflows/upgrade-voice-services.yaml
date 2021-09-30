@@ -1,0 +1,99 @@
+name: Upgrade voice services
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - azure/upgrade_services_info.json
+
+env:
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+jobs:
+  print:
+    runs-on:
+      - self-hosted
+      - dev
+    steps:
+      - name: Remove runner ssh
+        run: |
+         rm -f ~/.ssh/*
+         rm -f ~/.gitconfig
+      - name: Dump GitHub context
+        run: echo '${{ toJson(github) }}' > githubcontext.json
+        continue-on-error: true
+      - uses: actions/upload-artifact@58740802ef971a2d71eff71e63d48ab68d1f5507
+        with:
+          name: githubcontext.json
+          path: githubcontext.json
+        continue-on-error: true
+  parser:
+    runs-on:
+      - self-hosted
+      - dev
+    outputs:
+      environment: ${{ steps.prtitle.outputs.environment }}
+      location: ${{ steps.prtitle.outputs.location }}
+    steps:
+      - name: Clean Workspace
+        uses: AutoModality/action-clean@d004b47eb728f2a83316fc70ba9a62ef97278013 # v1.1.0
+      - name: Clean up runner
+        run: |
+          rm -f ~/.ssh/*
+          rm -f ~/.gitconfig
+        continue-on-error: true
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+        with:
+          repository: genesysengage/actions
+          path: .engage-actions
+          ref: v1.3.3
+          token: ${{ secrets.GIT_ACTION_PAT }}         
+      - name: Parse Pull Request Title
+        uses: ./.engage-actions/parse-instructions
+        id: prtitle
+        with:
+          instructions: ${{ github.event.pull_request.title }}
+
+  upgrade-voice-services:
+    needs: [parser] 
+    runs-on:
+      - self-hosted
+      - ${{ needs.parser.outputs.environment }}
+      - ${{ needs.parser.outputs.location }}
+    steps:
+      - name: Clean Workspace
+        uses: AutoModality/action-clean@d004b47eb728f2a83316fc70ba9a62ef97278013 # v1.1.0
+      - name: Clean up runner
+        run: |
+          rm -f ~/.ssh/*
+          rm -f ~/.gitconfig
+        continue-on-error: true
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+        with:
+          repository: genesysengage/actions
+          path: .engage-actions
+          ref: v1.3.3
+          token: ${{ secrets.GIT_ACTION_PAT }}         
+      - name: Set secret
+        run : echo "SECRET=$(echo AZURE_${{ needs.parser.outputs.environment }} | awk '{ print toupper($0) }')" >> $GITHUB_ENV         
+      - name: Setup genesysengage
+        uses: ./.engage-actions/setup-genesysengage
+        env:
+          ARTIFACTORY_STAGING_PASSWORD: ${{ secrets.ARTIFACTORY_STAGING_PASSWORD }}                  
+        with:
+          cloud: azure
+          environment: ${{ needs.parser.outputs.environment }}
+          location: ${{ needs.parser.outputs.location }}
+          servicegroup: voice
+          token: ${{ secrets.GIT_ACTION_PAT }}
+          secret: ${{ secrets[env.SECRET] }}
+      - name : Upgrade voice services in dev environment
+        if : needs.parser.outputs.environment == 'dev'
+        run: |
+          export action=$( jq .action -r ./azure/upgrade_services_info.json )
+      - name: Upgrade voice services in stage/prod environment     
+        if : needs.parser.outputs.environment != 'dev'   
+        run: |
+          
