@@ -1,0 +1,115 @@
+# Remove some patch or backup files from SCM
+syntax: glob
+*~
+*.orig
+*.rej
+**/.DS_Store/
+
+#IntelliJ
+.idea/
+*.iml
+
+# VS Code 
+.vscode/
+
+
+# personal automation
+*.local.*
+*.user.bat
+
+
+# consult
+/pids
+
+# temporary files
+
+
+# Java
+*.class
+target/
+test-output/
+bin/prometheus/data/**
+bin/grafana/data/**
+log/**
+tenants/**
+services/**
+logs/**
+temp/**
+data/**
+temp
+libs
+
+# ignore consul.exe
+#bin/consul/consul.exe
+
+# NodeJS
+node_modules
+
+#apk
+*.apk
+# ignore generated file
+services.json
+common_services.json
+infrastructure_services.json
+tenant_services.json
+consul_agent_config.json
+
+# Eclipse config files - do not ignore. Not anymore, must maven generated files when importing into eclipse.
+.project
+.classpath
+.settings/
+
+#jaxb-generated
+jaxb/
+
+#log files
+*.log
+
+# temp files
+*.tmp
+
+# local executables and log messages
+
+# Test files
+*.pyc
+
+.vagrant
+.docker
+.govmomi
+.config
+*.exec
+**/test-reports/*
+**/results/*
+
+# Docs
+.allmark
+
+*.db
+.metadata/*
+
+
+# Test results
+.testresult
+test-results/
+
+# Coverage
+.nyc_output
+.coverage
+.envrc
+.chattest
+coverage
+
+# hack to enable git repos in subfolders of main repo to appear in VSCode SCM provider - list them in gitmodules and ignore gitmodules (not being used in katana anyway)
+.gitmodules
+
+# Dev Local Files
+local-settings.yaml
+
+/memory
+.awsresult
+users/tim/esttt.exe
+users/tim/esttt.history
+
+esttt.history
+cprs_services.json
+package-lock.json
