@@ -37,9 +37,7 @@ jobs:
           repository: genesysengage/actions
           path: .engage-actions
           ref: v1.3.2
-          token: ${{ secrets.GIT_ACTION_PAT }}           
-      - name: Set secret
-        run : echo "SECRET=$(echo AZURE_${{ needs.parser.outputs.environment }} | awk '{ print toupper($0) }')" >> $GITHUB_ENV         
+          token: ${{ secrets.GIT_ACTION_PAT }}                  
       - name: Setup genesysengage
         uses: ./.engage-actions/setup-genesysengage                  
         with:
@@ -48,7 +46,7 @@ jobs:
           location: ${{ needs.parser.outputs.location }}
           servicegroup: voice
           token: ${{ secrets.GIT_ACTION_PAT }}
-          secret: ${{ secrets[env.SECRET] }}    
+          secret: ${{ secrets.AZURE_DEV }}     
       # - name: Inspect Tenant
       #   run: echo '${{ github.event.inputs.tenant }}'
       # - name: Clean Workspace
