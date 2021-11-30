@@ -173,5 +173,4 @@ jobs :
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
-          git commit -m 'Temp commit'
-          git push 2>&1 || echo "Nothing to push"
+          $(git commit -m 'Temp commit'  2>&1 || echo "Nothing to commit") && git push
