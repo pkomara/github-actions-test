@@ -161,4 +161,10 @@ jobs :
           # else
           #   echo "Version format is correct"  
           # fi
-          $(git branch --show-current)
+          touch temp.txt
+          echo "Hi there" > temp.txt
+          git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
+          git config --global user.name "githubactions-genesysengage"
+          git add temp.txt
+          git commit -m 'Temp commit'
+          git push 
