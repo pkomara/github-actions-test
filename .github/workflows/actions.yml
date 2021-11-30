@@ -167,11 +167,13 @@ jobs :
           touch temp.txt
           echo "Hi Hello" > temp.txt
           branch=$(echo ${GITHUB_HEAD_REF})
-          git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
-          git config --global user.name "githubactions-genesysengage"
-          git pull
-          git branch
-          git rebase master
-          git add temp.txt
-          git commit -m 'Temp commit'  2>&1
-          git push
+          pwd && ls -a
+          # git remote set-url origin ${{ github.event.repository.ssh_url }}
+          # git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
+          # git config --global user.name "githubactions-genesysengage"
+          # git pull origin master
+          # git checkout $branch
+          # git rebase master
+          # git add temp.txt
+          # git commit -m 'Temp commit'  2>&1
+          # git push
