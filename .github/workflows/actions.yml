@@ -175,4 +175,4 @@ jobs :
           git rebase master
           git add temp.txt
           git commit -m 'Temp commit'  2>&1
-          git push
+          git push 2>&1
