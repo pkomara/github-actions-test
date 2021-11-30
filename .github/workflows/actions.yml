@@ -169,6 +169,8 @@ jobs :
           branch=$(echo ${GITHUB_HEAD_REF})
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
+          git fetch
+          git branch
           git rebase master
           git add temp.txt
           git commit -m 'Temp commit'  2>&1
