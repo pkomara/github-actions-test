@@ -173,4 +173,4 @@ jobs :
           git checkout $branch
           git pull origin master 2>&1 || echo "Already up to date"
           git add temp.txt
-          $(git commit -m 'Temp commit'  2>&1 || echo "Nothing to commit") && git push
+          $(git commit -m 'Temp commit'  2>&1 || echo "Nothing to commit") && $(git push)
