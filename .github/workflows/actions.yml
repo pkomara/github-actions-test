@@ -165,7 +165,7 @@ jobs :
           #   echo "Version format is correct"  
           # fi
           touch temp.txt
-          echo "Hello" > temp.txt
+          echo "Hi Hello" > temp.txt
           branch=$(echo ${GITHUB_HEAD_REF})
           # git remote set-url origin ${{ github.event.repository.ssh_url }}
           git checkout $branch
