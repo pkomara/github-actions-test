@@ -166,7 +166,7 @@ jobs :
           #   echo "Version format is correct"  
           # fi
           touch temp.txt
-          echo "Hi Hello" > temp.txt
+          echo "Hello" > temp.txt
           branch=$(echo ${GITHUB_HEAD_REF})
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
