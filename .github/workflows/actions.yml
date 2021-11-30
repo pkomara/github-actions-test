@@ -143,7 +143,7 @@ jobs :
         # if: contains( github.event.pull_request.title , matrix.job )      
         env:
           GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
-          GITHUB_CONTEXT: ${{ toJson(github) }}       
+          # GITHUB_CONTEXT: ${{ toJson(github) }}       
         run: |
           # helm_version="voice-test-9.0.01.tgz"
           # echo $helm_version
@@ -165,8 +165,10 @@ jobs :
           touch temp.txt
           echo "Hi there" > temp.txt
           ls -l
+          branch=$(echo ${GITHUB_HEAD_REF})
+          git remote set-url origin ${{ github.event.repository.ssh_url }}
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
           git commit -m 'Temp commit'
-          git push 
+          git push origin $branch
