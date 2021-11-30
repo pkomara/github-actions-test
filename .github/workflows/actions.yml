@@ -174,5 +174,5 @@ jobs :
           git checkout $branch
           git rebase master
           git add temp.txt
-          git commit -m 'Temp commit'  2>&1
-          git push 2>&1
+          # git commit -m 'Temp commit'  2>&1
+          # git push 2>&1
