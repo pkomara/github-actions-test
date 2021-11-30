@@ -169,8 +169,7 @@ jobs :
           branch=$(echo ${GITHUB_HEAD_REF})
           # git remote set-url origin ${{ github.event.repository.ssh_url }}
           git checkout $branch
-          git pull origin $branch
-          git pull origin master
+          git pull origin master || echo "Already up to date"
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
