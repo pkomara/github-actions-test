@@ -142,6 +142,7 @@ jobs :
       - name : Check     
         # if: contains( github.event.pull_request.title , matrix.job )      
         env:
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }
           GITHUB_CONTEXT: ${{ toJson(github) }}       
         run: |
           # helm_version="voice-test-9.0.01.tgz"
