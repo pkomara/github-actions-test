@@ -171,6 +171,7 @@ jobs :
           git config --global user.name "githubactions-genesysengage"
           # git remote set-url origin ${{ github.event.repository.ssh_url }}
           # git pull origin master
+          git fetch
           git checkout $branch
           git rebase master
           git add temp.txt
