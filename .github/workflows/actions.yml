@@ -139,6 +139,8 @@ jobs :
         run : | 
           echo "in job test"
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4            
+        with:
+          ref : ${GITHUB_HEAD_REF}
       - name : Check     
         # if: contains( github.event.pull_request.title , matrix.job )      
         env:
@@ -165,10 +167,11 @@ jobs :
           touch temp.txt
           echo "Hi there" > temp.txt
           ls -l
-          branch=$(echo ${GITHUB_HEAD_REF})
-          git remote set-url origin ${{ github.event.repository.ssh_url }}
+          # branch=$(echo ${GITHUB_HEAD_REF})
+          # git remote set-url origin ${{ github.event.repository.ssh_url }}
+          git branch --show-current
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
           git commit -m 'Temp commit'
-          git push origin $branch
+          git push
