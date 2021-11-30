@@ -163,6 +163,7 @@ jobs :
           # fi
           touch temp.txt
           echo "Hi there" > temp.txt
+          ls -l
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
