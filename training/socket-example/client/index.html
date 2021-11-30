@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Welcome to sockets</h1>
+        <div>
+            <textarea id='txtchat' placeholder="Enter your message"></textarea>
+        </div>  
+        <div>
+            <button id='btn'>disconnect sockets</button>
+            <button id="btnSend">Send Message</button>
+        </div>  
+        <div>
+            <ul id="listMessages">
+                <!-- <li></li> -->
+            </ul>
+        </div> 
+            <ul id="usersList">
+                <!-- <li></li> -->
+            </ul>
+        <div>
+
+        </div>   
+        <script>
+           const socket = io();
+           const btn = document.getElementById("btn");
+           const btnSend = document.getElementById("btnSend");
+           const txtchat = document.getElementById("txtchat"); 
+           const listMessages = document.getElementById('listMessages');
+           const usersList = document.getElementById('usersList');
+           
+           socket.emit("newUser");
+           socket.on("Welcome",(data)=>{
+                console.log(data);
+           });
+
+           btn.addEventListener("click",()=>{
+            socket.disconnect();
+           })
+
+           btnSend.addEventListener("click",()=>{
+               socket.emit('sendMsg',txtchat.value);
+               txtchat.value='';
+           })
+
+           socket.on("groupMessage",(data)=>{
+                console.log(data);
+                let liTag = document.createElement("li");
+                liTag.textContent=data;
+                listMessages.appendChild(liTag)
+           });
+
+           socket.on("usersUpdated",(data)=>{
+                document.getElementById('usersList').innerHTML='';
+                data.forEach((user)=>{
+                    let liTag = document.createElement("li");
+                    liTag.textContent=user;
+                    usersList.appendChild(liTag);
+                    
+                })
+                console.log(data);
+           })
+
+        </script>
+    </body>
+</html> 

@@ -31,56 +31,71 @@ jobs:
   tenant-update:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Tenant
-        run: echo '${{ github.event.inputs.tenant }}'
-      - name: Clean Workspace
-        uses: AutoModality/action-clean@d004b47eb728f2a83316fc70ba9a62ef97278013 # v1.1.0
-      - name: Clean up runner
-        run: |
-          rm -f ~/.ssh/*
-          rm -f ~/.gitconfig
-        continue-on-error: true
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
-      - name: Plan PRs
-        if: github.event.inputs.action == 'plan'
-        id: plan-tenant
-        run: |
-          echo 'Plan'
-          echo '${{ github.event.inputs.tenant }}'
-      - name: Create PRs
-        if: github.event.inputs.action == 'apply'
-        id: apply-tenant
-        env:
-          GITHUB_TOKEN: ${{ secrets.WF_ENV }}
-        run: |
-          echo 'Apply'
-          echo '${{ github.event.inputs.tenant }}'          
-          tenant_data=$(echo '${{ github.event.inputs.tenant }}' | jq ".[]")
-          echo $tenant_data
-          environment=$(echo $tenant_data | jq ".environment")
-          tenant_id=$(echo $tenant_data | jq ".tenant_id")
-          env=$(echo $environment | sed "s/\"//g")
-          tenant_id=$(echo $tenant_id | sed "s/\"//g")
-          absenv=$env
-          if [[ $env == *"prod"* ]]; then
-            env=$(echo "prod")
-          fi
-          echo $env
-          echo $absenv
-          echo $tenant_id
-          pwd
-          mkdir -p ./tenants/azure/${absenv}
-          echo $tenant_data > ./tenants/azure/${absenv}/new_tenant.json
-          node update_tenants.js ${absenv} $tenant_data
-          echo "tenants.json updated"
-          git config user.name "pkomara"
-          git config user.email "Pavan_Sai.Komara@genesys.com"
-          git checkout -b ${env}-tenant-${tenant_id}-update
-          echo "created branch"
-          git pull origin master
-          git add ./tenants/azure/${absenv}/tenants.json
-          echo "added files"
-          git commit -m "${env} ${tenant_id} tenant update"
-          echo "committed files"
-          hub pull-request -p -m "${absenv} ${tenant_id} tenant update" -l "cabapproved"
-          echo "Raised PR"          
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+        with:
+          repository: genesysengage/actions
+          path: .engage-actions
+          ref: v1.3.2
+          token: ${{ secrets.GIT_ACTION_PAT }}                  
+      - name: Setup genesysengage
+        uses: ./.engage-actions/setup-genesysengage                  
+        with:
+          cloud: azure
+          environment: ${{ needs.parser.outputs.environment }}
+          location: ${{ needs.parser.outputs.location }}
+          servicegroup: voice
+          token: ${{ secrets.GIT_ACTION_PAT }}
+          secret: ${{ secrets.AZURE_DEV }}     
+      # - name: Inspect Tenant
+      #   run: echo '${{ github.event.inputs.tenant }}'
+      # - name: Clean Workspace
+      #   uses: AutoModality/action-clean@d004b47eb728f2a83316fc70ba9a62ef97278013 # v1.1.0
+      # - name: Clean up runner
+      #   run: |
+      #     rm -f ~/.ssh/*
+      #     rm -f ~/.gitconfig
+      #   continue-on-error: true
+      # - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4
+      # - name: Plan PRs
+      #   if: github.event.inputs.action == 'plan'
+      #   id: plan-tenant
+      #   run: |
+      #     echo 'Plan'
+      #     echo '${{ github.event.inputs.tenant }}'
+      # - name: Create PRs
+      #   if: github.event.inputs.action == 'apply'
+      #   id: apply-tenant
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
+      #   run: |
+      #     echo 'Apply'
+      #     echo '${{ github.event.inputs.tenant }}'          
+      #     tenant_data=$(echo '${{ github.event.inputs.tenant }}' | jq ".[]")
+      #     echo $tenant_data
+      #     environment=$(echo $tenant_data | jq ".environment")
+      #     tenant_id=$(echo $tenant_data | jq ".tenant_id")
+      #     env=$(echo $environment | sed "s/\"//g")
+      #     tenant_id=$(echo $tenant_id | sed "s/\"//g")
+      #     absenv=$env
+      #     if [[ $env == *"prod"* ]]; then
+      #       env=$(echo "prod")
+      #     fi
+      #     echo $env
+      #     echo $absenv
+      #     echo $tenant_id
+      #     pwd
+      #     mkdir -p ./tenants/azure/${absenv}
+      #     echo $tenant_data > ./tenants/azure/${absenv}/new_tenant.json
+      #     node update_tenants.js ${absenv}
+      #     echo "tenants.json updated"
+      #     git config user.name "pkomara"
+      #     git config user.email "Pavan_Sai.Komara@genesys.com"
+      #     git checkout -b ${env}-tenant-${tenant_id}-update
+      #     echo "created branch"
+      #     git add ./tenants/azure/${absenv}/tenants.json
+      #     echo "added files"
+      #     git commit -m "${env} ${tenant_id} tenant update"
+      #     echo "committed files"
+      #     hub pull-request -p -m "${absenv} ${tenant_id} tenant update"
+      #     echo "Raised PR"          
