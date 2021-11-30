@@ -138,7 +138,7 @@ jobs :
         if:  needs.testing-actions.outputs.HELM_CHANGED == 'true' 
         run : | 
           echo "in job test"
-      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4            
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2            
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name : Check     
@@ -166,11 +166,11 @@ jobs :
           # fi
           touch temp.txt
           echo "Hi there" > temp.txt
-          branch=$(echo ${GITHUB_HEAD_REF})
-          git remote set-url origin ${{ github.event.repository.ssh_url }}
+          # branch=$(echo ${GITHUB_HEAD_REF})
+          # git remote set-url origin ${{ github.event.repository.ssh_url }}
           git branch --show-current
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
           git add temp.txt
           git commit -m 'Temp commit'
-          git push origin $branch
+          git push
