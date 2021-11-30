@@ -171,6 +171,7 @@ jobs :
           git config --global user.name "githubactions-genesysengage"
           # git remote set-url origin ${{ github.event.repository.ssh_url }}
           git checkout $branch
-          git pull origin master 2>&1 || echo "Already up to date"
+          git rebase master
           git add temp.txt
-          $(git commit -m 'Temp commit'  2>&1 || echo "Nothing to commit") && $(git push)
+          git commit -m 'Temp commit'  2>&1
+          git push
