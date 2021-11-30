@@ -173,8 +173,9 @@ jobs :
           # git remote set-url origin ${{ github.event.repository.ssh_url }}
           # git pull origin master
           git checkout $branch
-          git add temp.txt
+          git add -N .
           git diff --exit-code > /dev/null || if [ $? -eq 1 ]; then
+            git add .
             git commit -m 'Temp commit'  2>&1
             git push origin $branch
           fi          
