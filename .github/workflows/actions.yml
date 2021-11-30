@@ -174,5 +174,7 @@ jobs :
           # git pull origin master
           git checkout $branch
           git add temp.txt
-          git commit -m 'Temp commit'  2>&1
-          git push origin $branch
+          git diff --exit-code > /dev/null || if [ $? -eq 1 ]; then
+            git commit -m 'Temp commit'  2>&1
+            git push origin $branch
+          fi          
