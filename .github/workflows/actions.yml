@@ -140,7 +140,7 @@ jobs :
           echo "in job test"
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # v2            
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
       - name : Check     
         # if: contains( github.event.pull_request.title , matrix.job )      
         env:
