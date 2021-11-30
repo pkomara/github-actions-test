@@ -141,7 +141,6 @@ jobs :
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # v2.3.4          
         with:
           ref: ${{ github.head_ref }}
-          fetch-depth: 0
       - name : Check     
         # if: contains( github.event.pull_request.title , matrix.job )      
         env:
@@ -170,8 +169,6 @@ jobs :
           branch=$(echo ${GITHUB_HEAD_REF})
           git config --global user.email "githubactions-genesysengage@genesysengage.cloud"
           git config --global user.name "githubactions-genesysengage"
-          # git remote set-url origin ${{ github.event.repository.ssh_url }}
-          # git pull origin master
           git checkout $branch
           git add -N .
           git diff --exit-code > /dev/null || if [ $? -eq 1 ]; then
